@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//  KenStockBallot
+//
+//  Created by ken on 15/5/27.
+//  Copyright (c) 2015年 ken. All rights reserved.
+//
+
+#ifndef KenStockBallot_PrefixHeader_pch
+#define KenStockBallot_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <SystemConfiguration/SystemConfiguration.h>
+
+#import "NSObject+KenObject.h"
+#import "NSArray+KenArray.h"
+#import "NSMutableArray+KenMutableArray.h"
+#import "NSMutableDictionary+KenMutableDictionary.h"
+#import "NSMutableString+KenMutableString.h"
+#import "NSNull+KenNull.h"
+#import "NSString+KenString.h"
+#import "UIColor+KenColor.h"
+#import "UIFont+KenFont.h"
+#import "UIImage+KenImage.h"
+#import "UIView+KenUIView.h"
+
+#import "KenConfig.h"
+#import "KenUtils.h"
+#import "AppDelegate.h"
+
+#define SysDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
+#endif

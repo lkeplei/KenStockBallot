@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE009A351B155E1A00DE9530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A341B155E1A00DE9530 /* main.m */; };
+		BE009A401B155E1A00DE9530 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE009A3F1B155E1A00DE9530 /* Images.xcassets */; };
+		BE009A431B155E1A00DE9530 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE009A411B155E1A00DE9530 /* LaunchScreen.xib */; };
+		BE009A4F1B155E1A00DE9530 /* KenStockBallotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A4E1B155E1A00DE9530 /* KenStockBallotTests.m */; };
+		BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A5A1B155F5A00DE9530 /* AppDelegate.m */; };
+		BE009A651B1567F900DE9530 /* KSBRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A621B1567F900DE9530 /* KSBRootVC.m */; };
+		BE009A661B1567F900DE9530 /* KSBBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A641B1567F900DE9530 /* KSBBaseVC.m */; };
+		BE009A841B15697200DE9530 /* NSArray+KenArray.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A6B1B15697100DE9530 /* NSArray+KenArray.m */; };
+		BE009A851B15697200DE9530 /* NSMutableArray+KenMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A6D1B15697100DE9530 /* NSMutableArray+KenMutableArray.m */; };
+		BE009A861B15697200DE9530 /* NSMutableDictionary+KenMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A6F1B15697100DE9530 /* NSMutableDictionary+KenMutableDictionary.m */; };
+		BE009A871B15697200DE9530 /* NSMutableString+KenMutableString.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A711B15697100DE9530 /* NSMutableString+KenMutableString.m */; };
+		BE009A881B15697200DE9530 /* NSNull+KenNull.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A731B15697200DE9530 /* NSNull+KenNull.m */; };
+		BE009A891B15697200DE9530 /* NSObject+KenObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A751B15697200DE9530 /* NSObject+KenObject.m */; };
+		BE009A8A1B15697200DE9530 /* NSString+KenString.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A771B15697200DE9530 /* NSString+KenString.m */; };
+		BE009A8B1B15697200DE9530 /* UIColor+KenColor.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A791B15697200DE9530 /* UIColor+KenColor.m */; };
+		BE009A8C1B15697200DE9530 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A7B1B15697200DE9530 /* UIDevice+IdentifierAddition.m */; };
+		BE009A8D1B15697200DE9530 /* UIFont+KenFont.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A7D1B15697200DE9530 /* UIFont+KenFont.m */; };
+		BE009A8E1B15697200DE9530 /* UIImage+KenImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A7F1B15697200DE9530 /* UIImage+KenImage.m */; };
+		BE009A8F1B15697200DE9530 /* UIView+KenUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A811B15697200DE9530 /* UIView+KenUIView.m */; };
+		BE009A901B15697200DE9530 /* KenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A831B15697200DE9530 /* KenUtils.m */; };
+		BE009A931B156AD500DE9530 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE009A921B156AD500DE9530 /* Localizable.strings */; };
+		BE009A951B156AED00DE9530 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE009A941B156AED00DE9530 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE009A491B155E1A00DE9530 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE009A271B155E1A00DE9530 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE009A2E1B155E1A00DE9530;
+			remoteInfo = KenStockBallot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE009A2F1B155E1A00DE9530 /* KenStockBallot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenStockBallot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE009A331B155E1A00DE9530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE009A341B155E1A00DE9530 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE009A3F1B155E1A00DE9530 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		BE009A421B155E1A00DE9530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BE009A481B155E1A00DE9530 /* KenStockBallotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KenStockBallotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE009A4D1B155E1A00DE9530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE009A4E1B155E1A00DE9530 /* KenStockBallotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KenStockBallotTests.m; sourceTree = "<group>"; };
+		BE009A591B155F5A00DE9530 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BE009A5A1B155F5A00DE9530 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BE009A611B1567F900DE9530 /* KSBRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBRootVC.h; sourceTree = "<group>"; };
+		BE009A621B1567F900DE9530 /* KSBRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBRootVC.m; sourceTree = "<group>"; };
+		BE009A631B1567F900DE9530 /* KSBBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBBaseVC.h; sourceTree = "<group>"; };
+		BE009A641B1567F900DE9530 /* KSBBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBBaseVC.m; sourceTree = "<group>"; };
+		BE009A671B15697100DE9530 /* KenConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KenConfig.h; sourceTree = "<group>"; };
+		BE009A6A1B15697100DE9530 /* NSArray+KenArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+KenArray.h"; sourceTree = "<group>"; };
+		BE009A6B1B15697100DE9530 /* NSArray+KenArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+KenArray.m"; sourceTree = "<group>"; };
+		BE009A6C1B15697100DE9530 /* NSMutableArray+KenMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+KenMutableArray.h"; sourceTree = "<group>"; };
+		BE009A6D1B15697100DE9530 /* NSMutableArray+KenMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+KenMutableArray.m"; sourceTree = "<group>"; };
+		BE009A6E1B15697100DE9530 /* NSMutableDictionary+KenMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+KenMutableDictionary.h"; sourceTree = "<group>"; };
+		BE009A6F1B15697100DE9530 /* NSMutableDictionary+KenMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+KenMutableDictionary.m"; sourceTree = "<group>"; };
+		BE009A701B15697100DE9530 /* NSMutableString+KenMutableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+KenMutableString.h"; sourceTree = "<group>"; };
+		BE009A711B15697100DE9530 /* NSMutableString+KenMutableString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+KenMutableString.m"; sourceTree = "<group>"; };
+		BE009A721B15697100DE9530 /* NSNull+KenNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+KenNull.h"; sourceTree = "<group>"; };
+		BE009A731B15697200DE9530 /* NSNull+KenNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+KenNull.m"; sourceTree = "<group>"; };
+		BE009A741B15697200DE9530 /* NSObject+KenObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KenObject.h"; sourceTree = "<group>"; };
+		BE009A751B15697200DE9530 /* NSObject+KenObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KenObject.m"; sourceTree = "<group>"; };
+		BE009A761B15697200DE9530 /* NSString+KenString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KenString.h"; sourceTree = "<group>"; };
+		BE009A771B15697200DE9530 /* NSString+KenString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KenString.m"; sourceTree = "<group>"; };
+		BE009A781B15697200DE9530 /* UIColor+KenColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KenColor.h"; sourceTree = "<group>"; };
+		BE009A791B15697200DE9530 /* UIColor+KenColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KenColor.m"; sourceTree = "<group>"; };
+		BE009A7A1B15697200DE9530 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		BE009A7B1B15697200DE9530 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		BE009A7C1B15697200DE9530 /* UIFont+KenFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+KenFont.h"; sourceTree = "<group>"; };
+		BE009A7D1B15697200DE9530 /* UIFont+KenFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+KenFont.m"; sourceTree = "<group>"; };
+		BE009A7E1B15697200DE9530 /* UIImage+KenImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KenImage.h"; sourceTree = "<group>"; };
+		BE009A7F1B15697200DE9530 /* UIImage+KenImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KenImage.m"; sourceTree = "<group>"; };
+		BE009A801B15697200DE9530 /* UIView+KenUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KenUIView.h"; sourceTree = "<group>"; };
+		BE009A811B15697200DE9530 /* UIView+KenUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KenUIView.m"; sourceTree = "<group>"; };
+		BE009A821B15697200DE9530 /* KenUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KenUtils.h; sourceTree = "<group>"; };
+		BE009A831B15697200DE9530 /* KenUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KenUtils.m; sourceTree = "<group>"; };
+		BE009A911B1569AB00DE9530 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		BE009A921B156AD500DE9530 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		BE009A941B156AED00DE9530 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE009A2C1B155E1A00DE9530 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE009A451B155E1A00DE9530 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE009A261B155E1A00DE9530 = {
+			isa = PBXGroup;
+			children = (
+				BE009A311B155E1A00DE9530 /* KenStockBallot */,
+				BE009A4B1B155E1A00DE9530 /* KenStockBallotTests */,
+				BE009A301B155E1A00DE9530 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE009A301B155E1A00DE9530 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A2F1B155E1A00DE9530 /* KenStockBallot.app */,
+				BE009A481B155E1A00DE9530 /* KenStockBallotTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE009A311B155E1A00DE9530 /* KenStockBallot */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A581B155F5A00DE9530 /* Classes */,
+				BE009A5F1B155F7400DE9530 /* Resource */,
+				BE009A321B155E1A00DE9530 /* Supporting Files */,
+			);
+			path = KenStockBallot;
+			sourceTree = "<group>";
+		};
+		BE009A321B155E1A00DE9530 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A911B1569AB00DE9530 /* PrefixHeader.pch */,
+				BE009A331B155E1A00DE9530 /* Info.plist */,
+				BE009A341B155E1A00DE9530 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE009A4B1B155E1A00DE9530 /* KenStockBallotTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A4E1B155E1A00DE9530 /* KenStockBallotTests.m */,
+				BE009A4C1B155E1A00DE9530 /* Supporting Files */,
+			);
+			path = KenStockBallotTests;
+			sourceTree = "<group>";
+		};
+		BE009A4C1B155E1A00DE9530 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A4D1B155E1A00DE9530 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE009A581B155F5A00DE9530 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A671B15697100DE9530 /* KenConfig.h */,
+				BE009A681B15697100DE9530 /* Tools */,
+				BE009A601B1567F900DE9530 /* ViewController */,
+				BE009A591B155F5A00DE9530 /* AppDelegate.h */,
+				BE009A5A1B155F5A00DE9530 /* AppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BE009A5F1B155F7400DE9530 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A3F1B155E1A00DE9530 /* Images.xcassets */,
+				BE009A411B155E1A00DE9530 /* LaunchScreen.xib */,
+				BE009A921B156AD500DE9530 /* Localizable.strings */,
+				BE009A941B156AED00DE9530 /* InfoPlist.strings */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		BE009A601B1567F900DE9530 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A611B1567F900DE9530 /* KSBRootVC.h */,
+				BE009A621B1567F900DE9530 /* KSBRootVC.m */,
+				BE009A631B1567F900DE9530 /* KSBBaseVC.h */,
+				BE009A641B1567F900DE9530 /* KSBBaseVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BE009A681B15697100DE9530 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A691B15697100DE9530 /* Category */,
+				BE009A821B15697200DE9530 /* KenUtils.h */,
+				BE009A831B15697200DE9530 /* KenUtils.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		BE009A691B15697100DE9530 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A6A1B15697100DE9530 /* NSArray+KenArray.h */,
+				BE009A6B1B15697100DE9530 /* NSArray+KenArray.m */,
+				BE009A6C1B15697100DE9530 /* NSMutableArray+KenMutableArray.h */,
+				BE009A6D1B15697100DE9530 /* NSMutableArray+KenMutableArray.m */,
+				BE009A6E1B15697100DE9530 /* NSMutableDictionary+KenMutableDictionary.h */,
+				BE009A6F1B15697100DE9530 /* NSMutableDictionary+KenMutableDictionary.m */,
+				BE009A701B15697100DE9530 /* NSMutableString+KenMutableString.h */,
+				BE009A711B15697100DE9530 /* NSMutableString+KenMutableString.m */,
+				BE009A721B15697100DE9530 /* NSNull+KenNull.h */,
+				BE009A731B15697200DE9530 /* NSNull+KenNull.m */,
+				BE009A741B15697200DE9530 /* NSObject+KenObject.h */,
+				BE009A751B15697200DE9530 /* NSObject+KenObject.m */,
+				BE009A761B15697200DE9530 /* NSString+KenString.h */,
+				BE009A771B15697200DE9530 /* NSString+KenString.m */,
+				BE009A781B15697200DE9530 /* UIColor+KenColor.h */,
+				BE009A791B15697200DE9530 /* UIColor+KenColor.m */,
+				BE009A7A1B15697200DE9530 /* UIDevice+IdentifierAddition.h */,
+				BE009A7B1B15697200DE9530 /* UIDevice+IdentifierAddition.m */,
+				BE009A7C1B15697200DE9530 /* UIFont+KenFont.h */,
+				BE009A7D1B15697200DE9530 /* UIFont+KenFont.m */,
+				BE009A7E1B15697200DE9530 /* UIImage+KenImage.h */,
+				BE009A7F1B15697200DE9530 /* UIImage+KenImage.m */,
+				BE009A801B15697200DE9530 /* UIView+KenUIView.h */,
+				BE009A811B15697200DE9530 /* UIView+KenUIView.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE009A2E1B155E1A00DE9530 /* KenStockBallot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE009A521B155E1A00DE9530 /* Build configuration list for PBXNativeTarget "KenStockBallot" */;
+			buildPhases = (
+				BE009A2B1B155E1A00DE9530 /* Sources */,
+				BE009A2C1B155E1A00DE9530 /* Frameworks */,
+				BE009A2D1B155E1A00DE9530 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KenStockBallot;
+			productName = KenStockBallot;
+			productReference = BE009A2F1B155E1A00DE9530 /* KenStockBallot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE009A471B155E1A00DE9530 /* KenStockBallotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE009A551B155E1A00DE9530 /* Build configuration list for PBXNativeTarget "KenStockBallotTests" */;
+			buildPhases = (
+				BE009A441B155E1A00DE9530 /* Sources */,
+				BE009A451B155E1A00DE9530 /* Frameworks */,
+				BE009A461B155E1A00DE9530 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE009A4A1B155E1A00DE9530 /* PBXTargetDependency */,
+			);
+			name = KenStockBallotTests;
+			productName = KenStockBallotTests;
+			productReference = BE009A481B155E1A00DE9530 /* KenStockBallotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE009A271B155E1A00DE9530 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = ken;
+				TargetAttributes = {
+					BE009A2E1B155E1A00DE9530 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					BE009A471B155E1A00DE9530 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = BE009A2E1B155E1A00DE9530;
+					};
+				};
+			};
+			buildConfigurationList = BE009A2A1B155E1A00DE9530 /* Build configuration list for PBXProject "KenStockBallot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE009A261B155E1A00DE9530;
+			productRefGroup = BE009A301B155E1A00DE9530 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE009A2E1B155E1A00DE9530 /* KenStockBallot */,
+				BE009A471B155E1A00DE9530 /* KenStockBallotTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE009A2D1B155E1A00DE9530 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE009A431B155E1A00DE9530 /* LaunchScreen.xib in Resources */,
+				BE009A951B156AED00DE9530 /* InfoPlist.strings in Resources */,
+				BE009A931B156AD500DE9530 /* Localizable.strings in Resources */,
+				BE009A401B155E1A00DE9530 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE009A461B155E1A00DE9530 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE009A2B1B155E1A00DE9530 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE009A8A1B15697200DE9530 /* NSString+KenString.m in Sources */,
+				BE009A901B15697200DE9530 /* KenUtils.m in Sources */,
+				BE009A661B1567F900DE9530 /* KSBBaseVC.m in Sources */,
+				BE009A8B1B15697200DE9530 /* UIColor+KenColor.m in Sources */,
+				BE009A861B15697200DE9530 /* NSMutableDictionary+KenMutableDictionary.m in Sources */,
+				BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */,
+				BE009A891B15697200DE9530 /* NSObject+KenObject.m in Sources */,
+				BE009A8C1B15697200DE9530 /* UIDevice+IdentifierAddition.m in Sources */,
+				BE009A851B15697200DE9530 /* NSMutableArray+KenMutableArray.m in Sources */,
+				BE009A8F1B15697200DE9530 /* UIView+KenUIView.m in Sources */,
+				BE009A8D1B15697200DE9530 /* UIFont+KenFont.m in Sources */,
+				BE009A651B1567F900DE9530 /* KSBRootVC.m in Sources */,
+				BE009A871B15697200DE9530 /* NSMutableString+KenMutableString.m in Sources */,
+				BE009A351B155E1A00DE9530 /* main.m in Sources */,
+				BE009A881B15697200DE9530 /* NSNull+KenNull.m in Sources */,
+				BE009A8E1B15697200DE9530 /* UIImage+KenImage.m in Sources */,
+				BE009A841B15697200DE9530 /* NSArray+KenArray.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE009A441B155E1A00DE9530 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE009A4F1B155E1A00DE9530 /* KenStockBallotTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE009A4A1B155E1A00DE9530 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE009A2E1B155E1A00DE9530 /* KenStockBallot */;
+			targetProxy = BE009A491B155E1A00DE9530 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE009A411B155E1A00DE9530 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE009A421B155E1A00DE9530 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE009A501B155E1A00DE9530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE009A511B155E1A00DE9530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE009A531B155E1A00DE9530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
+				INFOPLIST_FILE = KenStockBallot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BE009A541B155E1A00DE9530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
+				INFOPLIST_FILE = KenStockBallot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BE009A561B155E1A00DE9530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KenStockBallotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KenStockBallot.app/KenStockBallot";
+			};
+			name = Debug;
+		};
+		BE009A571B155E1A00DE9530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KenStockBallotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KenStockBallot.app/KenStockBallot";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE009A2A1B155E1A00DE9530 /* Build configuration list for PBXProject "KenStockBallot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE009A501B155E1A00DE9530 /* Debug */,
+				BE009A511B155E1A00DE9530 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE009A521B155E1A00DE9530 /* Build configuration list for PBXNativeTarget "KenStockBallot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE009A531B155E1A00DE9530 /* Debug */,
+				BE009A541B155E1A00DE9530 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BE009A551B155E1A00DE9530 /* Build configuration list for PBXNativeTarget "KenStockBallotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE009A561B155E1A00DE9530 /* Debug */,
+				BE009A571B155E1A00DE9530 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE009A271B155E1A00DE9530 /* Project object */;
+}
