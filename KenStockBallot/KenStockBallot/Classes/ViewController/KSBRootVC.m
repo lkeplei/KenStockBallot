@@ -7,6 +7,7 @@
 //
 
 #import "KSBRootVC.h"
+#import "KSBQuestionSelectVC.h"
 
 @interface KSBRootVC ()
 
@@ -20,7 +21,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.title = KenLocal(@"home_title");
+        self.title = KenLocal(@"app_title");
     }
     return self;
 }
@@ -28,9 +29,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_bg.png"]];
+    bgView.frame = (CGRect){CGPointZero, kGSize};
+    [self.view addSubview:bgView];
+    
+    UIImageView *titleV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_select_title.png"]];
+    titleV.center = CGPointMake(self.view.centerX, kGSize.height * 0.22);
+    [self.view addSubview:titleV];
+    
     //scrollview
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kGSize.width, kGSize.height)];
-    _scrollView.backgroundColor = [UIColor colorWithHexString:@"#F2F2F2"];
+    UIImage *image = [UIImage imageNamed:@"home_question0.png"];
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, (kGSize.height - image.size.height) / 2 + 25, kGSize.width, image.size.height)];
+    _scrollView.backgroundColor = [UIColor clearColor];
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.pagingEnabled = YES;
@@ -39,7 +49,7 @@
     
     int pageIndex = 0;
     while (1) {
-        NSString *name = [NSString stringWithFormat:@"%@%d.png", @"guide_page", pageIndex];
+        NSString *name = [NSString stringWithFormat:@"%@%d.png", @"home_question", pageIndex];
         UIImage *image = [UIImage imageNamed:name];
         if (image) {
             UIImageView *imgView = [[UIImageView alloc]initWithImage:image];
@@ -47,7 +57,7 @@
                 float scale = kGSize.width / imgView.width;
                 imgView.transform = CGAffineTransformMakeScale(scale, scale);
             }
-            imgView.center = CGPointMake(pageIndex * kGSize.width + kGSize.width / 2, (kIPhone4 ? 45 : kGSize.height * 0.15) + imgView.height / 2);
+            imgView.center = CGPointMake(pageIndex * kGSize.width + kGSize.width / 2, _scrollView.height / 2);
             [_scrollView addSubview:imgView];
             
             pageIndex++;
@@ -56,15 +66,25 @@
         }
     }
     
-    _scrollView.contentSize  = CGSizeMake(pageIndex * kGSize.width, kGSize.height);
+    _scrollView.contentSize  = CGSizeMake(pageIndex * kGSize.width, image.size.height);
     _scrollView.contentOffset  = CGPointMake(0, 0);
     
     //pagecontrol
-    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
-    _pageControl.center = CGPointMake(self.view.center.x, self.view.center.y);
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame) + 15, kGSize.width, 20)];
     _pageControl.currentPage = 0;
     _pageControl.numberOfPages = pageIndex;
     [self.view addSubview:_pageControl];
+    
+    //tap gesture
+    UITapGestureRecognizer *tapTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectQuestion)];
+    [_scrollView addGestureRecognizer:tapTouch];
+}
+
+- (void)selectQuestion {
+    if (_pageControl.currentPage == 0) {
+        KSBQuestionSelectVC *questionVC = [[KSBQuestionSelectVC alloc] init];
+        [self.navigationController pushViewController:questionVC animated:YES];
+    }
 }
 
 #pragma mark - pagecontrol

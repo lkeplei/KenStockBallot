@@ -96,16 +96,7 @@
 #define kKenFontStd(a)          [UIFont fontWithName:@"Std" size:a]
 #define kKenFontHelvetica(a)    [UIFont fontWithName:@"Helvetica" size:a]
 
-//for notification
-#define kNotificationLoadUserDevice         @"notification_load_user_device"
-
 //user default 数据
-#define kDefaultLastUserAccount             @"user_default_last_user_account"
-#define kDefaultUserList                    @"user_default_user_list"
-#define kDefaultUserInfo(x)                 [@"user_default_user_info" stringByAppendingString:x]
 
-
-//aa
-#define kConnectHost                    @"http://www.7cyun.com.cn:801/"             //http://192.168.1.9:801/
 
 #endif

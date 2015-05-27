@@ -58,6 +58,22 @@
     }
 }
 
++ (UIColor *)grayBgColor {
+    return [self colorWithHexString:@"#EFEFEF"];
+}
+
++ (UIColor *)greenTextColor {
+    return [self colorWithHexString:@"#42929D"];            //R66 G146 B157
+}
+
++ (UIColor *)blackTextColor {
+    return [self colorWithHexString:@"#1F1A17"];            //R31 G26 B23
+}
+
++ (UIColor *)grayTextColor {
+    return [self colorWithHexString:@"#AAA9A9"];            //R170 G169 B169
+}
+
 + (UIColor *)bgGreenColor {
     return [self colorWithHexString:@"#19A58E"];            //R25 G165 B142
 }

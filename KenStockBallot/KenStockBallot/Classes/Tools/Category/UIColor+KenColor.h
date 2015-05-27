@@ -20,4 +20,9 @@
 + (UIColor *)separatorColor;
 + (UIColor *)lineColor;
 
++ (UIColor *)grayBgColor;
++ (UIColor *)greenTextColor;
++ (UIColor *)blackTextColor;
++ (UIColor *)grayTextColor;
+
 @end

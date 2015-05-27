@@ -29,6 +29,10 @@
 		BE009A901B15697200DE9530 /* KenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A831B15697200DE9530 /* KenUtils.m */; };
 		BE009A931B156AD500DE9530 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE009A921B156AD500DE9530 /* Localizable.strings */; };
 		BE009A951B156AED00DE9530 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE009A941B156AED00DE9530 /* InfoPlist.strings */; };
+		BE009A9A1B1573F900DE9530 /* KSBStockInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A991B1573F900DE9530 /* KSBStockInfo.m */; };
+		BE009A9D1B15740800DE9530 /* KSBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A9C1B15740800DE9530 /* KSBModel.m */; };
+		BE009AA01B15A3F500DE9530 /* KSBQuestionSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A9F1B15A3F500DE9530 /* KSBQuestionSelectVC.m */; };
+		BE009AA31B15B0C700DE9530 /* KSBMainCalculateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,14 @@
 		BE009A911B1569AB00DE9530 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BE009A921B156AD500DE9530 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BE009A941B156AED00DE9530 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		BE009A981B1573F900DE9530 /* KSBStockInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBStockInfo.h; sourceTree = "<group>"; };
+		BE009A991B1573F900DE9530 /* KSBStockInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBStockInfo.m; sourceTree = "<group>"; };
+		BE009A9B1B15740800DE9530 /* KSBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBModel.h; sourceTree = "<group>"; };
+		BE009A9C1B15740800DE9530 /* KSBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBModel.m; sourceTree = "<group>"; };
+		BE009A9E1B15A3F500DE9530 /* KSBQuestionSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBQuestionSelectVC.h; sourceTree = "<group>"; };
+		BE009A9F1B15A3F500DE9530 /* KSBQuestionSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBQuestionSelectVC.m; sourceTree = "<group>"; };
+		BE009AA11B15B0C700DE9530 /* KSBMainCalculateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBMainCalculateVC.h; sourceTree = "<group>"; };
+		BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBMainCalculateVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +176,7 @@
 		BE009A581B155F5A00DE9530 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BE009A961B15733500DE9530 /* Model */,
 				BE009A671B15697100DE9530 /* KenConfig.h */,
 				BE009A681B15697100DE9530 /* Tools */,
 				BE009A601B1567F900DE9530 /* ViewController */,
@@ -191,6 +204,10 @@
 				BE009A621B1567F900DE9530 /* KSBRootVC.m */,
 				BE009A631B1567F900DE9530 /* KSBBaseVC.h */,
 				BE009A641B1567F900DE9530 /* KSBBaseVC.m */,
+				BE009A9E1B15A3F500DE9530 /* KSBQuestionSelectVC.h */,
+				BE009A9F1B15A3F500DE9530 /* KSBQuestionSelectVC.m */,
+				BE009AA11B15B0C700DE9530 /* KSBMainCalculateVC.h */,
+				BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -234,6 +251,25 @@
 				BE009A811B15697200DE9530 /* UIView+KenUIView.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		BE009A961B15733500DE9530 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A971B15734800DE9530 /* DataObject */,
+				BE009A9B1B15740800DE9530 /* KSBModel.h */,
+				BE009A9C1B15740800DE9530 /* KSBModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE009A971B15734800DE9530 /* DataObject */ = {
+			isa = PBXGroup;
+			children = (
+				BE009A981B1573F900DE9530 /* KSBStockInfo.h */,
+				BE009A991B1573F900DE9530 /* KSBStockInfo.m */,
+			);
+			path = DataObject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,7 +375,9 @@
 			files = (
 				BE009A8A1B15697200DE9530 /* NSString+KenString.m in Sources */,
 				BE009A901B15697200DE9530 /* KenUtils.m in Sources */,
+				BE009AA31B15B0C700DE9530 /* KSBMainCalculateVC.m in Sources */,
 				BE009A661B1567F900DE9530 /* KSBBaseVC.m in Sources */,
+				BE009A9A1B1573F900DE9530 /* KSBStockInfo.m in Sources */,
 				BE009A8B1B15697200DE9530 /* UIColor+KenColor.m in Sources */,
 				BE009A861B15697200DE9530 /* NSMutableDictionary+KenMutableDictionary.m in Sources */,
 				BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */,
@@ -349,9 +387,11 @@
 				BE009A8F1B15697200DE9530 /* UIView+KenUIView.m in Sources */,
 				BE009A8D1B15697200DE9530 /* UIFont+KenFont.m in Sources */,
 				BE009A651B1567F900DE9530 /* KSBRootVC.m in Sources */,
+				BE009AA01B15A3F500DE9530 /* KSBQuestionSelectVC.m in Sources */,
 				BE009A871B15697200DE9530 /* NSMutableString+KenMutableString.m in Sources */,
 				BE009A351B155E1A00DE9530 /* main.m in Sources */,
 				BE009A881B15697200DE9530 /* NSNull+KenNull.m in Sources */,
+				BE009A9D1B15740800DE9530 /* KSBModel.m in Sources */,
 				BE009A8E1B15697200DE9530 /* UIImage+KenImage.m in Sources */,
 				BE009A841B15697200DE9530 /* NSArray+KenArray.m in Sources */,
 			);
@@ -474,6 +514,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
 				INFOPLIST_FILE = KenStockBallot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -486,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
 				INFOPLIST_FILE = KenStockBallot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
