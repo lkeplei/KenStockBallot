@@ -10,10 +10,15 @@
 
 @class KSBStockInfo;
 
-@interface KSBEditAddV : UIView
+typedef void (^addStockInfo)(KSBStockInfo *info);
+typedef void (^editStockInfo)(KSBStockInfo *info);
+
+@interface KSBEditAddV : UIView<UITextFieldDelegate>
 
 - (instancetype)initWithStock:(KSBStockInfo *)info;
+- (void)showContent;
 
-- (void)showView;
+@property (nonatomic, copy) addStockInfo addBlock;
+@property (nonatomic, copy) editStockInfo editBlock;
 
 @end

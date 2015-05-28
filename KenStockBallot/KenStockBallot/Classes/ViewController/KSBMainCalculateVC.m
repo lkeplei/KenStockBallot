@@ -12,6 +12,7 @@
 
 @interface KSBMainCalculateVC ()
 
+@property (assign) NSInteger selectedIndex;
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) UITableView *stockTable;
@@ -31,6 +32,8 @@
                                 imgSec:[UIImage imageNamed:@"question_edit_sec.png"] selector:@selector(editStock)];
         
         _calculateType = type;
+        _selectedIndex = 0;
+        _dataArray = [NSMutableArray array];
     }
     return self;
 }
@@ -43,7 +46,7 @@
     
     [self initTopV];
     [self initBottomV];
-//    [self initStockTable];
+    [self initStockTable];
 }
 
 - (void)initTopV {
@@ -132,8 +135,21 @@
 
 - (void)showEidtAddView:(KSBStockInfo *)info {
     KSBEditAddV *editV = [[KSBEditAddV alloc] initWithStock:info];
-    [self.view addSubview:editV];
-    [editV showView];
+    [SysDelegate.window addSubview:editV];
+    [editV showContent];
+    
+    __weak KSBMainCalculateVC *retSelf = self;
+    editV.addBlock = ^(KSBStockInfo *info) {
+        [[retSelf dataArray] addObject:info];
+        [[retSelf stockTable] reloadData];
+    };
+    
+    editV.editBlock = ^(KSBStockInfo *info) {
+        if (_selectedIndex < [_dataArray count]) {
+            [[retSelf dataArray] replaceObjectAtIndex:_selectedIndex withObject:info];
+            [[retSelf stockTable] reloadData];
+        }
+    };
 }
 
 #pragma mark - Table
@@ -156,7 +172,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self showEidtAddView:_dataArray[indexPath.row]];
+    _selectedIndex = indexPath.row;
+    [self showEidtAddView:_dataArray[_selectedIndex]];
 }
 
 @end

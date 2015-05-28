@@ -416,4 +416,16 @@
 + (NSArray*)getArrayFromStrByCharactersInSet:(NSString*)strResource character:(NSString*)character{
     return [strResource componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:character]];
 }
+
++ (BOOL)validateEmail:(NSString *)email {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
+}
+
++ (BOOL)validateNumber:(NSString *)number {
+    NSString *regex = @"^[1-9]d*.d*|0.d*[1-9]d*$";
+    NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [test evaluateWithObject:number];
+}
 @end
