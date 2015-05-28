@@ -10,4 +10,6 @@
 
 @interface KSBMainCalculateVC : KSBBaseVC<UITableViewDataSource, UITableViewDelegate>
 
+- (instancetype)initWithCalculateType:(KSBCalculateType)type;
+
 @end

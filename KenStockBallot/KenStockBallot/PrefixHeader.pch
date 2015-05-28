@@ -27,6 +27,7 @@
 #import "UIView+KenUIView.h"
 
 #import "KenConfig.h"
+#import "KSBModelDefines.h"
 #import "KenUtils.h"
 #import "AppDelegate.h"
 

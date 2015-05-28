@@ -33,6 +33,7 @@
 		BE009A9D1B15740800DE9530 /* KSBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A9C1B15740800DE9530 /* KSBModel.m */; };
 		BE009AA01B15A3F500DE9530 /* KSBQuestionSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A9F1B15A3F500DE9530 /* KSBQuestionSelectVC.m */; };
 		BE009AA31B15B0C700DE9530 /* KSBMainCalculateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */; };
+		BE009AA71B16BCE800DE9530 /* KSBEditAddV.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,9 @@
 		BE009A9F1B15A3F500DE9530 /* KSBQuestionSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBQuestionSelectVC.m; sourceTree = "<group>"; };
 		BE009AA11B15B0C700DE9530 /* KSBMainCalculateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBMainCalculateVC.h; sourceTree = "<group>"; };
 		BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBMainCalculateVC.m; sourceTree = "<group>"; };
+		BE009AA41B16A45400DE9530 /* KSBModelDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KSBModelDefines.h; path = DataObject/KSBModelDefines.h; sourceTree = "<group>"; };
+		BE009AA51B16BCE800DE9530 /* KSBEditAddV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBEditAddV.h; sourceTree = "<group>"; };
+		BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBEditAddV.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,8 @@
 				BE009A9F1B15A3F500DE9530 /* KSBQuestionSelectVC.m */,
 				BE009AA11B15B0C700DE9530 /* KSBMainCalculateVC.h */,
 				BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */,
+				BE009AA51B16BCE800DE9530 /* KSBEditAddV.h */,
+				BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 		BE009A961B15733500DE9530 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BE009AA41B16A45400DE9530 /* KSBModelDefines.h */,
 				BE009A971B15734800DE9530 /* DataObject */,
 				BE009A9B1B15740800DE9530 /* KSBModel.h */,
 				BE009A9C1B15740800DE9530 /* KSBModel.m */,
@@ -382,6 +389,7 @@
 				BE009A861B15697200DE9530 /* NSMutableDictionary+KenMutableDictionary.m in Sources */,
 				BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */,
 				BE009A891B15697200DE9530 /* NSObject+KenObject.m in Sources */,
+				BE009AA71B16BCE800DE9530 /* KSBEditAddV.m in Sources */,
 				BE009A8C1B15697200DE9530 /* UIDevice+IdentifierAddition.m in Sources */,
 				BE009A851B15697200DE9530 /* NSMutableArray+KenMutableArray.m in Sources */,
 				BE009A8F1B15697200DE9530 /* UIView+KenUIView.m in Sources */,

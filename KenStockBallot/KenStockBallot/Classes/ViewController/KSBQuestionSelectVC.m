@@ -47,11 +47,12 @@
 
 #pragma mark - button
 - (void)question1Selected {
-    KSBMainCalculateVC *calculateVC = [[KSBMainCalculateVC alloc] init];
+    KSBMainCalculateVC *calculateVC = [[KSBMainCalculateVC alloc] initWithCalculateType:kKSBCalculateQuestion1];
     [self.navigationController pushViewController:calculateVC animated:YES];
 }
 
 - (void)question2Selected {
-    
+//    KSBMainCalculateVC *calculateVC = [[KSBMainCalculateVC alloc] initWithCalculateType:kKSBCalculateQuestion2];
+//    [self.navigationController pushViewController:calculateVC animated:YES];
 }
 @end

@@ -7,3 +7,13 @@
 */
 
 "app_title" = "概率计算器";
+
+"question_title1" = "股票";
+"question_title2" = "交易所";
+"question_title3" = "发行价";
+"question_title4" = "申购股数";
+"question_title5" = "预估\n中签率";
+
+"question_calculate" = "计算";
+"question_auto_add" = "自动导入";
+"qusstion_manual_add" = "手动添加";
