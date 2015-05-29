@@ -26,7 +26,11 @@
     self = [super initWithFrame:(CGRect){CGPointZero, kGSize}];
     if (self) {
         _stockInfo = info;
-        _shangHaiSelected = YES;
+        if ([KenUtils isNotEmpty:info] && [info.stockJiaoYS isEqual:KenLocal(@"edit_shengzhen")]) {
+            _shangHaiSelected = NO;
+        } else {
+            _shangHaiSelected = YES;
+        }
         [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
         
         //tap gesture
@@ -72,6 +76,16 @@
     
     NSArray *array = @[KenLocal(@"edit_title1"), KenLocal(@"edit_title2"), KenLocal(@"edit_title3"),
                        KenLocal(@"edit_title4"), KenLocal(@"edit_title5"), KenLocal(@"edit_title6")];
+    NSArray *textArray = nil;
+    if ([KenUtils isEmpty:_stockInfo]) {
+        textArray = @[@"", @"", @"", @"", @"", @""];
+    } else {
+        textArray = @[@"", [_stockInfo stockName], [_stockInfo stockCode],
+                  [NSString stringWithFormat:@"%.2f", _stockInfo.stockPrice],
+                  [NSString stringWithFormat:@"%d", _stockInfo.stockBuyMax],
+                  [NSString stringWithFormat:@"%.4f", _stockInfo.stockBallot]];
+    }
+    
     float offY = 30;
     for (int i = 0; i < [array count]; i++) {
         if (i == 0) {
@@ -87,7 +101,8 @@
                 unit = @"%";
             }
             
-            [self initItem:unit title:array[i] offY:offY];
+            [self initItem:unit title:array[i] offY:offY text:[textArray objectAtIndex:i]];
+            
             offY += 40;
         }
     }
@@ -100,23 +115,25 @@
     [_contentView addSubview:label];
     
     _shangHaiBtn = [KenUtils buttonWithImg:KenLocal(@"edit_shanghai") off:0 zoomIn:YES
-                                            image:[UIImage imageNamed:@"redio_selected.png"]
-                                         imagesec:[UIImage imageNamed:@"redio_selected.png"] target:self action:@selector(shangHaiSelect)];
+                                     image:[UIImage imageNamed:_shangHaiSelected ? @"redio_selected.png" : @"redio_unselected.png"]
+                                  imagesec:[UIImage imageNamed:_shangHaiSelected ? @"redio_selected.png" : @"redio_unselected.png"]
+                                    target:self action:@selector(shangHaiSelect)];
     [_shangHaiBtn setBackgroundColor:[UIColor whiteColor]];
     [_shangHaiBtn setTitleColor:[UIColor blackTextColor] forState:UIControlStateNormal];
     _shangHaiBtn.frame = CGRectMake(80, offY, 80, 40);
     [_contentView addSubview:_shangHaiBtn];
     
     _shengZhenBtn = [KenUtils buttonWithImg:KenLocal(@"edit_shengzhen") off:0 zoomIn:YES
-                                            image:[UIImage imageNamed:@"redio_unselected.png"]
-                                         imagesec:[UIImage imageNamed:@"redio_unselected.png"] target:self action:@selector(shengZhenSelect)];
+                                      image:[UIImage imageNamed:_shangHaiSelected ? @"redio_unselected.png" : @"redio_selected.png"]
+                                   imagesec:[UIImage imageNamed:_shangHaiSelected ? @"redio_unselected.png" : @"redio_selected.png"]
+                                     target:self action:@selector(shengZhenSelect)];
     [_shengZhenBtn setBackgroundColor:[UIColor whiteColor]];
     [_shengZhenBtn setTitleColor:[UIColor blackTextColor] forState:UIControlStateNormal];
     _shengZhenBtn.frame = CGRectMake(CGRectGetMaxX(_shangHaiBtn.frame), _shangHaiBtn.originY, 80, 40);
     [_contentView addSubview:_shengZhenBtn];
 }
 
-- (void)initItem:(NSString *)unitStr title:(NSString *)title offY:(float)offY{
+- (void)initItem:(NSString *)unitStr title:(NSString *)title offY:(float)offY text:(NSString *)text{
     UIView *line = [[UIView alloc] initWithFrame:(CGRect){15, offY, _contentView.width - 30, 1}];
     [line setBackgroundColor:[UIColor grayBgColor]];
     [_contentView addSubview:line];
@@ -128,6 +145,7 @@
     
     //text field
     UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(120, offY + 4, [KenUtils isEmpty:unitStr] ? 110 : 90, 40 - 8)];
+    textField.text = text;
     textField.font = kKenFontArial(14);
     textField.clearButtonMode = UITextFieldViewModeAlways;
     textField.clearsOnBeginEditing = NO;
@@ -195,7 +213,7 @@
 }
 
 - (void)shangHaiSelect {
-    if (!_shangHaiSelected && [KenUtils isNotEmpty:_stockInfo]) {
+    if (!_shangHaiSelected) {
         _shangHaiSelected = YES;
         
         [_shangHaiBtn setImage:[UIImage imageNamed:@"redio_selected.png"] forState:UIControlStateNormal];
@@ -204,7 +222,7 @@
 }
 
 - (void)shengZhenSelect {
-    if (_shangHaiSelected && [KenUtils isNotEmpty:_stockInfo]) {
+    if (_shangHaiSelected) {
         _shangHaiSelected = NO;
         [_shangHaiBtn setImage:[UIImage imageNamed:@"redio_unselected.png"] forState:UIControlStateNormal];
         [_shengZhenBtn setImage:[UIImage imageNamed:@"redio_selected.png"] forState:UIControlStateNormal];
@@ -225,8 +243,9 @@
     }
     
     if (_stockInfo) {
-        _stockInfo.stockCode = [_textFieldArray[0] text];
-        _stockInfo.stockCode = [_stockInfo.stockCode stringByAppendingFormat:@"\n%@", [_textFieldArray[1] text]];
+        _stockInfo.stockJiaoYS = _shangHaiSelected ? KenLocal(@"edit_shanghai") : KenLocal(@"edit_shengzhen");
+        _stockInfo.stockName = [_textFieldArray[0] text];
+        _stockInfo.stockCode = [_textFieldArray[1] text];
         _stockInfo.stockPrice = [[_textFieldArray[2] text] floatValue];
         _stockInfo.stockBuyMax = [[_textFieldArray[3] text] integerValue];
         _stockInfo.stockBallot = [[_textFieldArray[4] text] floatValue];
@@ -236,8 +255,8 @@
     } else {
         KSBStockInfo *info = [[KSBStockInfo alloc] init];
         info.stockJiaoYS = _shangHaiSelected ? KenLocal(@"edit_shanghai") : KenLocal(@"edit_shengzhen");
-        info.stockCode = [_textFieldArray[0] text];
-        info.stockCode = [info.stockCode stringByAppendingFormat:@"\n%@", [_textFieldArray[1] text]];
+        info.stockName = [_textFieldArray[0] text];
+        info.stockCode = [_textFieldArray[1] text];
         info.stockPrice = [[_textFieldArray[2] text] floatValue];
         info.stockBuyMax = [[_textFieldArray[3] text] integerValue];
         info.stockBallot = [[_textFieldArray[4] text] floatValue];

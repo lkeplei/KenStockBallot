@@ -10,6 +10,17 @@
 
 @implementation KSBStockInfo
 
+- (NSDictionary *)getStockDictionary {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[self stockJiaoYS] forKey:@"stockJiaoYS"];
+    [dic setObject:[self stockName] forKey:@"stockName"];
+    [dic setObject:[self stockCode] forKey:@"stockCode"];
+    [dic setObject:[NSNumber numberWithFloat:[self stockPrice]] forKey:@"stockPrice"];
+    [dic setObject:[NSNumber numberWithInteger:[self stockBuyMax]] forKey:@"stockBuyMax"];
+    [dic setObject:[NSNumber numberWithFloat:[self stockBallot]] forKey:@"stockBallot"];
+    return dic;
+}
+
 
 //交易所、申购代码或简称、发行价、申购股数、预估中签率为输入数据，公开渠道获得，不需计算。
 //申购共需资金    =   ∑申购金额"
@@ -64,13 +75,17 @@
 
 @implementation NSDictionary (returnStockInfo)
 
-- (KSBStockInfo *) returnStockInfo {
-    KSBStockInfo *bankInfo = [[KSBStockInfo alloc] init];
-    NSArray *allKeys = [NSMutableArray getPropertyList:[KSBStockInfo class]];
-    for (NSString *key in allKeys) {
-        [bankInfo setValue:[self valueForKey:key] forKey:key];
-    }
-    return bankInfo;
+- (KSBStockInfo *)returnStockInfo {
+    KSBStockInfo *info = [[KSBStockInfo alloc] init];
+
+    info.stockJiaoYS = [self objectForKey:@"stockJiaoYS"];
+    info.stockName = [self objectForKey:@"stockName"];
+    info.stockCode = [self objectForKey:@"stockCode"];
+    info.stockPrice = [[self objectForKey:@"stockPrice"] floatValue];
+    info.stockBuyMax = [[self objectForKey:@"stockBuyMax"] integerValue];
+    info.stockBallot = [[self objectForKey:@"stockBallot"] floatValue];
+    
+    return info;
 }
 
 @end

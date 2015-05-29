@@ -34,6 +34,7 @@
 		BE009AA31B15B0C700DE9530 /* KSBMainCalculateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */; };
 		BE009AA71B16BCE800DE9530 /* KSBEditAddV.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */; };
 		BE009AA91B180CA100DE9530 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE009AA81B180CA100DE9530 /* Images.xcassets */; };
+		BE009AAC1B1846BE00DE9530 /* KSBAutoAddStocksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AAB1B1846BE00DE9530 /* KSBAutoAddStocksVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,8 @@
 		BE009AA51B16BCE800DE9530 /* KSBEditAddV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBEditAddV.h; sourceTree = "<group>"; };
 		BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBEditAddV.m; sourceTree = "<group>"; };
 		BE009AA81B180CA100DE9530 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		BE009AAA1B1846BE00DE9530 /* KSBAutoAddStocksVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBAutoAddStocksVC.h; sourceTree = "<group>"; };
+		BE009AAB1B1846BE00DE9530 /* KSBAutoAddStocksVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBAutoAddStocksVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +217,8 @@
 				BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */,
 				BE009AA51B16BCE800DE9530 /* KSBEditAddV.h */,
 				BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */,
+				BE009AAA1B1846BE00DE9530 /* KSBAutoAddStocksVC.h */,
+				BE009AAB1B1846BE00DE9530 /* KSBAutoAddStocksVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				BE009A661B1567F900DE9530 /* KSBBaseVC.m in Sources */,
 				BE009A9A1B1573F900DE9530 /* KSBStockInfo.m in Sources */,
 				BE009A8B1B15697200DE9530 /* UIColor+KenColor.m in Sources */,
+				BE009AAC1B1846BE00DE9530 /* KSBAutoAddStocksVC.m in Sources */,
 				BE009A861B15697200DE9530 /* NSMutableDictionary+KenMutableDictionary.m in Sources */,
 				BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */,
 				BE009A891B15697200DE9530 /* NSObject+KenObject.m in Sources */,

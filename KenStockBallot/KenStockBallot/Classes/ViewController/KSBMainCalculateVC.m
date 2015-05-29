@@ -9,6 +9,9 @@
 #import "KSBMainCalculateVC.h"
 #import "KSBEditAddV.h"
 #import "KSBStockInfo.h"
+#import "KSBAutoAddStocksVC.h"
+
+static const int cellOffX = 20;
 
 @interface KSBMainCalculateVC ()
 
@@ -49,6 +52,17 @@
     [self initStockTable];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSArray *array = [[KSBModel shareKSBModel] getStock];
+    if ([KenUtils isNotEmpty:array] && [array count] > 0) {
+        [_dataArray removeAllObjects];
+        [_dataArray addObjectsFromArray:array];
+        [_stockTable reloadData];
+    }
+}
+
 - (void)initTopV {
     _topView = [[UIView alloc] initWithFrame:(CGRect){0, kAppViewOrginY, kGSize.width, _calculateType == kKSBCalculateQuestion1 ? 44 : 88}];
     [_topView setBackgroundColor:[UIColor grayBgColor]];
@@ -68,9 +82,9 @@
     
     NSArray *titleArr = @[KenLocal(@"question_title1"), KenLocal(@"question_title2"), KenLocal(@"question_title3"),
                           KenLocal(@"question_title4"), KenLocal(@"question_title5")];
-    float width = kGSize.width / [titleArr count];
+    float width = (kGSize.width - cellOffX) / [titleArr count];
     for (int i = 0; i < [titleArr count]; i++) {
-        UILabel *label = [KenUtils labelWithTxt:titleArr[i] frame:(CGRect){width * i, 0, width, 44}
+        UILabel *label = [KenUtils labelWithTxt:titleArr[i] frame:(CGRect){cellOffX + width * i, 0, width, 44}
                                            font:kKenFontHelvetica(12) color:[UIColor greenTextColor]];
         label.numberOfLines = i == ([titleArr count] - 1) ? 2 : 1;
         [titleV addSubview:label];
@@ -122,7 +136,8 @@
 }
 
 - (void)autoAdd {
-    
+    KSBAutoAddStocksVC *autoVC = [[KSBAutoAddStocksVC alloc] init];
+    [self.navigationController pushViewController:autoVC animated:YES];
 }
 
 - (void)manualAdd {
@@ -142,12 +157,16 @@
     editV.addBlock = ^(KSBStockInfo *info) {
         [[retSelf dataArray] addObject:info];
         [[retSelf stockTable] reloadData];
+        
+        [[KSBModel shareKSBModel] saveStock:[retSelf dataArray]];
     };
     
     editV.editBlock = ^(KSBStockInfo *info) {
         if (_selectedIndex < [_dataArray count]) {
             [[retSelf dataArray] replaceObjectAtIndex:_selectedIndex withObject:info];
             [[retSelf stockTable] reloadData];
+            
+            [[KSBModel shareKSBModel] saveStock:[retSelf dataArray]];
         }
     };
 }
@@ -167,6 +186,28 @@
     }
     
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    KSBStockInfo *info = _dataArray[indexPath.row];
+    NSArray *array = @[info.stockName, info.stockJiaoYS,
+                       [NSString stringWithFormat:@"%.2f%@", info.stockPrice, KenLocal(@"edit_yuan")],
+                       [NSString stringWithFormat:@"%d%@", info.stockBuyMax, KenLocal(@"edit_gu")],
+                       [NSString stringWithFormat:@"%.4f%%", info.stockBallot]];
+    float width = (kGSize.width - cellOffX) / [array count];
+    for (int i = 0; i < [array count]; i++) {
+        float height = i == 0 ? cell.height * 0.4 : cell.height;
+        UILabel *label = [KenUtils labelWithTxt:array[i] frame:(CGRect){cellOffX + width * i, i == 0 ? cell.height * 0.15 : 0, width, height}
+                                           font:kKenFontHelvetica(12) color:[UIColor blackTextColor]];
+        [cell.contentView addSubview:label];
+        if (i == 0) {
+            UILabel *code = [KenUtils labelWithTxt:info.stockCode frame:(CGRect){cellOffX, cell.height * 0.5, width, height}
+                                               font:kKenFontHelvetica(12) color:[UIColor grayTextColor]];
+            [cell.contentView addSubview:code];
+        }
+    }
+    
+    UIView *line = [[UIView alloc] initWithFrame:(CGRect){cellOffX, cell.height - 1, cell.width, 1}];
+    [line setBackgroundColor:[UIColor separatorMainColor]];
+    [cell.contentView addSubview:line];
     
     return cell;
 }

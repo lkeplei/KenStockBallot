@@ -7,6 +7,7 @@
 */
 
 "app_title" = "概率计算器";
+"app_back" = "返回";
 
 "question_title1" = "股票";
 "question_title2" = "交易所";

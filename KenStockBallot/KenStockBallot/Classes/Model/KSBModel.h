@@ -13,4 +13,11 @@
 //model
 + (KSBModel *)shareKSBModel;
 
+- (void)setDataByKey:(id)object forkey:(NSString *)key;
+- (void)removeDataByKey:(NSString *)key;
+- (id)getDataByKey:(NSString *)key;
+
+- (void)saveStock:(NSArray *)stockArray;
+- (NSArray *)getStock;
+
 @end

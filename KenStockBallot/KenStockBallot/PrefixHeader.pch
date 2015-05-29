@@ -29,6 +29,7 @@
 #import "KenConfig.h"
 #import "KSBModelDefines.h"
 #import "KenUtils.h"
+#import "KSBModel.h"
 #import "AppDelegate.h"
 
 #define SysDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
