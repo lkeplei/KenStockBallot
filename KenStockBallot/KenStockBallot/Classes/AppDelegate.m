@@ -19,6 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    NSArray *array = @[@"1", @"0", @"12", @"234", @"5678", @"12345", @"0.", @".", @"12315.", @"1.", @"12.124556",
+                       @"0.12", @"0.1234", @"0.1234", @"12.0", @"12.12", @"1.143", @"1.561456", @""];
+    
+    for (NSString *str in array) {
+        DebugLog(@"vlidate %@ = %d", str, [KenUtils validateNumber:str]);
+    }
+
     //1.创建Window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

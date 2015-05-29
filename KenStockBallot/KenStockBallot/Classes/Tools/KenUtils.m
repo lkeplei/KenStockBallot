@@ -424,7 +424,7 @@
 }
 
 + (BOOL)validateNumber:(NSString *)number {
-    NSString *regex = @"^[1-9]d*.d*|0.d*[1-9]d*$";
+    NSString *regex = @"^[1-9]\\d*.?\\d{1,4}|0.\\d*[1-9]\\d*$";
     NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     return [test evaluateWithObject:number];
 }

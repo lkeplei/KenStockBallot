@@ -212,21 +212,21 @@
 }
 
 - (void)confirmClicked {
-//    for (int i = 0; i < [_textFieldArray count]; i++) {
-//        if ([KenUtils isEmpty:[_textFieldArray[i] text]]) {
-//            NSString *string = [@"edit_alert" stringByAppendingFormat:@"%d", i + 1];
-//            kKenAlert(KenLocal(string));
-//            return;
-//        } else if (i >= 2 && ![KenUtils validateNumber:[_textFieldArray[i] text]]){
-//            NSString *string = [@"edit_validate_alert" stringByAppendingFormat:@"%d", i + 1];
-//            kKenAlert(KenLocal(string));
-//            return;
-//        }
-//    }
+    for (int i = 0; i < [_textFieldArray count]; i++) {
+        if ([KenUtils isEmpty:[_textFieldArray[i] text]]) {
+            NSString *string = [@"edit_alert" stringByAppendingFormat:@"%d", i + 1];
+            kKenAlert(KenLocal(string));
+            return;
+        } else if (i >= 2 && ![KenUtils validateNumber:[_textFieldArray[i] text]]){
+            NSString *string = [@"edit_validate_alert" stringByAppendingFormat:@"%d", i + 1];
+            kKenAlert(KenLocal(string));
+            return;
+        }
+    }
     
     if (_stockInfo) {
         _stockInfo.stockCode = [_textFieldArray[0] text];
-        _stockInfo.stockCode = [_stockInfo.stockCode stringByAppendingString:[_textFieldArray[1] text]];
+        _stockInfo.stockCode = [_stockInfo.stockCode stringByAppendingFormat:@"\n%@", [_textFieldArray[1] text]];
         _stockInfo.stockPrice = [[_textFieldArray[2] text] floatValue];
         _stockInfo.stockBuyMax = [[_textFieldArray[3] text] integerValue];
         _stockInfo.stockBallot = [[_textFieldArray[4] text] floatValue];
@@ -237,7 +237,7 @@
         KSBStockInfo *info = [[KSBStockInfo alloc] init];
         info.stockJiaoYS = _shangHaiSelected ? KenLocal(@"edit_shanghai") : KenLocal(@"edit_shengzhen");
         info.stockCode = [_textFieldArray[0] text];
-        info.stockCode = [info.stockCode stringByAppendingString:[_textFieldArray[1] text]];
+        info.stockCode = [info.stockCode stringByAppendingFormat:@"\n%@", [_textFieldArray[1] text]];
         info.stockPrice = [[_textFieldArray[2] text] floatValue];
         info.stockBuyMax = [[_textFieldArray[3] text] integerValue];
         info.stockBallot = [[_textFieldArray[4] text] floatValue];

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BE009A351B155E1A00DE9530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A341B155E1A00DE9530 /* main.m */; };
-		BE009A401B155E1A00DE9530 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE009A3F1B155E1A00DE9530 /* Images.xcassets */; };
 		BE009A431B155E1A00DE9530 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE009A411B155E1A00DE9530 /* LaunchScreen.xib */; };
 		BE009A4F1B155E1A00DE9530 /* KenStockBallotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A4E1B155E1A00DE9530 /* KenStockBallotTests.m */; };
 		BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A5A1B155F5A00DE9530 /* AppDelegate.m */; };
@@ -34,6 +33,7 @@
 		BE009AA01B15A3F500DE9530 /* KSBQuestionSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A9F1B15A3F500DE9530 /* KSBQuestionSelectVC.m */; };
 		BE009AA31B15B0C700DE9530 /* KSBMainCalculateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */; };
 		BE009AA71B16BCE800DE9530 /* KSBEditAddV.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */; };
+		BE009AA91B180CA100DE9530 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE009AA81B180CA100DE9530 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 		BE009A2F1B155E1A00DE9530 /* KenStockBallot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenStockBallot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE009A331B155E1A00DE9530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE009A341B155E1A00DE9530 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE009A3F1B155E1A00DE9530 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		BE009A421B155E1A00DE9530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BE009A481B155E1A00DE9530 /* KenStockBallotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KenStockBallotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE009A4D1B155E1A00DE9530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +101,7 @@
 		BE009AA41B16A45400DE9530 /* KSBModelDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KSBModelDefines.h; path = DataObject/KSBModelDefines.h; sourceTree = "<group>"; };
 		BE009AA51B16BCE800DE9530 /* KSBEditAddV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBEditAddV.h; sourceTree = "<group>"; };
 		BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBEditAddV.m; sourceTree = "<group>"; };
+		BE009AA81B180CA100DE9530 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +193,7 @@
 		BE009A5F1B155F7400DE9530 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				BE009A3F1B155E1A00DE9530 /* Images.xcassets */,
+				BE009AA81B180CA100DE9530 /* Images.xcassets */,
 				BE009A411B155E1A00DE9530 /* LaunchScreen.xib */,
 				BE009A921B156AD500DE9530 /* Localizable.strings */,
 				BE009A941B156AED00DE9530 /* InfoPlist.strings */,
@@ -360,9 +360,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE009A431B155E1A00DE9530 /* LaunchScreen.xib in Resources */,
+				BE009AA91B180CA100DE9530 /* Images.xcassets in Resources */,
 				BE009A951B156AED00DE9530 /* InfoPlist.strings in Resources */,
 				BE009A931B156AD500DE9530 /* Localizable.strings in Resources */,
-				BE009A401B155E1A00DE9530 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +597,7 @@
 				BE009A541B155E1A00DE9530 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE009A551B155E1A00DE9530 /* Build configuration list for PBXNativeTarget "KenStockBallotTests" */ = {
 			isa = XCConfigurationList;
@@ -605,6 +606,7 @@
 				BE009A571B155E1A00DE9530 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
