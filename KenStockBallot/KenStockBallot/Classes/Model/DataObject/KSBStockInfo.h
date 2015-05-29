@@ -19,6 +19,12 @@
 
 - (NSDictionary *)getStockDictionary;
 
+- (NSInteger)getMeiQianGuShu;
+- (NSInteger)getShengGouBeiShu;
+- (CGFloat)getShengGouMoney;
+- (CGFloat)getShengGouBallot;
+- (CGFloat)getTenThoundBallot;
+
 @end
 
 @interface NSDictionary (returnStockInfo)

@@ -40,3 +40,9 @@
 "edit_shengzhen" = "深圳";
 "edit_yuan" = "元";
 "edit_gu" = "股";
+
+"result1_title" = "计算结果";
+"result1_content1" = "本次申购需资金：";
+"result1_content2" = "至少中一签概率：";
+
+"result2_title" = "推荐申购组合";

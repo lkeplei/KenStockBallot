@@ -10,6 +10,8 @@
 #import "KSBEditAddV.h"
 #import "KSBStockInfo.h"
 #import "KSBAutoAddStocksVC.h"
+#import "KSBCalculateQuestion1V.h"
+#import "KSBCalculateQuestion2V.h"
 
 static const int cellOffX = 20;
 
@@ -145,7 +147,15 @@ static const int cellOffX = 20;
 }
 
 - (void)calculateBtn {
+    KSBCalculateBaseV *resultV = nil;
+    if (_calculateType == kKSBCalculateQuestion1) {
+        resultV = [[KSBCalculateQuestion1V alloc] initWithStockArray:_dataArray];
+    } else if (_calculateType == kKSBCalculateQuestion2) {
+        resultV = [[KSBCalculateQuestion2V alloc] initWithStockArray:_dataArray];
+    }
     
+    [SysDelegate.window addSubview:resultV];
+    [resultV showContent];
 }
 
 - (void)showEidtAddView:(KSBStockInfo *)info {
