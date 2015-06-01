@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "KSBRootVC.h"
 
+#import <BmobSDK/Bmob.h>
+
 @interface AppDelegate ()
 
 @end
@@ -38,6 +40,9 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor greenTextColor]];
     //设置导航栏文字颜色
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    //bmob
+    [Bmob registerWithAppKey:@"bd7722d61ece9296b9e66223f7d441b5"];
     
     return YES;
 }

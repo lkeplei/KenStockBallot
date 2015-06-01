@@ -21,6 +21,29 @@
     return dic;
 }
 
+- (void)setStockJiaoYS:(NSString *)stockJiaoYS {
+    if ([KenUtils isEmpty:stockJiaoYS]) {
+        _stockJiaoYS = @"";
+    } else {
+        _stockJiaoYS = stockJiaoYS;
+    }
+}
+
+- (void)setStockName:(NSString *)stockName {
+    if ([KenUtils isEmpty:stockName]) {
+        _stockName = @"";
+    } else {
+        _stockName = stockName;
+    }
+}
+
+- (void)setStockCode:(NSString *)stockCode {
+    if ([KenUtils isEmpty:stockCode]) {
+        _stockCode = @"";
+    } else {
+        _stockCode = stockCode;
+    }
+}
 
 //交易所、申购代码或简称、发行价、申购股数、预估中签率为输入数据，公开渠道获得，不需计算。
 //申购共需资金    =   ∑申购金额"

@@ -10,6 +10,6 @@
 
 @interface KSBCalculateEditVC : KSBBaseVC<UITableViewDataSource, UITableViewDelegate>
 
-- (instancetype)initWithStock:(NSArray *)stockArray questionType:(KSBCalculateType)type;
+- (instancetype)initWithStock:(NSArray *)stockArray questionType:(KSBCalculateType)type add:(BOOL)add;
 
 @end

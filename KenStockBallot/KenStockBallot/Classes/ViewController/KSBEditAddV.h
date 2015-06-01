@@ -15,7 +15,7 @@ typedef void (^editStockInfo)(KSBStockInfo *info);
 
 @interface KSBEditAddV : UIView<UITextFieldDelegate>
 
-- (instancetype)initWithStock:(KSBStockInfo *)info;
+- (instancetype)initWithStock:(KSBStockInfo *)info calculateType:(KSBCalculateType)type;
 - (void)showContent;
 
 @property (nonatomic, copy) addStockInfo addBlock;

@@ -34,11 +34,23 @@
 		BE009AA31B15B0C700DE9530 /* KSBMainCalculateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */; };
 		BE009AA71B16BCE800DE9530 /* KSBEditAddV.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */; };
 		BE009AA91B180CA100DE9530 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE009AA81B180CA100DE9530 /* Images.xcassets */; };
-		BE009AAC1B1846BE00DE9530 /* KSBAutoAddStocksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AAB1B1846BE00DE9530 /* KSBAutoAddStocksVC.m */; };
 		BE009AAF1B185DCD00DE9530 /* KSBCalculateQuestion1V.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AAE1B185DCD00DE9530 /* KSBCalculateQuestion1V.m */; };
 		BE009AB21B18603900DE9530 /* KSBCalculateQuestion2V.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AB11B18603900DE9530 /* KSBCalculateQuestion2V.m */; };
 		BE009AB51B18615200DE9530 /* KSBCalculateBaseV.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AB41B18615200DE9530 /* KSBCalculateBaseV.m */; };
 		BE009AB81B1C070A00DE9530 /* KSBCalculateEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AB71B1C070A00DE9530 /* KSBCalculateEditVC.m */; };
+		BE009AD61B1C470D00DE9530 /* BmobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AD51B1C470D00DE9530 /* BmobSDK.framework */; };
+		BE009AD81B1C473800DE9530 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AD71B1C473800DE9530 /* CoreLocation.framework */; };
+		BE009ADA1B1C474100DE9530 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AD91B1C474100DE9530 /* Security.framework */; };
+		BE009ADC1B1C474A00DE9530 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009ADB1B1C474A00DE9530 /* CoreGraphics.framework */; };
+		BE009ADE1B1C475300DE9530 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009ADD1B1C475300DE9530 /* MobileCoreServices.framework */; };
+		BE009AE01B1C475C00DE9530 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009ADF1B1C475C00DE9530 /* CFNetwork.framework */; };
+		BE009AE21B1C476500DE9530 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AE11B1C476500DE9530 /* CoreTelephony.framework */; };
+		BE009AE41B1C476F00DE9530 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AE31B1C476F00DE9530 /* SystemConfiguration.framework */; };
+		BE009AE61B1C477F00DE9530 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AE51B1C477F00DE9530 /* libz.1.2.5.dylib */; };
+		BE009AE81B1C479400DE9530 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AE71B1C479400DE9530 /* libicucore.dylib */; };
+		BE009AEA1B1C47A500DE9530 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AE91B1C47A500DE9530 /* libsqlite3.dylib */; };
+		BE009AEC1B1C47B100DE9530 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AEB1B1C47B100DE9530 /* AVFoundation.framework */; };
+		BE009AEE1B1C47BE00DE9530 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE009AED1B1C47BE00DE9530 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,8 +119,6 @@
 		BE009AA51B16BCE800DE9530 /* KSBEditAddV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBEditAddV.h; sourceTree = "<group>"; };
 		BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBEditAddV.m; sourceTree = "<group>"; };
 		BE009AA81B180CA100DE9530 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
-		BE009AAA1B1846BE00DE9530 /* KSBAutoAddStocksVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBAutoAddStocksVC.h; sourceTree = "<group>"; };
-		BE009AAB1B1846BE00DE9530 /* KSBAutoAddStocksVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBAutoAddStocksVC.m; sourceTree = "<group>"; };
 		BE009AAD1B185DCD00DE9530 /* KSBCalculateQuestion1V.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBCalculateQuestion1V.h; sourceTree = "<group>"; };
 		BE009AAE1B185DCD00DE9530 /* KSBCalculateQuestion1V.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBCalculateQuestion1V.m; sourceTree = "<group>"; };
 		BE009AB01B18603900DE9530 /* KSBCalculateQuestion2V.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBCalculateQuestion2V.h; sourceTree = "<group>"; };
@@ -117,6 +127,19 @@
 		BE009AB41B18615200DE9530 /* KSBCalculateBaseV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBCalculateBaseV.m; sourceTree = "<group>"; };
 		BE009AB61B1C070A00DE9530 /* KSBCalculateEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBCalculateEditVC.h; sourceTree = "<group>"; };
 		BE009AB71B1C070A00DE9530 /* KSBCalculateEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBCalculateEditVC.m; sourceTree = "<group>"; };
+		BE009AD51B1C470D00DE9530 /* BmobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobSDK.framework; sourceTree = "<group>"; };
+		BE009AD71B1C473800DE9530 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BE009AD91B1C474100DE9530 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BE009ADB1B1C474A00DE9530 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BE009ADD1B1C475300DE9530 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BE009ADF1B1C475C00DE9530 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BE009AE11B1C476500DE9530 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		BE009AE31B1C476F00DE9530 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BE009AE51B1C477F00DE9530 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		BE009AE71B1C479400DE9530 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		BE009AE91B1C47A500DE9530 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		BE009AEB1B1C47B100DE9530 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BE009AED1B1C47BE00DE9530 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +147,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE009AEE1B1C47BE00DE9530 /* MediaPlayer.framework in Frameworks */,
+				BE009AEC1B1C47B100DE9530 /* AVFoundation.framework in Frameworks */,
+				BE009AEA1B1C47A500DE9530 /* libsqlite3.dylib in Frameworks */,
+				BE009AE81B1C479400DE9530 /* libicucore.dylib in Frameworks */,
+				BE009AE61B1C477F00DE9530 /* libz.1.2.5.dylib in Frameworks */,
+				BE009AE41B1C476F00DE9530 /* SystemConfiguration.framework in Frameworks */,
+				BE009AE21B1C476500DE9530 /* CoreTelephony.framework in Frameworks */,
+				BE009AE01B1C475C00DE9530 /* CFNetwork.framework in Frameworks */,
+				BE009ADE1B1C475300DE9530 /* MobileCoreServices.framework in Frameworks */,
+				BE009ADC1B1C474A00DE9530 /* CoreGraphics.framework in Frameworks */,
+				BE009ADA1B1C474100DE9530 /* Security.framework in Frameworks */,
+				BE009AD81B1C473800DE9530 /* CoreLocation.framework in Frameworks */,
+				BE009AD61B1C470D00DE9530 /* BmobSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +176,7 @@
 		BE009A261B155E1A00DE9530 = {
 			isa = PBXGroup;
 			children = (
+				BE009AEF1B1C47D700DE9530 /* Frameworks */,
 				BE009A311B155E1A00DE9530 /* KenStockBallot */,
 				BE009A4B1B155E1A00DE9530 /* KenStockBallotTests */,
 				BE009A301B155E1A00DE9530 /* Products */,
@@ -229,8 +266,6 @@
 				BE009AA21B15B0C700DE9530 /* KSBMainCalculateVC.m */,
 				BE009AA51B16BCE800DE9530 /* KSBEditAddV.h */,
 				BE009AA61B16BCE800DE9530 /* KSBEditAddV.m */,
-				BE009AAA1B1846BE00DE9530 /* KSBAutoAddStocksVC.h */,
-				BE009AAB1B1846BE00DE9530 /* KSBAutoAddStocksVC.m */,
 				BE009AAD1B185DCD00DE9530 /* KSBCalculateQuestion1V.h */,
 				BE009AAE1B185DCD00DE9530 /* KSBCalculateQuestion1V.m */,
 				BE009AB01B18603900DE9530 /* KSBCalculateQuestion2V.h */,
@@ -246,6 +281,7 @@
 		BE009A681B15697100DE9530 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				BE009AD41B1C470D00DE9530 /* Bmob */,
 				BE009A691B15697100DE9530 /* Category */,
 				BE009A821B15697200DE9530 /* KenUtils.h */,
 				BE009A831B15697200DE9530 /* KenUtils.m */,
@@ -302,6 +338,33 @@
 				BE009A991B1573F900DE9530 /* KSBStockInfo.m */,
 			);
 			path = DataObject;
+			sourceTree = "<group>";
+		};
+		BE009AD41B1C470D00DE9530 /* Bmob */ = {
+			isa = PBXGroup;
+			children = (
+				BE009AD51B1C470D00DE9530 /* BmobSDK.framework */,
+			);
+			path = Bmob;
+			sourceTree = "<group>";
+		};
+		BE009AEF1B1C47D700DE9530 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE009AED1B1C47BE00DE9530 /* MediaPlayer.framework */,
+				BE009AEB1B1C47B100DE9530 /* AVFoundation.framework */,
+				BE009AE91B1C47A500DE9530 /* libsqlite3.dylib */,
+				BE009AE71B1C479400DE9530 /* libicucore.dylib */,
+				BE009AE51B1C477F00DE9530 /* libz.1.2.5.dylib */,
+				BE009AE31B1C476F00DE9530 /* SystemConfiguration.framework */,
+				BE009AE11B1C476500DE9530 /* CoreTelephony.framework */,
+				BE009ADF1B1C475C00DE9530 /* CFNetwork.framework */,
+				BE009ADD1B1C475300DE9530 /* MobileCoreServices.framework */,
+				BE009ADB1B1C474A00DE9530 /* CoreGraphics.framework */,
+				BE009AD91B1C474100DE9530 /* Security.framework */,
+				BE009AD71B1C473800DE9530 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,7 +474,6 @@
 				BE009A661B1567F900DE9530 /* KSBBaseVC.m in Sources */,
 				BE009A9A1B1573F900DE9530 /* KSBStockInfo.m in Sources */,
 				BE009A8B1B15697200DE9530 /* UIColor+KenColor.m in Sources */,
-				BE009AAC1B1846BE00DE9530 /* KSBAutoAddStocksVC.m in Sources */,
 				BE009A861B15697200DE9530 /* NSMutableDictionary+KenMutableDictionary.m in Sources */,
 				BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */,
 				BE009A891B15697200DE9530 /* NSObject+KenObject.m in Sources */,
@@ -553,10 +615,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/Bmob",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
 				INFOPLIST_FILE = KenStockBallot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AMTBaas",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -566,10 +637,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/Bmob",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
 				INFOPLIST_FILE = KenStockBallot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AMTBaas",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -9,31 +9,36 @@
 #import "KSBCalculateEditVC.h"
 #import "KSBStockInfo.h"
 
+#import <BmobSDK/Bmob.h>
+
 static const int cellEitOffX = 30;
 
 @interface KSBCalculateEditVC ()
 
+@property (assign) BOOL isAdd;
 @property (assign) KSBCalculateType calculateType;
 @property (nonatomic, strong) UITableView *stockTable;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *preDataArray;
 @property (nonatomic, strong) NSMutableArray *statusArray;
 
 @end
 
 @implementation KSBCalculateEditVC
 
-- (instancetype)initWithStock:(NSArray *)stockArray questionType:(KSBCalculateType)type {
+- (instancetype)initWithStock:(NSArray *)stockArray questionType:(KSBCalculateType)type add:(BOOL)add {
     self = [super init];
     if (self) {
+        _isAdd = add;
+        _calculateType = type;
+        if (_isAdd) {
+            _preDataArray = [NSMutableArray arrayWithArray:stockArray];
+        } else {
+            [self setData:stockArray];
+        }
+        
         self.title = KenLocal(@"app_title");
         [self.view setBackgroundColor:[UIColor grayBgColor]];
-
-        _calculateType = type;
-        _dataArray = [NSMutableArray arrayWithArray:stockArray];
-        _statusArray = [NSMutableArray array];
-        for (int i = 0; i < [_dataArray count]; i++) {
-            [_statusArray addObject:[NSNumber numberWithBool:NO]];
-        }
     }
     return self;
 }
@@ -50,7 +55,8 @@ static const int cellEitOffX = 30;
     [topView addSubview:titleV];
     
     NSArray *titleArr = @[KenLocal(@"question_title1"), KenLocal(@"question_title2"), KenLocal(@"question_title3"),
-                          KenLocal(@"question_title4"), KenLocal(@"question_title5")];
+                          _calculateType == kKSBCalculateQuestion1 ? KenLocal(@"question_title4") : KenLocal(@"question_title4_2"),
+                          KenLocal(@"question_title5")];
     float width = (kGSize.width - cellEitOffX) / [titleArr count];
     for (int i = 0; i < [titleArr count]; i++) {
         UILabel *label = [KenUtils labelWithTxt:titleArr[i] frame:(CGRect){cellEitOffX + width * i, 0, width, 44}
@@ -59,11 +65,11 @@ static const int cellEitOffX = 30;
         [titleV addSubview:label];
     }
     
-    UIButton *deleteBtn = [KenUtils buttonWithImg:KenLocal(@"app_delete") off:0 zoomIn:NO image:nil
+    UIButton *deleteBtn = [KenUtils buttonWithImg:_isAdd ? KenLocal(@"app_add") : KenLocal(@"app_delete") off:0 zoomIn:NO image:nil
                                             imagesec:nil target:self action:@selector(deleteBtnClicked)];
     [deleteBtn.titleLabel setFont:kKenFontHelvetica(16)];
     deleteBtn.frame = CGRectMake(0, kGSize.height - 44, self.view.width, 44);
-    [deleteBtn setBackgroundColor:[UIColor colorWithHexString:@"#FF643B"]];
+    [deleteBtn setBackgroundColor:[UIColor colorWithHexString:_isAdd ? @"#46D56F" : @"#FF643B"]];
     [self.view addSubview:deleteBtn];
     
     CGRect rect = CGRectMake(0, CGRectGetMaxY(topView.frame), kGSize.width, deleteBtn.originY - CGRectGetMaxY(topView.frame));
@@ -74,7 +80,58 @@ static const int cellEitOffX = 30;
     _stockTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_stockTable];
     
-    [_stockTable reloadData];
+    [self loadTable];
+}
+
+- (void)setData:(NSArray *)array {
+    if (_dataArray) {
+        [_dataArray removeAllObjects];
+    } else {
+        _dataArray = [NSMutableArray array];
+    }
+    [_dataArray addObjectsFromArray:array];
+    
+    if (_statusArray) {
+        [_statusArray removeAllObjects];
+    } else {
+        _statusArray = [NSMutableArray array];
+    }
+    for (int i = 0; i < [_dataArray count]; i++) {
+        [_statusArray addObject:[NSNumber numberWithBool:NO]];
+    }
+}
+
+- (void)loadTable {
+    if (_isAdd) {
+        BmobQuery *bquery = [BmobQuery queryWithClassName:@"StockTable"];
+        //查找GameScore表里面id为0c6db13c的数据
+        [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
+            if (error){
+                DebugLog("error = %@", error);
+            }else{
+                if (array) {
+                    NSMutableArray *bmobArray = [NSMutableArray array];
+                    for (int i = 0; i < [array count]; i++) {
+                        BmobObject *object = (BmobObject *)[array objectAtIndex:i];
+                        
+                        KSBStockInfo *info = [[KSBStockInfo alloc] init];
+                        info.stockJiaoYS = [object objectForKey:@"jiaoYS"];
+                        info.stockName = [object objectForKey:@"name"];
+                        info.stockCode = [object objectForKey:@"code"];
+                        info.stockPrice = [[object objectForKey:@"price"] floatValue];
+                        info.stockBuyMax = [[object objectForKey:@"buyMax"] integerValue];
+                        info.stockBallot = [[object objectForKey:@"ballot"] floatValue];
+                        
+                        [bmobArray addObject:info];
+                    }
+                    [self setData:bmobArray];
+                    [_stockTable reloadData];
+                }
+            }
+        }];
+    } else {
+        [_stockTable reloadData];
+    }
 }
 
 #pragma mark - Table
@@ -93,8 +150,8 @@ static const int cellEitOffX = 30;
     
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    UIImageView *status = [[UIImageView alloc] initWithImage:[UIImage imageNamed:
-                                                              [_statusArray[indexPath.row] boolValue] ? @"select_red.png" : @"select_none.png"]];
+    NSString *selectName = _isAdd ? @"select_green.png" : @"select_red.png";
+    UIImageView *status = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[_statusArray[indexPath.row] boolValue] ? selectName : @"select_none.png"]];
     status.center = CGPointMake(cell.height / 2, cell.height / 2);
     status.tag = 10001;
     [cell.contentView addSubview:status];
@@ -130,21 +187,33 @@ static const int cellEitOffX = 30;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIImageView *statusImg = (UIImageView *)[cell viewWithTag:10001];
     if (statusImg) {
-        [statusImg setImage:[UIImage imageNamed:[_statusArray[indexPath.row] boolValue] ? @"select_red.png" : @"select_none.png"]];
+        NSString *selectName = _isAdd ? @"select_green.png" : @"select_red.png";
+        [statusImg setImage:[UIImage imageNamed:[_statusArray[indexPath.row] boolValue] ? selectName : @"select_none.png"]];
     }
 }
 
 #pragma mark - button
 - (void)deleteBtnClicked {
-    for (int i = [_statusArray count] - 1; i >= 0; i--) {
-        if ([_statusArray[i] boolValue]) {
-            [_dataArray removeObjectAtIndex:i];
-            [_statusArray removeObjectAtIndex:i];
+    if (_isAdd) {
+        for (int i = 0; i < [_statusArray count]; i++) {
+            if ([_statusArray[i] boolValue]) {
+                [_preDataArray addObject:[_dataArray objectAtIndex:i]];
+            }
         }
+        [[KSBModel shareKSBModel] saveStock:_preDataArray type:_calculateType];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        for (int i = [_statusArray count] - 1; i >= 0; i--) {
+            if ([_statusArray[i] boolValue]) {
+                [_dataArray removeObjectAtIndex:i];
+                [_statusArray removeObjectAtIndex:i];
+            }
+        }
+        
+        [_stockTable reloadData];
+        
+        [[KSBModel shareKSBModel] saveStock:_dataArray type:_calculateType];
     }
-    
-    [_stockTable reloadData];
-    
-    [[KSBModel shareKSBModel] saveStock:_dataArray type:_calculateType];
 }
 @end

@@ -9,7 +9,6 @@
 #import "KSBMainCalculateVC.h"
 #import "KSBEditAddV.h"
 #import "KSBStockInfo.h"
-#import "KSBAutoAddStocksVC.h"
 #import "KSBCalculateQuestion1V.h"
 #import "KSBCalculateQuestion2V.h"
 #import "KSBCalculateEditVC.h"
@@ -34,15 +33,15 @@ static const int cellOffX = 0;
 - (instancetype)initWithCalculateType:(KSBCalculateType)type {
     self = [super init];
     if (self) {
-        self.title = KenLocal(@"app_title");
-        [self.view setBackgroundColor:[UIColor grayBgColor]];
-        [self setRightNavItemWithImage:[UIImage imageNamed:@"question_edit.png"]
-                                imgSec:[UIImage imageNamed:@"question_edit_sec.png"] selector:@selector(editStock)];
-        
         _calculateType = type;
         _selectedIndex = 0;
         _dataArray = [NSMutableArray array];
         _editStatus = NO;
+        
+        self.title = KenLocal(@"app_title");
+        [self.view setBackgroundColor:[UIColor grayBgColor]];
+        [self setRightNavItemWithImage:[UIImage imageNamed:@"question_edit.png"]
+                                imgSec:[UIImage imageNamed:@"question_edit_sec.png"] selector:@selector(editStock)];
     }
     return self;
 }
@@ -87,7 +86,8 @@ static const int cellOffX = 0;
     [_topView addSubview:titleV];
     
     NSArray *titleArr = @[KenLocal(@"question_title1"), KenLocal(@"question_title2"), KenLocal(@"question_title3"),
-                          KenLocal(@"question_title4"), KenLocal(@"question_title5")];
+                          _calculateType == kKSBCalculateQuestion1 ? KenLocal(@"question_title4") : KenLocal(@"question_title4_2"),
+                          KenLocal(@"question_title5")];
     float width = (kGSize.width - cellOffX) / [titleArr count];
     for (int i = 0; i < [titleArr count]; i++) {
         UILabel *label = [KenUtils labelWithTxt:titleArr[i] frame:(CGRect){cellOffX + width * i, 0, width, 44}
@@ -139,14 +139,14 @@ static const int cellOffX = 0;
 #pragma mark - button
 - (void)editStock {
     if ([_dataArray count] > 0) {
-        KSBCalculateEditVC *editVC = [[KSBCalculateEditVC alloc] initWithStock:_dataArray questionType:_calculateType];
+        KSBCalculateEditVC *editVC = [[KSBCalculateEditVC alloc] initWithStock:_dataArray questionType:_calculateType add:NO];
         [self.navigationController pushViewController:editVC animated:YES];
     }
 }
 
 - (void)autoAdd {
-    KSBAutoAddStocksVC *autoVC = [[KSBAutoAddStocksVC alloc] init];
-    [self.navigationController pushViewController:autoVC animated:YES];
+    KSBCalculateEditVC *editVC = [[KSBCalculateEditVC alloc] initWithStock:_dataArray questionType:_calculateType add:YES];
+    [self.navigationController pushViewController:editVC animated:YES];
 }
 
 - (void)manualAdd {
@@ -166,7 +166,7 @@ static const int cellOffX = 0;
 }
 
 - (void)showEidtAddView:(KSBStockInfo *)info {
-    KSBEditAddV *editV = [[KSBEditAddV alloc] initWithStock:info];
+    KSBEditAddV *editV = [[KSBEditAddV alloc] initWithStock:info calculateType:_calculateType];
     [SysDelegate.window addSubview:editV];
     [editV showContent];
     

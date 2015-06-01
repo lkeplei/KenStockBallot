@@ -9,11 +9,13 @@
 "app_title" = "概率计算器";
 "app_back" = "返回";
 "app_delete" = "删除";
+"app_add" = "导入";
 
 "question_title1" = "股票";
 "question_title2" = "交易所";
 "question_title3" = "发行价";
 "question_title4" = "申购股数";
+"question_title4_2" = "申购上限";
 "question_title5" = "预估\n中签率";
 
 "question_calculate" = "计算";
@@ -25,6 +27,7 @@
 "edit_title3" = "申购代码";
 "edit_title4" = "发行价";
 "edit_title5" = "申购股数";
+"edit_title5_2" = "申购上限";
 "edit_title6" = "预估中签率";
 
 "edit_alert1" = "请输入股票简称";

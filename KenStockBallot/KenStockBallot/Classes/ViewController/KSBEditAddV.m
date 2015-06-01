@@ -12,6 +12,7 @@
 @interface KSBEditAddV ()
 
 @property (assign) BOOL shangHaiSelected;
+@property (assign) KSBCalculateType calculateType;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIButton *shangHaiBtn;
 @property (nonatomic, strong) UIButton *shengZhenBtn;
@@ -22,10 +23,11 @@
 
 @implementation KSBEditAddV
 
-- (instancetype)initWithStock:(KSBStockInfo *)info {
+- (instancetype)initWithStock:(KSBStockInfo *)info calculateType:(KSBCalculateType)type {
     self = [super initWithFrame:(CGRect){CGPointZero, kGSize}];
     if (self) {
         _stockInfo = info;
+        _calculateType = type;
         if ([KenUtils isNotEmpty:info] && [info.stockJiaoYS isEqual:KenLocal(@"edit_shengzhen")]) {
             _shangHaiSelected = NO;
         } else {
@@ -74,8 +76,8 @@
     [_contentView addSubview:closeBtn];
     [_contentView bringSubviewToFront:closeBtn];
     
-    NSArray *array = @[KenLocal(@"edit_title1"), KenLocal(@"edit_title2"), KenLocal(@"edit_title3"),
-                       KenLocal(@"edit_title4"), KenLocal(@"edit_title5"), KenLocal(@"edit_title6")];
+    NSArray *array = @[KenLocal(@"edit_title1"), KenLocal(@"edit_title2"), KenLocal(@"edit_title3"), KenLocal(@"edit_title4"),
+                       _calculateType == kKSBCalculateQuestion1 ? KenLocal(@"edit_title5") : KenLocal(@"edit_title5_2"), KenLocal(@"edit_title6")];
     NSArray *textArray = nil;
     if ([KenUtils isEmpty:_stockInfo]) {
         textArray = @[@"", @"", @"", @"", @"", @""];
