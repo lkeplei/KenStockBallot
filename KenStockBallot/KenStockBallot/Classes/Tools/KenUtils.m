@@ -428,4 +428,10 @@
     NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     return [test evaluateWithObject:number];
 }
+
++ (BOOL)validateInteger:(NSString *)number {
+    NSString *regex = @"^[1-9]\\d*$";
+    NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [test evaluateWithObject:number];
+}
 @end

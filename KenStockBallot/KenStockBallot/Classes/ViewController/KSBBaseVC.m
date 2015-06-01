@@ -19,6 +19,9 @@
     // Do any additional setup after loading the view.
     
     [self.view setBackgroundColor:[UIColor separatorColor]];
+
+//    [self.navigationController.navigationBar setBackgroundColor:[UIColor greenTextColor]];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"question_calculate"] forBarMetrics:0];
 }
 
 - (void)didReceiveMemoryWarning {

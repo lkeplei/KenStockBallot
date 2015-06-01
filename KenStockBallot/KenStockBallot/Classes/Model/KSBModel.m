@@ -21,16 +21,26 @@ static KSBModel *_sharedModel = nil;
     return _sharedModel;
 }
 
-- (void)saveStock:(NSArray *)stockArray {
+- (void)saveStock:(NSArray *)stockArray type:(KSBCalculateType)type {
     NSMutableArray *array = [NSMutableArray array];
     for (KSBStockInfo *info in stockArray) {
         [array addObject:[info getStockDictionary]];
     }
-    [self setDataByKey:array forkey:kUserDefaultUserStock];
+    
+    if (type == kKSBCalculateQuestion1) {
+        [self setDataByKey:array forkey:kUserDefaultUserStock1];
+    } else if (type == kKSBCalculateQuestion2) {
+        [self setDataByKey:array forkey:kUserDefaultUserStock2];
+    }
 }
 
-- (NSArray *)getStock {
-    NSArray *stockArray = [self getDataByKey:kUserDefaultUserStock];
+- (NSArray *)getStock:(KSBCalculateType)type {
+    NSArray *stockArray = nil;
+    if (type == kKSBCalculateQuestion1) {
+        stockArray = [self getDataByKey:kUserDefaultUserStock1];
+    } else if (type == kKSBCalculateQuestion2) {
+        stockArray = [self getDataByKey:kUserDefaultUserStock2];
+    }
     
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *dic in stockArray) {

@@ -93,5 +93,6 @@
 //^[1-9]d*.d*|0.d*[1-9]d*|0?.0+|0$　　 //匹配非负浮点数（正浮点数 + 0）
 //^(-([1-9]d*.d*|0.d*[1-9]d*))|0?.0+|0$　　//匹配非正浮点数（负浮点数 + 0）
 + (BOOL)validateNumber:(NSString *)number;
++ (BOOL)validateInteger:(NSString *)number;
 
 @end

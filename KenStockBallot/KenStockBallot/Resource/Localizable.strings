@@ -8,6 +8,7 @@
 
 "app_title" = "概率计算器";
 "app_back" = "返回";
+"app_delete" = "删除";
 
 "question_title1" = "股票";
 "question_title2" = "交易所";
@@ -35,6 +36,8 @@
 "edit_validate_alert3" = "请输入正确的发行价";
 "edit_validate_alert4" = "请输入正确的申购股数";
 "edit_validate_alert5" = "请输入正确的预估中签率";
+"edit_validate_alert4_sh" = "上海：申购股数必须为1000股的整数倍！";
+"edit_validate_alert4_sz" = "深圳：申购股数必须为500股的整数倍！";
 
 "edit_shanghai" = "上海";
 "edit_shengzhen" = "深圳";

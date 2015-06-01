@@ -38,6 +38,7 @@
 		BE009AAF1B185DCD00DE9530 /* KSBCalculateQuestion1V.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AAE1B185DCD00DE9530 /* KSBCalculateQuestion1V.m */; };
 		BE009AB21B18603900DE9530 /* KSBCalculateQuestion2V.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AB11B18603900DE9530 /* KSBCalculateQuestion2V.m */; };
 		BE009AB51B18615200DE9530 /* KSBCalculateBaseV.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AB41B18615200DE9530 /* KSBCalculateBaseV.m */; };
+		BE009AB81B1C070A00DE9530 /* KSBCalculateEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009AB71B1C070A00DE9530 /* KSBCalculateEditVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		BE009AB11B18603900DE9530 /* KSBCalculateQuestion2V.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBCalculateQuestion2V.m; sourceTree = "<group>"; };
 		BE009AB31B18615200DE9530 /* KSBCalculateBaseV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBCalculateBaseV.h; sourceTree = "<group>"; };
 		BE009AB41B18615200DE9530 /* KSBCalculateBaseV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBCalculateBaseV.m; sourceTree = "<group>"; };
+		BE009AB61B1C070A00DE9530 /* KSBCalculateEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBCalculateEditVC.h; sourceTree = "<group>"; };
+		BE009AB71B1C070A00DE9530 /* KSBCalculateEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBCalculateEditVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +237,8 @@
 				BE009AB11B18603900DE9530 /* KSBCalculateQuestion2V.m */,
 				BE009AB31B18615200DE9530 /* KSBCalculateBaseV.h */,
 				BE009AB41B18615200DE9530 /* KSBCalculateBaseV.m */,
+				BE009AB61B1C070A00DE9530 /* KSBCalculateEditVC.h */,
+				BE009AB71B1C070A00DE9530 /* KSBCalculateEditVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				BE009AA71B16BCE800DE9530 /* KSBEditAddV.m in Sources */,
 				BE009AB51B18615200DE9530 /* KSBCalculateBaseV.m in Sources */,
 				BE009A8C1B15697200DE9530 /* UIDevice+IdentifierAddition.m in Sources */,
+				BE009AB81B1C070A00DE9530 /* KSBCalculateEditVC.m in Sources */,
 				BE009A851B15697200DE9530 /* NSMutableArray+KenMutableArray.m in Sources */,
 				BE009A8F1B15697200DE9530 /* UIView+KenUIView.m in Sources */,
 				BE009AB21B18603900DE9530 /* KSBCalculateQuestion2V.m in Sources */,

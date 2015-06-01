@@ -97,6 +97,7 @@
 #define kKenFontHelvetica(a)    [UIFont fontWithName:@"Helvetica" size:a]
 
 //user default 数据
-#define kUserDefaultUserStock           @"default_user_stock"
+#define kUserDefaultUserStock1          @"default_user_stock1"
+#define kUserDefaultUserStock2          @"default_user_stock2"
 
 #endif

@@ -235,6 +235,18 @@
             NSString *string = [@"edit_alert" stringByAppendingFormat:@"%d", i + 1];
             kKenAlert(KenLocal(string));
             return;
+        } else if (i == 3) {
+            int base = _shangHaiSelected ? 1000 : 500;
+            if ([[_textFieldArray[3] text] integerValue] % base != 0) {
+                kKenAlert(_shangHaiSelected ? KenLocal(@"edit_validate_alert4_sh") : KenLocal(@"edit_validate_alert4_sz"));
+                return;
+            } else {
+                if (![KenUtils validateInteger:[_textFieldArray[i] text]]) {
+                    NSString *string = [@"edit_validate_alert" stringByAppendingFormat:@"%d", i + 1];
+                    kKenAlert(KenLocal(string));
+                    return;
+                }
+            }
         } else if (i >= 2 && ![KenUtils validateNumber:[_textFieldArray[i] text]]){
             NSString *string = [@"edit_validate_alert" stringByAppendingFormat:@"%d", i + 1];
             kKenAlert(KenLocal(string));

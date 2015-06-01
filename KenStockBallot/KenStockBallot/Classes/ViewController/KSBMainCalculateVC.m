@@ -12,8 +12,9 @@
 #import "KSBAutoAddStocksVC.h"
 #import "KSBCalculateQuestion1V.h"
 #import "KSBCalculateQuestion2V.h"
+#import "KSBCalculateEditVC.h"
 
-static const int cellOffX = 20;
+static const int cellOffX = 0;
 
 @interface KSBMainCalculateVC ()
 
@@ -23,6 +24,8 @@ static const int cellOffX = 20;
 @property (nonatomic, strong) UITableView *stockTable;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, readonly) KSBCalculateType calculateType;
+
+@property (assign) BOOL editStatus;
 
 @end
 
@@ -39,6 +42,7 @@ static const int cellOffX = 20;
         _calculateType = type;
         _selectedIndex = 0;
         _dataArray = [NSMutableArray array];
+        _editStatus = NO;
     }
     return self;
 }
@@ -57,8 +61,8 @@ static const int cellOffX = 20;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    NSArray *array = [[KSBModel shareKSBModel] getStock];
-    if ([KenUtils isNotEmpty:array] && [array count] > 0) {
+    NSArray *array = [[KSBModel shareKSBModel] getStock:_calculateType];
+    if ([KenUtils isNotEmpty:array]) {
         [_dataArray removeAllObjects];
         [_dataArray addObjectsFromArray:array];
         [_stockTable reloadData];
@@ -134,7 +138,10 @@ static const int cellOffX = 20;
 
 #pragma mark - button
 - (void)editStock {
-    
+    if ([_dataArray count] > 0) {
+        KSBCalculateEditVC *editVC = [[KSBCalculateEditVC alloc] initWithStock:_dataArray questionType:_calculateType];
+        [self.navigationController pushViewController:editVC animated:YES];
+    }
 }
 
 - (void)autoAdd {
@@ -168,7 +175,7 @@ static const int cellOffX = 20;
         [[retSelf dataArray] addObject:info];
         [[retSelf stockTable] reloadData];
         
-        [[KSBModel shareKSBModel] saveStock:[retSelf dataArray]];
+        [[KSBModel shareKSBModel] saveStock:[retSelf dataArray] type:_calculateType];
     };
     
     editV.editBlock = ^(KSBStockInfo *info) {
@@ -176,7 +183,7 @@ static const int cellOffX = 20;
             [[retSelf dataArray] replaceObjectAtIndex:_selectedIndex withObject:info];
             [[retSelf stockTable] reloadData];
             
-            [[KSBModel shareKSBModel] saveStock:[retSelf dataArray]];
+            [[KSBModel shareKSBModel] saveStock:[retSelf dataArray] type:_calculateType];
         }
     };
 }

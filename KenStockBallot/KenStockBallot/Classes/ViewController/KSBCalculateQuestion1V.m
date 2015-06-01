@@ -67,7 +67,7 @@
     float ballot = 1;
     for (int i = 0; i < [self.stockArray count]; i++) {
         KSBStockInfo *info = (KSBStockInfo *)[self.stockArray objectAtIndex:i];
-        ballot *= (1 - [info getShengGouBallot]);
+        ballot *= (1 - ([info getShengGouBallot] / 100));
     }
     return [NSString stringWithFormat:@"%.2f%%", (1 - ballot) * 100];
 }

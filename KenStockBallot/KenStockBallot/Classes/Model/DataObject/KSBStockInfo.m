@@ -40,18 +40,21 @@
 //申购倍数      =   申购股数÷每签股数
 //最大申购倍数    =   申购上限÷每签股数
 - (NSInteger)getShengGouBeiShu {
+    DebugLog("getShengGouBeiShu ==> %d / %d = %d", _stockBuyMax, [self getMeiQianGuShu], _stockBuyMax / [self getMeiQianGuShu]);
     return _stockBuyMax / [self getMeiQianGuShu];
 }
 
 //申购金额      =   发行价×申购股数
 //最大申购金额    =   发行价×申购上限
 - (CGFloat)getShengGouMoney {
+    DebugLog("getShengGouMoney ==> %.2f * %d = %.2f", _stockPrice, _stockBuyMax, _stockPrice * _stockBuyMax);
     return _stockPrice * _stockBuyMax;
 }
 
 //申购中签率 =   预估中签率×申购倍数
 //累计中签率 =   预估中签率×最大申购倍数
 - (CGFloat)getShengGouBallot {
+    DebugLog("getShengGouBallot ==> %.2f * %d = %.2f", _stockBallot, [self getShengGouBeiShu], _stockBallot * [self getShengGouBeiShu]);
     return _stockBallot * [self getShengGouBeiShu];
 }
 

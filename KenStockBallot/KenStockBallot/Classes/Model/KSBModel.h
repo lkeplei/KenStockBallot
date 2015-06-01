@@ -17,7 +17,7 @@
 - (void)removeDataByKey:(NSString *)key;
 - (id)getDataByKey:(NSString *)key;
 
-- (void)saveStock:(NSArray *)stockArray;
-- (NSArray *)getStock;
+- (void)saveStock:(NSArray *)stockArray type:(KSBCalculateType)type;
+- (NSArray *)getStock:(KSBCalculateType)type;
 
 @end
