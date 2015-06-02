@@ -94,7 +94,9 @@
 //申购中签率=建议申购股数÷每签股数×预估中签率
 //至少中一签概率=100%-（100%-申购中签率1）×（100%-申购中签率2）×（100%-申购中签率3）……
 //申购共需资金=∑建议申购金额"
-
+- (CGFloat)getSuggestionBallot {
+    return _suggestionBuy / [self getMeiQianGuShu] * _stockBallot;
+}
 
 @end
 

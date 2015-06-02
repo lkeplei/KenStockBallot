@@ -70,18 +70,66 @@ static const float maxCellNumber = 3;
 }
 
 - (NSString *)getTotalMoney {
-    return @"100000";
+    NSInteger money = 0;
+    for (int i = 0; i < [_dataArray count]; i++) {
+        KSBStockInfo *info = (KSBStockInfo *)[_dataArray objectAtIndex:i];
+        money += info.suggestionMoney;
+    }
+    return [NSString stringWithFormat:@"%d%@", money, KenLocal(@"edit_yuan")];
 }
 
 - (NSString *)getBallot {
-    return @"26%";
+    //"至少中一签概率=100%-（100%-申购中签率1）×（100%-申购中签率2）×（100%-申购中签率3）……
+    float ballot = 1;
+    for (int i = 0; i < [_dataArray count]; i++) {
+        KSBStockInfo *info = (KSBStockInfo *)[_dataArray objectAtIndex:i];
+        ballot *= (1 - ([info getSuggestionBallot] / 100));
+    }
+    return [NSString stringWithFormat:@"%.2f%%", MIN((1 - ballot), 1) * 100];
+}
+
+NSInteger sortType(id st, id str, void *cha) {
+    KSBStockInfo *info1 = (KSBStockInfo *)st;
+    KSBStockInfo *info2 = (KSBStockInfo *)str;
+
+    if (info1.stockBallot > info2.stockBallot) {
+        return NSOrderedAscending;
+    } else if (info1.stockBallot < info2.stockBallot) {
+        return NSOrderedDescending;
+    }
+    
+    return NSOrderedSame;
 }
 
 - (void)calculateStockCombination {
     _dataArray = [NSMutableArray array];
     
-    for (int i = 0; i < 6; i++) {
-        [_dataArray addObject:@[@"永创智能", @"20000股", @"1000000元", @"603901"]];
+    //首先对股票进行排序，中签率由高到低
+    NSArray *resultArray = [self.stockArray sortedArrayUsingFunction:sortType context:nil];
+    
+    float currentMoney = self.totalMoney;
+    BOOL over = NO;
+    for (int i = 0; i < [resultArray count]; i++) {
+        KSBStockInfo *info = [resultArray objectAtIndex:i];
+        if (currentMoney > info.stockBuyMax * info.stockPrice) {
+            [info setSuggestionBuy:info.stockBuyMax];
+            [info setSuggestionMoney:[info getShengGouMoney]];
+        } else {
+            [info setSuggestionBuy:currentMoney / info.stockPrice];
+            [info setSuggestionMoney:info.suggestionBuy * info.stockPrice];
+            over = YES;
+        }
+        
+        if (info.suggestionBuy <= 0 && [_dataArray count] <= 0) {
+            kKenAlert(KenLocal(@"result2_alert"));
+            return;
+        } else {
+            currentMoney -= info.suggestionMoney;
+            [_dataArray addObject:info];
+            if (over) {
+                return;
+            }
+        }
     }
 }
 
@@ -101,15 +149,17 @@ static const float maxCellNumber = 3;
     
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    NSArray *contentArray = [_dataArray objectAtIndex:indexPath.row];
-    float width = self.contentView.width / ([contentArray count] - 1);
-    for (int i = 0; i < [contentArray count] - 1; i++) {
+    KSBStockInfo *info = _dataArray[indexPath.row];
+    NSArray *array = @[info.stockName, [NSString stringWithFormat:@"%d%@", info.suggestionBuy, KenLocal(@"edit_gu")],
+                       [NSString stringWithFormat:@"%.2f%@", info.suggestionMoney, KenLocal(@"edit_yuan")]];
+    float width = self.contentView.width / [array count];
+    for (int i = 0; i < [array count]; i++) {
         float height = i == 0 ? cellHeight * 0.4 : cellHeight;
-        UILabel *label = [KenUtils labelWithTxt:contentArray[i] frame:(CGRect){width * i, i == 0 ? cellHeight * 0.15 : 0, width, height}
+        UILabel *label = [KenUtils labelWithTxt:array[i] frame:(CGRect){width * i, i == 0 ? cellHeight * 0.15 : 0, width, height}
                                            font:kKenFontHelvetica(12) color:[UIColor blackTextColor]];
         [cell.contentView addSubview:label];
         if (i == 0) {
-            UILabel *code = [KenUtils labelWithTxt:[contentArray lastObject] frame:(CGRect){0, cellHeight * 0.5, width, height}
+            UILabel *code = [KenUtils labelWithTxt:info.stockCode frame:(CGRect){0, cellHeight * 0.5, width, height}
                                               font:kKenFontHelvetica(12) color:[UIColor grayTextColor]];
             [cell.contentView addSubview:code];
         }

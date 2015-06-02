@@ -52,7 +52,7 @@
 }
 
 - (void)question2Selected {
-    KSBMainCalculateVC *calculateVC = [[KSBMainCalculateVC alloc] initWithCalculateType:kKSBCalculateQuestion2];
-    [self.navigationController pushViewController:calculateVC animated:YES];
+//    KSBMainCalculateVC *calculateVC = [[KSBMainCalculateVC alloc] initWithCalculateType:kKSBCalculateQuestion2];
+//    [self.navigationController pushViewController:calculateVC animated:YES];
 }
 @end

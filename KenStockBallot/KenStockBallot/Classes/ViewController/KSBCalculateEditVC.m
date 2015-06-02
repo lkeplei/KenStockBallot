@@ -115,9 +115,19 @@ static const int cellEitOffX = 30;
 
 - (void)loadTable {
     if (_isAdd) {
+        __block UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+        indicatorView.center = self.view.center;
+        [indicatorView setColor:[UIColor grayColor]];
+        [self.view addSubview:indicatorView];
+        [indicatorView startAnimating];
+        
         BmobQuery *bquery = [BmobQuery queryWithClassName:@"StockTable"];
         //查找GameScore表里面id为0c6db13c的数据
         [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
+            [indicatorView stopAnimating];
+            [indicatorView removeFromSuperview];
+            indicatorView = nil;
+            
             if (error){
                 DebugLog("error = %@", error);
             } else {

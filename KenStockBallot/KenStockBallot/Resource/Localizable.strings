@@ -19,6 +19,7 @@
 "question_title5" = "预估\n中签率";
 
 "question_label" = "我的申购总资金:";
+"question_alert" = "请输入申购总资金:";
 
 "question_calculate" = "计算";
 "question_auto_add" = "自动导入";
@@ -57,3 +58,4 @@
 "result2_cell_title1" = "股票";
 "result2_cell_title2" = "申购股数";
 "result2_cell_title3" = "申购金额";
+"result2_alert" = "亲，您也太抠门儿了吧，能多投点儿吗！！";

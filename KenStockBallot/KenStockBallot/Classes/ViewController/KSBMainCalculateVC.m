@@ -208,7 +208,11 @@ static const int cellOffX = 0;
     if (_calculateType == kKSBCalculateQuestion1) {
         resultV = [[KSBCalculateQuestion1V alloc] initWithStockArray:_dataArray money:nil];
     } else if (_calculateType == kKSBCalculateQuestion2) {
-        resultV = [[KSBCalculateQuestion2V alloc] initWithStockArray:_dataArray money:[_totalMoneyTextField text]];
+        if ([[_totalMoneyTextField text] length] <= 0) {
+            kKenAlert(KenLocal(@"question_alert"));
+        } else {
+            resultV = [[KSBCalculateQuestion2V alloc] initWithStockArray:_dataArray money:[_totalMoneyTextField text]];
+        }
     }
     
     [SysDelegate.window addSubview:resultV];
