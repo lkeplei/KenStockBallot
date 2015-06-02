@@ -17,6 +17,8 @@
 @property (nonatomic, assign) NSInteger stockBuyMax;          //申购上限（申购股数）
 @property (nonatomic, assign) CGFloat stockBallot;            //预估中签率
 
+@property (nonatomic, assign) NSInteger suggestionBuy;        //建议申购股数，这个属性不保存，只用作计算中转值
+
 - (NSDictionary *)getStockDictionary;
 
 - (NSInteger)getMeiQianGuShu;

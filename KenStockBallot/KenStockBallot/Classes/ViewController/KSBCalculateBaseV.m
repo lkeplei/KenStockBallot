@@ -10,10 +10,13 @@
 
 @implementation KSBCalculateBaseV
 
-- (instancetype)initWithStockArray:(NSArray *)array {
+- (instancetype)initWithStockArray:(NSArray *)array money:(NSString *)money {
     self = [super initWithFrame:(CGRect){CGPointZero, kGSize}];
     if (self) {
         _stockArray = [NSArray arrayWithArray:array];
+        if ([KenUtils isNotEmpty:money]) {
+            _totalMoney = [money integerValue];
+        }
         [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
     }
     return self;
@@ -31,8 +34,33 @@
         
         [self addSubview:_contentView];
         
-        [self initContent];
+        CGRect frame = [self initContent];
         
+        //content1
+        UILabel *content1 = [KenUtils labelWithTxt:KenLocal(@"result1_content1") frame:(CGRect){15, CGRectGetMaxY(frame), 140, 40}
+                                              font:kKenFontHelvetica(17) color:[UIColor greenTextColor]];
+        content1.textAlignment = KTextAlignmentLeft;
+        [self.contentView addSubview:content1];
+        
+        content1 = [KenUtils labelWithTxt:[self getTotalMoney]
+                                    frame:(CGRect){CGRectGetMaxX(content1.frame), content1.originY, self.contentView.width, 40}
+                                     font:kKenFontHelvetica(17) color:[UIColor blackTextColor]];
+        content1.textAlignment = KTextAlignmentLeft;
+        [self.contentView addSubview:content1];
+        
+        //content2
+        UILabel *content2 = [KenUtils labelWithTxt:KenLocal(@"result1_content2")
+                                             frame:(CGRect){15, CGRectGetMaxY(content1.frame), 140, 40}
+                                              font:kKenFontHelvetica(17) color:[UIColor greenTextColor]];
+        content2.textAlignment = KTextAlignmentLeft;
+        [self.contentView addSubview:content2];
+        
+        content2 = [KenUtils labelWithTxt:[self getBallot] frame:(CGRect){content1.originX, content2.originY, self.contentView.width, 40}
+                                     font:kKenFontHelvetica(17) color:[UIColor blackTextColor]];
+        content2.textAlignment = KTextAlignmentLeft;
+        [self.contentView addSubview:content2];
+        
+        //confirm btn
         UIButton *confirmBtn = [KenUtils buttonWithImg:nil off:0 zoomIn:NO
                                                  image:[UIImage imageNamed:@"close_btn.png"]
                                               imagesec:[UIImage imageNamed:@"close_btn_sec.png"] target:self action:@selector(closeClicked)];
@@ -45,12 +73,20 @@
     }];
 }
 
+- (NSString *)getTotalMoney {
+    return @"";
+}
+
+- (NSString *)getBallot {
+    return @"";
+}
+
 - (CGRect)getContentFrame {
     return (CGRect){kGSize.width, kGSize.height * 0.2, kGSize.width * 0.8, kGSize.height * 0.6};
 }
 
-- (void)initContent {
-    
+- (CGRect)initContent {
+    return CGRectMake(0, 0, 0, 0);
 }
 
 #pragma mark - button

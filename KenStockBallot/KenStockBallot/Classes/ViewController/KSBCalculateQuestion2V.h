@@ -8,6 +8,6 @@
 
 #import "KSBCalculateBaseV.h"
 
-@interface KSBCalculateQuestion2V : KSBCalculateBaseV
+@interface KSBCalculateQuestion2V : KSBCalculateBaseV<UITableViewDataSource, UITableViewDelegate>
 
 @end

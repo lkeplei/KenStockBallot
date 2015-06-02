@@ -18,6 +18,8 @@
 "question_title4_2" = "申购上限";
 "question_title5" = "预估\n中签率";
 
+"question_label" = "我的申购总资金:";
+
 "question_calculate" = "计算";
 "question_auto_add" = "自动导入";
 "qusstion_manual_add" = "手动添加";
@@ -33,12 +35,12 @@
 "edit_alert1" = "请输入股票简称";
 "edit_alert2" = "请输入申购代码";
 "edit_alert3" = "请输入发行价";
-"edit_alert4" = "请输入申购股数";
+"edit_alert4" = "请输入申购股数,";
 "edit_alert5" = "请输入预估中签率";
 
-"edit_validate_alert3" = "请输入正确的发行价";
-"edit_validate_alert4" = "请输入正确的申购股数";
-"edit_validate_alert5" = "请输入正确的预估中签率";
+"edit_validate_alert3" = "请输入正确的发行价，小数点后保留两位";
+"edit_validate_alert4" = "请输入正确的申购股数（正整数）";
+"edit_validate_alert5" = "请输入正确的预估中签率，小数点后保留两位";
 "edit_validate_alert4_sh" = "上海：申购股数必须为1000股的整数倍！";
 "edit_validate_alert4_sz" = "深圳：申购股数必须为500股的整数倍！";
 
@@ -52,3 +54,6 @@
 "result1_content2" = "至少中一签概率：";
 
 "result2_title" = "推荐申购组合";
+"result2_cell_title1" = "股票";
+"result2_cell_title2" = "申购股数";
+"result2_cell_title3" = "申购金额";

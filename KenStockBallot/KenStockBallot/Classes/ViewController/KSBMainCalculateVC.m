@@ -21,6 +21,7 @@ static const int cellOffX = 0;
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) UITableView *stockTable;
+@property (nonatomic, strong) UITextField *totalMoneyTextField;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, readonly) KSBCalculateType calculateType;
 
@@ -55,6 +56,11 @@ static const int cellOffX = 0;
     [self initTopV];
     [self initBottomV];
     [self initStockTable];
+    
+    //tap gesture
+    UITapGestureRecognizer *tapTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    tapTouch.delegate = self;
+    [self.view addGestureRecognizer:tapTouch];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -78,6 +84,30 @@ static const int cellOffX = 0;
         UIView *inputV = [[UIView alloc] initWithFrame:(CGRect){0, offY, _topView.width, 44}];
         [inputV setBackgroundColor:[UIColor whiteColor]];
         [_topView addSubview:inputV];
+        
+        UIImageView *moneyLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"money_logo.png"]];
+        moneyLogo.center = CGPointMake(moneyLogo.width / 2 + 8, inputV.height / 2);
+        [inputV addSubview:moneyLogo];
+        
+        UILabel *label = [KenUtils labelWithTxt:KenLocal(@"question_label") frame:(CGRect){CGRectGetMaxX(moneyLogo.frame) + 4, 0, 124, inputV.height}
+                                           font:kKenFontHelvetica(15) color:[UIColor blackTextColor]];
+        [inputV addSubview:label];
+        
+        //text field
+        _totalMoneyTextField = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(label.frame) + 4, 4, 130, inputV.height - 8)];
+        _totalMoneyTextField.font = kKenFontArial(14);
+        _totalMoneyTextField.clearButtonMode = UITextFieldViewModeAlways;
+        _totalMoneyTextField.clearsOnBeginEditing = NO;
+        _totalMoneyTextField.textAlignment = KTextAlignmentLeft;
+        _totalMoneyTextField.returnKeyType = UIReturnKeyDone;
+        _totalMoneyTextField.delegate = self;
+        _totalMoneyTextField.keyboardType = UIKeyboardTypeNumberPad;
+        [_totalMoneyTextField setBorderStyle:UITextBorderStyleRoundedRect];
+        [inputV addSubview:_totalMoneyTextField];
+        
+        UILabel *unit = [KenUtils labelWithTxt:KenLocal(@"edit_yuan") frame:(CGRect){CGRectGetMaxX(_totalMoneyTextField.frame), 0, 24, inputV.height}
+                                           font:kKenFontHelvetica(16) color:[UIColor blackTextColor]];
+        [inputV addSubview:unit];
         
         offY += 44;
     }
@@ -136,6 +166,26 @@ static const int cellOffX = 0;
     [_bottomView addSubview:calculateBtn];
 }
 
+#pragma mark - textField
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+
+}
+
+- (void)hideKeyboard {
+    [_totalMoneyTextField resignFirstResponder];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([_totalMoneyTextField isFirstResponder]) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark - button
 - (void)editStock {
     if ([_dataArray count] > 0) {
@@ -156,9 +206,9 @@ static const int cellOffX = 0;
 - (void)calculateBtn {
     KSBCalculateBaseV *resultV = nil;
     if (_calculateType == kKSBCalculateQuestion1) {
-        resultV = [[KSBCalculateQuestion1V alloc] initWithStockArray:_dataArray];
+        resultV = [[KSBCalculateQuestion1V alloc] initWithStockArray:_dataArray money:nil];
     } else if (_calculateType == kKSBCalculateQuestion2) {
-        resultV = [[KSBCalculateQuestion2V alloc] initWithStockArray:_dataArray];
+        resultV = [[KSBCalculateQuestion2V alloc] initWithStockArray:_dataArray money:[_totalMoneyTextField text]];
     }
     
     [SysDelegate.window addSubview:resultV];
@@ -208,7 +258,7 @@ static const int cellOffX = 0;
     NSArray *array = @[info.stockName, info.stockJiaoYS,
                        [NSString stringWithFormat:@"%.2f%@", info.stockPrice, KenLocal(@"edit_yuan")],
                        [NSString stringWithFormat:@"%d%@", info.stockBuyMax, KenLocal(@"edit_gu")],
-                       [NSString stringWithFormat:@"%.4f%%", info.stockBallot]];
+                       [NSString stringWithFormat:@"%.2f%%", info.stockBallot]];
     float width = (kGSize.width - cellOffX) / [array count];
     for (int i = 0; i < [array count]; i++) {
         float height = i == 0 ? cell.height * 0.4 : cell.height;

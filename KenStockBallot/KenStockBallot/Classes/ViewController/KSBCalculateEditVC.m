@@ -16,7 +16,9 @@ static const int cellEitOffX = 30;
 @interface KSBCalculateEditVC ()
 
 @property (assign) BOOL isAdd;
+@property (assign) BOOL isSelectAll;
 @property (assign) KSBCalculateType calculateType;
+@property (nonatomic, strong) UIButton *selectAllBtn;
 @property (nonatomic, strong) UITableView *stockTable;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) NSMutableArray *preDataArray;
@@ -31,6 +33,7 @@ static const int cellEitOffX = 30;
     if (self) {
         _isAdd = add;
         _calculateType = type;
+        _isSelectAll = NO;
         if (_isAdd) {
             _preDataArray = [NSMutableArray arrayWithArray:stockArray];
         } else {
@@ -54,6 +57,13 @@ static const int cellEitOffX = 30;
     [titleV setBackgroundColor:[UIColor grayBgColor]];
     [topView addSubview:titleV];
     
+    //select all
+    _selectAllBtn = [KenUtils buttonWithImg:nil off:0 zoomIn:YES image:[UIImage imageNamed:@"select_none.png"]
+                                   imagesec:[UIImage imageNamed:@"select_none.png"] target:self action:@selector(selectAllClicked)];
+    _selectAllBtn.center = CGPointMake(titleV.height / 2, titleV.height / 2);
+    [titleV addSubview:_selectAllBtn];
+    
+    //title
     NSArray *titleArr = @[KenLocal(@"question_title1"), KenLocal(@"question_title2"), KenLocal(@"question_title3"),
                           _calculateType == kKSBCalculateQuestion1 ? KenLocal(@"question_title4") : KenLocal(@"question_title4_2"),
                           KenLocal(@"question_title5")];
@@ -65,6 +75,7 @@ static const int cellEitOffX = 30;
         [titleV addSubview:label];
     }
     
+    //bottom delete or add
     UIButton *deleteBtn = [KenUtils buttonWithImg:_isAdd ? KenLocal(@"app_add") : KenLocal(@"app_delete") off:0 zoomIn:NO image:nil
                                             imagesec:nil target:self action:@selector(deleteBtnClicked)];
     [deleteBtn.titleLabel setFont:kKenFontHelvetica(16)];
@@ -72,6 +83,7 @@ static const int cellEitOffX = 30;
     [deleteBtn setBackgroundColor:[UIColor colorWithHexString:_isAdd ? @"#46D56F" : @"#FF643B"]];
     [self.view addSubview:deleteBtn];
     
+    //table
     CGRect rect = CGRectMake(0, CGRectGetMaxY(topView.frame), kGSize.width, deleteBtn.originY - CGRectGetMaxY(topView.frame));
     _stockTable = [[UITableView alloc] initWithFrame:rect style:UITableViewStylePlain];
     _stockTable.delegate = self;
@@ -108,7 +120,7 @@ static const int cellEitOffX = 30;
         [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
             if (error){
                 DebugLog("error = %@", error);
-            }else{
+            } else {
                 if (array) {
                     NSMutableArray *bmobArray = [NSMutableArray array];
                     for (int i = 0; i < [array count]; i++) {
@@ -160,7 +172,7 @@ static const int cellEitOffX = 30;
     NSArray *array = @[info.stockName, info.stockJiaoYS,
                        [NSString stringWithFormat:@"%.2f%@", info.stockPrice, KenLocal(@"edit_yuan")],
                        [NSString stringWithFormat:@"%d%@", info.stockBuyMax, KenLocal(@"edit_gu")],
-                       [NSString stringWithFormat:@"%.4f%%", info.stockBallot]];
+                       [NSString stringWithFormat:@"%.2f%%", info.stockBallot]];
     float width = (kGSize.width - cellEitOffX) / [array count];
     for (int i = 0; i < [array count]; i++) {
         float height = i == 0 ? cell.height * 0.4 : cell.height;
@@ -193,6 +205,21 @@ static const int cellEitOffX = 30;
 }
 
 #pragma mark - button
+- (void)selectAllClicked {
+    _isSelectAll = !_isSelectAll;
+    for (int i = 0; i < [_statusArray count]; i++) {
+        _statusArray[i] = [NSNumber numberWithBool:_isSelectAll];
+    }
+    
+    NSString *selectName = _isAdd ? @"select_green.png" : @"select_red.png";
+    UIImage *image = [UIImage imageNamed:_isSelectAll ? selectName : @"select_none.png"];
+    [_selectAllBtn setImage:image forState:UIControlStateNormal];
+    [_selectAllBtn setImage:image forState:UIControlStateHighlighted];
+    [_selectAllBtn setImage:image forState:UIControlStateSelected];
+    
+    [_stockTable reloadData];
+}
+
 - (void)deleteBtnClicked {
     if (_isAdd) {
         for (int i = 0; i < [_statusArray count]; i++) {

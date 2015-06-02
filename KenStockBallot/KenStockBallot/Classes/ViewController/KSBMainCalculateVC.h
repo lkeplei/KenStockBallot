@@ -8,7 +8,7 @@
 
 #import "KSBBaseVC.h"
 
-@interface KSBMainCalculateVC : KSBBaseVC<UITableViewDataSource, UITableViewDelegate>
+@interface KSBMainCalculateVC : KSBBaseVC<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate>
 
 - (instancetype)initWithCalculateType:(KSBCalculateType)type;
 

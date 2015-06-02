@@ -85,7 +85,7 @@
         textArray = @[@"", [_stockInfo stockName], [_stockInfo stockCode],
                   [NSString stringWithFormat:@"%.2f", _stockInfo.stockPrice],
                   [NSString stringWithFormat:@"%d", _stockInfo.stockBuyMax],
-                  [NSString stringWithFormat:@"%.4f", _stockInfo.stockBallot]];
+                  [NSString stringWithFormat:@"%.2f", _stockInfo.stockBallot]];
     }
     
     float offY = 30;
