@@ -164,7 +164,7 @@
     
     //label
     if ([KenUtils isNotEmpty:unitStr]) {
-        textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        textField.keyboardType = UIKeyboardTypeDecimalPad;
         
         UILabel *unitLabel = [KenUtils labelWithTxt:unitStr frame:(CGRect){CGRectGetMaxX(textField.frame) + 6, offY, 100, 40}
                                            font:kKenFontHelvetica(16) color:[UIColor blackTextColor]];
