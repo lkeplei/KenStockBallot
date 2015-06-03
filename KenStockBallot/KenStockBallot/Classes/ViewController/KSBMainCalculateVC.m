@@ -276,7 +276,7 @@ static const int cellOffX = 0;
         }
     }
     
-    UIView *line = [[UIView alloc] initWithFrame:(CGRect){cellOffX, cell.height - 1, cell.width, 1}];
+    UIView *line = [[UIView alloc] initWithFrame:(CGRect){cellOffX, cell.height - 1, kGSize.width, 1}];
     [line setBackgroundColor:[UIColor separatorMainColor]];
     [cell.contentView addSubview:line];
     
