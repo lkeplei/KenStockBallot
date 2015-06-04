@@ -6,7 +6,7 @@
   Copyright (c) 2015年 ken. All rights reserved.
 */
 
-"app_title" = "概率计算器";
+"app_title" = "";
 "app_back" = "返回";
 "app_delete" = "删除";
 "app_add" = "导入";

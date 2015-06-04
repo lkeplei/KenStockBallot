@@ -80,7 +80,15 @@ static const int cellEitOffX = 30;
                                             imagesec:nil target:self action:@selector(deleteBtnClicked)];
     [deleteBtn.titleLabel setFont:kKenFontHelvetica(16)];
     deleteBtn.frame = CGRectMake(0, kGSize.height - 44, self.view.width, 44);
-    [deleteBtn setBackgroundColor:[UIColor colorWithHexString:_isAdd ? @"#46D56F" : @"#FF643B"]];
+    if (_isAdd) {
+        [deleteBtn setBackgroundImage:[UIImage imageNamed:@"add_bg"] forState:UIControlStateNormal];
+        [deleteBtn setBackgroundImage:[UIImage imageNamed:@"add_bg_sec"] forState:UIControlStateHighlighted];
+        [deleteBtn setBackgroundImage:[UIImage imageNamed:@"add_bg_sec"] forState:UIControlStateSelected];
+    } else {
+        [deleteBtn setBackgroundImage:[UIImage imageNamed:@"delete_bg"] forState:UIControlStateNormal];
+        [deleteBtn setBackgroundImage:[UIImage imageNamed:@"delete_bg_sec"] forState:UIControlStateHighlighted];
+        [deleteBtn setBackgroundImage:[UIImage imageNamed:@"delete_bg_sec"] forState:UIControlStateSelected];
+    }
     [self.view addSubview:deleteBtn];
     
     //table
@@ -234,7 +242,16 @@ static const int cellEitOffX = 30;
     if (_isAdd) {
         for (int i = 0; i < [_statusArray count]; i++) {
             if ([_statusArray[i] boolValue]) {
-                [_preDataArray addObject:[_dataArray objectAtIndex:i]];
+                BOOL add = YES;
+                for (KSBStockInfo *info in _preDataArray) {
+                    if ([[info stockCode] isEqual:[[_dataArray objectAtIndex:i] stockCode]]) {
+                        add = NO;
+                        break;
+                    }
+                }
+                if (add) {
+                    [_preDataArray addObject:[_dataArray objectAtIndex:i]];
+                }
             }
         }
         [[KSBModel shareKSBModel] saveStock:_preDataArray type:_calculateType];

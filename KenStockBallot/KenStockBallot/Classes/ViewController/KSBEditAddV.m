@@ -47,8 +47,8 @@
         _contentView = [[UIView alloc] initWithFrame:(CGRect){kGSize.width, kGSize.height * 0.2, kGSize.width * 0.8, kGSize.height * 0.6}];
         [_contentView setBackgroundColor:[UIColor whiteColor]];
         
-        [[_contentView layer] setBorderWidth:0.2];//画线的宽度
-        [[_contentView layer] setBorderColor:[UIColor darkGrayColor].CGColor];//颜色
+//        [[_contentView layer] setBorderWidth:0.2];//画线的宽度
+//        [[_contentView layer] setBorderColor:[UIColor darkGrayColor].CGColor];//颜色
         [[_contentView layer] setCornerRadius:8];//圆角
         [[_contentView layer] setMasksToBounds:YES];
         
@@ -68,11 +68,48 @@
     }];
 }
 
+- (void)initItem:(NSString *)unitStr title:(NSString *)title offY:(float)offY text:(NSString *)text {
+    UIView *line = [[UIView alloc] initWithFrame:(CGRect){15, offY, _contentView.width - 30, 1}];
+    [line setBackgroundColor:[UIColor grayBgColor]];
+    [_contentView addSubview:line];
+    
+    UILabel *label = [KenUtils labelWithTxt:title frame:(CGRect){15, offY, 100, 40}
+                                       font:kKenFontHelvetica(16) color:[UIColor greenTextColor]];
+    label.textAlignment = KTextAlignmentLeft;
+    [_contentView addSubview:label];
+    
+    //text field
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(120, offY + 4, [KenUtils isEmpty:unitStr] ? 110 : 90, 40 - 8)];
+    textField.text = text;
+    textField.font = kKenFontArial(14);
+    textField.clearButtonMode = UITextFieldViewModeAlways;
+    textField.clearsOnBeginEditing = NO;
+    textField.textAlignment = KTextAlignmentLeft;
+    textField.returnKeyType = UIReturnKeyDone;
+    textField.delegate = self;
+    [textField setBorderStyle:UITextBorderStyleRoundedRect];
+    [_contentView addSubview:textField];
+    
+    if (_textFieldArray == nil) {
+        _textFieldArray = [NSMutableArray array];
+    }
+    [_textFieldArray addObject:textField];
+    
+    //label
+    if ([KenUtils isNotEmpty:unitStr]) {
+        UILabel *unitLabel = [KenUtils labelWithTxt:unitStr frame:(CGRect){CGRectGetMaxX(textField.frame) + 6, offY, 100, 40}
+                                               font:kKenFontHelvetica(16) color:[UIColor blackTextColor]];
+        unitLabel.textAlignment = KTextAlignmentLeft;
+        [_contentView addSubview:unitLabel];
+    }
+}
+
 - (void)initContent {
-    UIButton *closeBtn = [KenUtils buttonWithImg:nil off:0 zoomIn:NO image:[UIImage imageNamed:@"add_cancel.png"]
+    UIButton *closeBtn = [KenUtils buttonWithImg:nil off:0 zoomIn:YES image:[UIImage imageNamed:@"add_cancel.png"]
                                          imagesec:[UIImage imageNamed:@"add_cancel_sec.png"]
                                            target:self action:@selector(closeView)];
-    closeBtn.origin = CGPointMake(_contentView.width - closeBtn.width, 0);
+    closeBtn.frame = CGRectMake(_contentView.width - closeBtn.width * 1.8, -closeBtn.width * 1.2, closeBtn.width * 3, closeBtn.height * 3);
+    _contentView.clipsToBounds = NO;                //是否切割超出bounds的部分
     [_contentView addSubview:closeBtn];
     [_contentView bringSubviewToFront:closeBtn];
     
@@ -105,6 +142,10 @@
             
             [self initItem:unit title:array[i] offY:offY text:[textArray objectAtIndex:i]];
             
+            if (i != 1) {
+                ((UITextField *)_textFieldArray[i - 1]).keyboardType = UIKeyboardTypeDecimalPad;
+            }
+            
             offY += 40;
         }
     }
@@ -133,44 +174,6 @@
     [_shengZhenBtn setTitleColor:[UIColor blackTextColor] forState:UIControlStateNormal];
     _shengZhenBtn.frame = CGRectMake(CGRectGetMaxX(_shangHaiBtn.frame), _shangHaiBtn.originY, 80, 40);
     [_contentView addSubview:_shengZhenBtn];
-}
-
-- (void)initItem:(NSString *)unitStr title:(NSString *)title offY:(float)offY text:(NSString *)text{
-    UIView *line = [[UIView alloc] initWithFrame:(CGRect){15, offY, _contentView.width - 30, 1}];
-    [line setBackgroundColor:[UIColor grayBgColor]];
-    [_contentView addSubview:line];
-    
-    UILabel *label = [KenUtils labelWithTxt:title frame:(CGRect){15, offY, 100, 40}
-                                       font:kKenFontHelvetica(16) color:[UIColor greenTextColor]];
-    label.textAlignment = KTextAlignmentLeft;
-    [_contentView addSubview:label];
-    
-    //text field
-    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(120, offY + 4, [KenUtils isEmpty:unitStr] ? 110 : 90, 40 - 8)];
-    textField.text = text;
-    textField.font = kKenFontArial(14);
-    textField.clearButtonMode = UITextFieldViewModeAlways;
-    textField.clearsOnBeginEditing = NO;
-    textField.textAlignment = KTextAlignmentLeft;
-    textField.returnKeyType = UIReturnKeyDone;
-    textField.delegate = self;
-    [textField setBorderStyle:UITextBorderStyleRoundedRect];
-    [_contentView addSubview:textField];
-    
-    if (_textFieldArray == nil) {
-        _textFieldArray = [NSMutableArray array];
-    }
-    [_textFieldArray addObject:textField];
-    
-    //label
-    if ([KenUtils isNotEmpty:unitStr]) {
-        textField.keyboardType = UIKeyboardTypeDecimalPad;
-        
-        UILabel *unitLabel = [KenUtils labelWithTxt:unitStr frame:(CGRect){CGRectGetMaxX(textField.frame) + 6, offY, 100, 40}
-                                           font:kKenFontHelvetica(16) color:[UIColor blackTextColor]];
-        unitLabel.textAlignment = KTextAlignmentLeft;
-        [_contentView addSubview:unitLabel];
-    }
 }
 
 #pragma mark - textField

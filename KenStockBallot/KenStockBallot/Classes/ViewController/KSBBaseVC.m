@@ -95,4 +95,11 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.leftBarButtonItem = item;
 }
+
+- (void)pushViewController:(KSBBaseVC *)vc {
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:KenLocal(@"app_back") style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
+
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

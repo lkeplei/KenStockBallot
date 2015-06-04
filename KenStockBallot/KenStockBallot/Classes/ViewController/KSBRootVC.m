@@ -53,10 +53,6 @@
         UIImage *image = [UIImage imageNamed:name];
         if (image) {
             UIImageView *imgView = [[UIImageView alloc]initWithImage:image];
-            if (kIPhone6) {
-                float scale = kGSize.width / imgView.width;
-                imgView.transform = CGAffineTransformMakeScale(scale, scale);
-            }
             imgView.center = CGPointMake(pageIndex * kGSize.width + kGSize.width / 2, _scrollView.height / 2);
             [_scrollView addSubview:imgView];
             
@@ -82,8 +78,7 @@
 
 - (void)selectQuestion {
     if (_pageControl.currentPage == 0) {
-        KSBQuestionSelectVC *questionVC = [[KSBQuestionSelectVC alloc] init];
-        [self.navigationController pushViewController:questionVC animated:YES];
+        [self pushViewController:[[KSBQuestionSelectVC alloc] init]];
     }
 }
 

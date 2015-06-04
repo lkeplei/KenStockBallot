@@ -158,11 +158,17 @@ static const int cellOffX = 0;
     manualBtn.frame = CGRectMake(CGRectGetMaxX(autoBtn.frame), autoBtn.originY, _bottomView.width / 2, 44);
     [_bottomView addSubview:manualBtn];
     
+    UIView *line = [[UIView alloc] initWithFrame:(CGRect){_bottomView.width / 2, autoBtn.originY + 8, 1, 28}];
+    [line setBackgroundColor:[UIColor separatorMainColor]];
+    [_bottomView addSubview:line];
+    
     UIButton *calculateBtn = [KenUtils buttonWithImg:KenLocal(@"question_calculate") off:0 zoomIn:NO image:nil
                                          imagesec:nil target:self action:@selector(calculateBtn)];
     [calculateBtn.titleLabel setFont:kKenFontHelvetica(16)];
     calculateBtn.frame = CGRectMake(0, _bottomView.height - 44, _bottomView.width, 44);
-    [calculateBtn setBackgroundColor:[UIColor greenTextColor]];
+    [calculateBtn setBackgroundImage:[UIImage imageNamed:@"calculate_bg"] forState:UIControlStateNormal];
+    [calculateBtn setBackgroundImage:[UIImage imageNamed:@"calculate_bg_sec"] forState:UIControlStateHighlighted];
+    [calculateBtn setBackgroundImage:[UIImage imageNamed:@"calculate_bg_sec"] forState:UIControlStateSelected];
     [_bottomView addSubview:calculateBtn];
 }
 
@@ -190,13 +196,13 @@ static const int cellOffX = 0;
 - (void)editStock {
     if ([_dataArray count] > 0) {
         KSBCalculateEditVC *editVC = [[KSBCalculateEditVC alloc] initWithStock:_dataArray questionType:_calculateType add:NO];
-        [self.navigationController pushViewController:editVC animated:YES];
+        [self pushViewController:editVC];
     }
 }
 
 - (void)autoAdd {
     KSBCalculateEditVC *editVC = [[KSBCalculateEditVC alloc] initWithStock:_dataArray questionType:_calculateType add:YES];
-    [self.navigationController pushViewController:editVC animated:YES];
+    [self pushViewController:editVC];
 }
 
 - (void)manualAdd {

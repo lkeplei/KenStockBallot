@@ -37,9 +37,13 @@
 //    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     
     //设置导航栏背景色
-    [[UINavigationBar appearance] setBarTintColor:[UIColor greenTextColor]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:kIPhone6 ? @"app_nav_bg_iphone6" : @"app_nav_bg"]
+                                       forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor greenTextColor]];
     //设置导航栏文字颜色
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    //设置返回颜色
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     //bmob
     [Bmob registerWithAppKey:@"bd7722d61ece9296b9e66223f7d441b5"];

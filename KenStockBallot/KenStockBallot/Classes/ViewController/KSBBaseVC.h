@@ -15,5 +15,7 @@
 - (void)setRightNavItemWithTitle:(NSString *)title selector:(SEL)sel;
 - (void)setRightNavItemWithImage:(UIImage *)img imgSec:(UIImage *)imgSec selector:(SEL)sel;
 - (void)setLeftNavItemWithImage:(UIImage *)img imgSec:(UIImage *)imgSec selector:(SEL)sel;
-    
+
+- (void)pushViewController:(KSBBaseVC *)vc;
+
 @end
