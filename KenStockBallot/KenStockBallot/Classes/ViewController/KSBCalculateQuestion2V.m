@@ -71,7 +71,7 @@ static const float maxCellNumber = 3;
 }
 
 - (NSString *)getTotalMoney {
-    NSInteger money = 0;
+    int money = 0;
     for (int i = 0; i < [_dataArray count]; i++) {
         KSBStockInfo *info = (KSBStockInfo *)[_dataArray objectAtIndex:i];
         money += info.suggestionMoney;
@@ -151,7 +151,7 @@ NSInteger sortType(id st, id str, void *cha) {
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     KSBStockInfo *info = _dataArray[indexPath.row];
-    NSArray *array = @[info.stockName, [NSString stringWithFormat:@"%d%@", info.suggestionBuy, KenLocal(@"edit_gu")],
+    NSArray *array = @[info.stockName, [NSString stringWithFormat:@"%d%@", (int)info.suggestionBuy, KenLocal(@"edit_gu")],
                        [NSString stringWithFormat:@"%.2f%@", info.suggestionMoney, KenLocal(@"edit_yuan")]];
     float width = self.contentView.width / [array count];
     for (int i = 0; i < [array count]; i++) {

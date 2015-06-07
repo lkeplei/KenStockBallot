@@ -32,7 +32,7 @@
 }
 
 - (NSString *)getTotalMoney {
-    NSInteger money = 0;
+    int money = 0;
     for (int i = 0; i < [self.stockArray count]; i++) {
         KSBStockInfo *info = (KSBStockInfo *)[self.stockArray objectAtIndex:i];
         money += [info getShengGouMoney];

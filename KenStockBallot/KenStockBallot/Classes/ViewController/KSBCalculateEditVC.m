@@ -192,7 +192,7 @@ static const int cellEitOffX = 30;
     KSBStockInfo *info = _dataArray[indexPath.row];
     NSArray *array = @[info.stockName, info.stockJiaoYS,
                        [NSString stringWithFormat:@"%.2f%@", info.stockPrice, KenLocal(@"edit_yuan")],
-                       [NSString stringWithFormat:@"%d%@", info.stockBuyMax, KenLocal(@"edit_gu")],
+                       [NSString stringWithFormat:@"%d%@", (int)info.stockBuyMax, KenLocal(@"edit_gu")],
                        [NSString stringWithFormat:@"%.2f%%", info.stockBallot]];
     float width = (kGSize.width - cellEitOffX) / [array count];
     for (int i = 0; i < [array count]; i++) {
@@ -261,7 +261,7 @@ static const int cellEitOffX = 30;
         
         [self.navigationController popViewControllerAnimated:YES];
     } else {
-        for (int i = [_statusArray count] - 1; i >= 0; i--) {
+        for (int i = (int)[_statusArray count] - 1; i >= 0; i--) {
             if ([_statusArray[i] boolValue]) {
                 [_dataArray removeObjectAtIndex:i];
                 [_statusArray removeObjectAtIndex:i];

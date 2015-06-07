@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		04C70B681B2479EB0034BF19 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B651B2479EB0034BF19 /* libMobClickLibrary.a */; };
+		04C70B6B1B247A7B0034BF19 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B691B247A7B0034BF19 /* AddressBook.framework */; };
+		04C70B6C1B247A7B0034BF19 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B6A1B247A7B0034BF19 /* AddressBookUI.framework */; };
+		04C70B6E1B247A880034BF19 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B6D1B247A880034BF19 /* AdSupport.framework */; };
+		04C70B701B247A950034BF19 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B6F1B247A950034BF19 /* AudioToolbox.framework */; };
+		04C70B721B247AA50034BF19 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B711B247AA50034BF19 /* CoreData.framework */; };
+		04C70B741B247AB50034BF19 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B731B247AB50034BF19 /* CoreMedia.framework */; };
+		04C70B761B247AC10034BF19 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B751B247AC10034BF19 /* CoreMotion.framework */; };
+		04C70B791B247ACF0034BF19 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B771B247ACF0034BF19 /* EventKit.framework */; };
+		04C70B7A1B247ACF0034BF19 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B781B247ACF0034BF19 /* EventKitUI.framework */; };
+		04C70B7C1B247ADA0034BF19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B7B1B247ADA0034BF19 /* Foundation.framework */; };
+		04C70B7E1B247AE30034BF19 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B7D1B247AE30034BF19 /* iAd.framework */; };
+		04C70B801B247AF00034BF19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B7F1B247AF00034BF19 /* MapKit.framework */; };
+		04C70B821B247AFC0034BF19 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B811B247AFC0034BF19 /* MessageUI.framework */; };
+		04C70B841B247B060034BF19 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B831B247B060034BF19 /* PassKit.framework */; };
+		04C70B861B247B100034BF19 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B851B247B100034BF19 /* QuartzCore.framework */; };
+		04C70B881B247B1B0034BF19 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B871B247B1B0034BF19 /* Social.framework */; };
+		04C70B8A1B247B250034BF19 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B891B247B250034BF19 /* StoreKit.framework */; };
+		04C70B8C1B247B310034BF19 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B8B1B247B310034BF19 /* UIKit.framework */; };
 		BE009A351B155E1A00DE9530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A341B155E1A00DE9530 /* main.m */; };
 		BE009A431B155E1A00DE9530 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE009A411B155E1A00DE9530 /* LaunchScreen.xib */; };
 		BE009A4F1B155E1A00DE9530 /* KenStockBallotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A4E1B155E1A00DE9530 /* KenStockBallotTests.m */; };
@@ -68,6 +86,24 @@
 		04C70B651B2479EB0034BF19 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		04C70B661B2479EB0034BF19 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		04C70B671B2479EB0034BF19 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		04C70B691B247A7B0034BF19 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		04C70B6A1B247A7B0034BF19 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		04C70B6D1B247A880034BF19 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		04C70B6F1B247A950034BF19 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		04C70B711B247AA50034BF19 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		04C70B731B247AB50034BF19 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		04C70B751B247AC10034BF19 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		04C70B771B247ACF0034BF19 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		04C70B781B247ACF0034BF19 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		04C70B7B1B247ADA0034BF19 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		04C70B7D1B247AE30034BF19 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		04C70B7F1B247AF00034BF19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		04C70B811B247AFC0034BF19 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		04C70B831B247B060034BF19 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		04C70B851B247B100034BF19 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		04C70B871B247B1B0034BF19 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		04C70B891B247B250034BF19 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		04C70B8B1B247B310034BF19 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE009A2F1B155E1A00DE9530 /* KenStockBallot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenStockBallot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE009A331B155E1A00DE9530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE009A341B155E1A00DE9530 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,6 +187,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C70B8C1B247B310034BF19 /* UIKit.framework in Frameworks */,
+				04C70B8A1B247B250034BF19 /* StoreKit.framework in Frameworks */,
+				04C70B881B247B1B0034BF19 /* Social.framework in Frameworks */,
+				04C70B861B247B100034BF19 /* QuartzCore.framework in Frameworks */,
+				04C70B841B247B060034BF19 /* PassKit.framework in Frameworks */,
+				04C70B821B247AFC0034BF19 /* MessageUI.framework in Frameworks */,
+				04C70B801B247AF00034BF19 /* MapKit.framework in Frameworks */,
+				04C70B7E1B247AE30034BF19 /* iAd.framework in Frameworks */,
+				04C70B7C1B247ADA0034BF19 /* Foundation.framework in Frameworks */,
+				04C70B791B247ACF0034BF19 /* EventKit.framework in Frameworks */,
+				04C70B7A1B247ACF0034BF19 /* EventKitUI.framework in Frameworks */,
+				04C70B761B247AC10034BF19 /* CoreMotion.framework in Frameworks */,
+				04C70B741B247AB50034BF19 /* CoreMedia.framework in Frameworks */,
+				04C70B721B247AA50034BF19 /* CoreData.framework in Frameworks */,
+				04C70B701B247A950034BF19 /* AudioToolbox.framework in Frameworks */,
+				04C70B6E1B247A880034BF19 /* AdSupport.framework in Frameworks */,
+				04C70B6B1B247A7B0034BF19 /* AddressBook.framework in Frameworks */,
+				04C70B6C1B247A7B0034BF19 /* AddressBookUI.framework in Frameworks */,
 				BE009AEE1B1C47BE00DE9530 /* MediaPlayer.framework in Frameworks */,
 				BE009AEC1B1C47B100DE9530 /* AVFoundation.framework in Frameworks */,
 				BE009AEA1B1C47A500DE9530 /* libsqlite3.dylib in Frameworks */,
@@ -367,18 +421,36 @@
 		BE009AEF1B1C47D700DE9530 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BE009AED1B1C47BE00DE9530 /* MediaPlayer.framework */,
+				04C70B8B1B247B310034BF19 /* UIKit.framework */,
+				04C70B891B247B250034BF19 /* StoreKit.framework */,
+				04C70B871B247B1B0034BF19 /* Social.framework */,
+				04C70B851B247B100034BF19 /* QuartzCore.framework */,
+				04C70B831B247B060034BF19 /* PassKit.framework */,
+				04C70B811B247AFC0034BF19 /* MessageUI.framework */,
+				04C70B7F1B247AF00034BF19 /* MapKit.framework */,
+				04C70B7D1B247AE30034BF19 /* iAd.framework */,
+				04C70B7B1B247ADA0034BF19 /* Foundation.framework */,
+				04C70B771B247ACF0034BF19 /* EventKit.framework */,
+				04C70B781B247ACF0034BF19 /* EventKitUI.framework */,
+				04C70B751B247AC10034BF19 /* CoreMotion.framework */,
+				04C70B731B247AB50034BF19 /* CoreMedia.framework */,
+				04C70B711B247AA50034BF19 /* CoreData.framework */,
+				04C70B6F1B247A950034BF19 /* AudioToolbox.framework */,
+				04C70B6D1B247A880034BF19 /* AdSupport.framework */,
+				04C70B691B247A7B0034BF19 /* AddressBook.framework */,
+				04C70B6A1B247A7B0034BF19 /* AddressBookUI.framework */,
 				BE009AEB1B1C47B100DE9530 /* AVFoundation.framework */,
-				BE009AE91B1C47A500DE9530 /* libsqlite3.dylib */,
-				BE009AE71B1C479400DE9530 /* libicucore.dylib */,
-				BE009AE51B1C477F00DE9530 /* libz.1.2.5.dylib */,
-				BE009AE31B1C476F00DE9530 /* SystemConfiguration.framework */,
-				BE009AE11B1C476500DE9530 /* CoreTelephony.framework */,
 				BE009ADF1B1C475C00DE9530 /* CFNetwork.framework */,
-				BE009ADD1B1C475300DE9530 /* MobileCoreServices.framework */,
 				BE009ADB1B1C474A00DE9530 /* CoreGraphics.framework */,
-				BE009AD91B1C474100DE9530 /* Security.framework */,
 				BE009AD71B1C473800DE9530 /* CoreLocation.framework */,
+				BE009AE11B1C476500DE9530 /* CoreTelephony.framework */,
+				BE009AE71B1C479400DE9530 /* libicucore.dylib */,
+				BE009AE91B1C47A500DE9530 /* libsqlite3.dylib */,
+				BE009AE51B1C477F00DE9530 /* libz.1.2.5.dylib */,
+				BE009AED1B1C47BE00DE9530 /* MediaPlayer.framework */,
+				BE009ADD1B1C475300DE9530 /* MobileCoreServices.framework */,
+				BE009AD91B1C474100DE9530 /* Security.framework */,
+				BE009AE31B1C476F00DE9530 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -637,7 +709,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/Bmob",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AdsMoGo/AdNetworkLibs/AdMob_SDK_700",
 				);
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
 				INFOPLIST_FILE = KenStockBallot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -646,7 +721,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AMTBaas",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/UM",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AdsMoGo/AdNetworkLibs/Adwo_SDK_660/adwoSDKLib",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AdsMoGo/AdNetworkLibs/Baidu_3.5.6(2.4)_SDK/lib",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AdsMoGo/AdsMoGoSDK",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -661,7 +740,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/Bmob",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AdsMoGo/AdNetworkLibs/AdMob_SDK_700",
 				);
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
 				INFOPLIST_FILE = KenStockBallot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -670,7 +752,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AMTBaas",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/UM",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AdsMoGo/AdNetworkLibs/Adwo_SDK_660/adwoSDKLib",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AdsMoGo/AdNetworkLibs/Baidu_3.5.6(2.4)_SDK/lib",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AdsMoGo/AdsMoGoSDK",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

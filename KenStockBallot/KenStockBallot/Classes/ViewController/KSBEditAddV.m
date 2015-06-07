@@ -132,7 +132,7 @@ static const int itemHeight = 34;
     } else {
         textArray = @[@"", [_stockInfo stockName], [_stockInfo stockCode],
                   [NSString stringWithFormat:@"%.2f", _stockInfo.stockPrice],
-                  [NSString stringWithFormat:@"%ld", _stockInfo.stockBuyMax],
+                  [NSString stringWithFormat:@"%d", (int)_stockInfo.stockBuyMax],
                   [NSString stringWithFormat:@"%.2f", _stockInfo.stockBallot]];
     }
     
