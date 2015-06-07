@@ -9,6 +9,8 @@
 #import "KSBEditAddV.h"
 #import "KSBStockInfo.h"
 
+static const int itemHeight = 34;
+
 @interface KSBEditAddV ()
 
 @property (assign) BOOL shangHaiSelected;
@@ -38,14 +40,20 @@
         //tap gesture
         UITapGestureRecognizer *tapTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
         [self addGestureRecognizer:tapTouch];
+        
+        //增加监听，当键盘出现或改变时收出消息
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShow:)
+                                                     name:UIKeyboardWillShowNotification
+                                                   object:nil];
     }
     return self;
 }
 
 - (void)showContent {
     if (_contentView == nil) {
-        _contentView = [[UIView alloc] initWithFrame:(CGRect){kGSize.width, kGSize.height * 0.2,
-            IsPad ? kGSize.width * 0.34 : kGSize.width * 0.8, kGSize.height * 0.6}];
+        _contentView = [[UIView alloc] initWithFrame:(CGRect){kGSize.width, (kGSize.height - 270) / 2,
+            IsPad ? kGSize.width * 0.34 : kGSize.width * 0.8, 270}];
         [_contentView setBackgroundColor:[UIColor whiteColor]];
         
 //        [[_contentView layer] setBorderWidth:0.2];//画线的宽度
@@ -60,7 +68,7 @@
         UIButton *confirmBtn = [KenUtils buttonWithImg:KenLocal(@"qusstion_manual_add") off:0 zoomIn:YES
                                                  image:[UIImage imageNamed:@"confirm_btn.png"]
                                               imagesec:[UIImage imageNamed:@"confirm_btn_sec.png"] target:self action:@selector(confirmClicked)];
-        confirmBtn.center = CGPointMake(_contentView.width / 2, _contentView.height - confirmBtn.height);
+        confirmBtn.center = CGPointMake(_contentView.width / 2, _contentView.height - confirmBtn.height * 0.75);
         [_contentView addSubview:confirmBtn];
     }
     
@@ -74,14 +82,15 @@
     [line setBackgroundColor:[UIColor grayBgColor]];
     [_contentView addSubview:line];
     
-    UILabel *label = [KenUtils labelWithTxt:title frame:(CGRect){15, offY, 100, 40}
+    UILabel *label = [KenUtils labelWithTxt:title frame:(CGRect){15, offY, 100, itemHeight}
                                        font:kKenFontHelvetica(16) color:[UIColor greenTextColor]];
     label.textAlignment = KTextAlignmentLeft;
     [_contentView addSubview:label];
     
     //text field
     float width = _contentView.width - 120 - 15;
-    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(120, offY + 4, [KenUtils isEmpty:unitStr] ? width : width - 20, 32)];
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(120, offY + 4,
+                                                                          [KenUtils isEmpty:unitStr] ? width : width - 20, itemHeight - 8)];
     textField.text = text;
     textField.font = kKenFontArial(14);
     textField.clearButtonMode = UITextFieldViewModeAlways;
@@ -99,7 +108,7 @@
     
     //label
     if ([KenUtils isNotEmpty:unitStr]) {
-        UILabel *unitLabel = [KenUtils labelWithTxt:unitStr frame:(CGRect){CGRectGetMaxX(textField.frame) + 6, offY, 100, 40}
+        UILabel *unitLabel = [KenUtils labelWithTxt:unitStr frame:(CGRect){CGRectGetMaxX(textField.frame) + 6, offY, 100, itemHeight}
                                                font:kKenFontHelvetica(16) color:[UIColor blackTextColor]];
         unitLabel.textAlignment = KTextAlignmentLeft;
         [_contentView addSubview:unitLabel];
@@ -127,11 +136,11 @@
                   [NSString stringWithFormat:@"%.2f", _stockInfo.stockBallot]];
     }
     
-    float offY = 30;
+    float offY = 20;
     for (int i = 0; i < [array count]; i++) {
         if (i == 0) {
             [self initRadioV:offY title:array[i]];
-            offY += 40;
+            offY += itemHeight;
         } else {
             NSString *unit = nil;
             if (i == 3) {
@@ -148,7 +157,7 @@
                 ((UITextField *)_textFieldArray[i - 1]).keyboardType = UIKeyboardTypeDecimalPad;
             }
             
-            offY += 40;
+            offY += itemHeight;
         }
     }
 }
@@ -156,7 +165,7 @@
 - (void)initRadioV:(float)offY title:(NSString *)title {
     float width = (_contentView.width - 120 - 15) / 2;
     
-    UILabel *label = [KenUtils labelWithTxt:title frame:(CGRect){15, offY, 120, 40}
+    UILabel *label = [KenUtils labelWithTxt:title frame:(CGRect){15, offY, 120, 30}
                                        font:kKenFontHelvetica(16) color:[UIColor greenTextColor]];
     label.textAlignment = KTextAlignmentLeft;
     [_contentView addSubview:label];
@@ -167,7 +176,7 @@
                                     target:self action:@selector(shangHaiSelect)];
     [_shangHaiBtn setBackgroundColor:[UIColor whiteColor]];
     [_shangHaiBtn setTitleColor:[UIColor blackTextColor] forState:UIControlStateNormal];
-    _shangHaiBtn.frame = CGRectMake(110, offY, width, 40);
+    _shangHaiBtn.frame = CGRectMake(110, offY, width, itemHeight);
     [_contentView addSubview:_shangHaiBtn];
     
     _shengZhenBtn = [KenUtils buttonWithImg:KenLocal(@"edit_shengzhen") off:0 zoomIn:YES
@@ -176,7 +185,7 @@
                                      target:self action:@selector(shengZhenSelect)];
     [_shengZhenBtn setBackgroundColor:[UIColor whiteColor]];
     [_shengZhenBtn setTitleColor:[UIColor blackTextColor] forState:UIControlStateNormal];
-    _shengZhenBtn.frame = CGRectMake(CGRectGetMaxX(_shangHaiBtn.frame), _shangHaiBtn.originY, width, 40);
+    _shengZhenBtn.frame = CGRectMake(CGRectGetMaxX(_shangHaiBtn.frame), _shangHaiBtn.originY, width, itemHeight);
     [_contentView addSubview:_shengZhenBtn];
 }
 
@@ -185,14 +194,30 @@
     return YES;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     for (int i = 0; i < [_textFieldArray count]; i++) {
         if (_textFieldArray[i] == textField) {
-            [UIView animateWithDuration:0.3f animations:^{
-                self.frame = CGRectMake(0.f, -60 - i * 40, self.width, self.height);
-            }];
+            [textField resignFirstResponder];
+            
+            if (i != [_textFieldArray count] - 1) {
+                [[_textFieldArray objectAtIndex:i + 1] becomeFirstResponder];
+            }
+            break;
         }
     }
+    
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+//    for (int i = 0; i < [_textFieldArray count]; i++) {
+//        if (_textFieldArray[i] == textField) {
+//            [UIView animateWithDuration:0.3f animations:^{
+//                self.frame = CGRectMake(0.f, -60 - i * itemHeight, self.width, self.height);
+//            }];
+//            break;
+//        }
+//    }
 }
 
 - (void)hideKeyboard {
@@ -208,6 +233,19 @@
         return NO;
     }
     return YES;
+}
+
+//当键盘出现或改变时调用
+- (void)keyboardWillShow:(NSNotification *)aNotification {
+    //获取键盘的高度
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    int height = keyboardRect.size.height + 10;
+    int offset = MAX(0, height - (kGSize.height - _contentView.height) / 2);
+    [UIView animateWithDuration:0.3f animations:^{
+        self.frame = CGRectMake(0.f, -offset, self.width, self.height);
+    }];
 }
 
 #pragma mark - button

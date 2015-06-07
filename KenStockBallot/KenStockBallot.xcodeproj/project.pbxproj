@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04C70B681B2479EB0034BF19 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B651B2479EB0034BF19 /* libMobClickLibrary.a */; };
 		BE009A351B155E1A00DE9530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A341B155E1A00DE9530 /* main.m */; };
 		BE009A431B155E1A00DE9530 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE009A411B155E1A00DE9530 /* LaunchScreen.xib */; };
 		BE009A4F1B155E1A00DE9530 /* KenStockBallotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009A4E1B155E1A00DE9530 /* KenStockBallotTests.m */; };
@@ -64,6 +65,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04C70B651B2479EB0034BF19 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		04C70B661B2479EB0034BF19 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		04C70B671B2479EB0034BF19 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		BE009A2F1B155E1A00DE9530 /* KenStockBallot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenStockBallot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE009A331B155E1A00DE9530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE009A341B155E1A00DE9530 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				BE009AEA1B1C47A500DE9530 /* libsqlite3.dylib in Frameworks */,
 				BE009AE81B1C479400DE9530 /* libicucore.dylib in Frameworks */,
 				BE009AE61B1C477F00DE9530 /* libz.1.2.5.dylib in Frameworks */,
+				04C70B681B2479EB0034BF19 /* libMobClickLibrary.a in Frameworks */,
 				BE009AE41B1C476F00DE9530 /* SystemConfiguration.framework in Frameworks */,
 				BE009AE21B1C476500DE9530 /* CoreTelephony.framework in Frameworks */,
 				BE009AE01B1C475C00DE9530 /* CFNetwork.framework in Frameworks */,
@@ -173,6 +178,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04C70B641B2479EB0034BF19 /* UM */ = {
+			isa = PBXGroup;
+			children = (
+				04C70B651B2479EB0034BF19 /* libMobClickLibrary.a */,
+				04C70B661B2479EB0034BF19 /* MobClick.h */,
+				04C70B671B2479EB0034BF19 /* MobClickSocialAnalytics.h */,
+			);
+			path = UM;
+			sourceTree = "<group>";
+		};
 		BE009A261B155E1A00DE9530 = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +296,7 @@
 		BE009A681B15697100DE9530 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				04C70B641B2479EB0034BF19 /* UM */,
 				BE009AD41B1C470D00DE9530 /* Bmob */,
 				BE009A691B15697100DE9530 /* Category */,
 				BE009A821B15697200DE9530 /* KenUtils.h */,
@@ -629,6 +645,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AMTBaas",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/UM",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -652,6 +669,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/AMTBaas",
+					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/UM",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
