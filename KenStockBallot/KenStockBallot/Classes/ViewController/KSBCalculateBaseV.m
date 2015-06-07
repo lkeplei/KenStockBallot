@@ -69,7 +69,7 @@
     }
     
     [UIView animateWithDuration:0.5 animations:^{
-        _contentView.frame = (CGRect){kGSize.width * 0.1, _contentView.originY, _contentView.size};
+        _contentView.frame = (CGRect){IsPad ? kGSize.width * 0.3 : kGSize.width * 0.1, _contentView.originY, _contentView.size};
     }];
 }
 

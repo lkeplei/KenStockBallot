@@ -416,6 +416,7 @@
 				TargetAttributes = {
 					BE009A2E1B155E1A00DE9530 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 5BDYTYLTH3;
 					};
 					BE009A471B155E1A00DE9530 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -615,6 +616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/Bmob",
@@ -637,6 +639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KenStockBallot/Classes/Tools/Bmob",

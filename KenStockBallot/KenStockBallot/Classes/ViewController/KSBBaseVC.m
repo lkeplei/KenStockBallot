@@ -29,18 +29,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    
-//    self.title = KenLocal(@"app_title");
-//}
-//
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    
-//    self.title = KenLocal(@"app_back");
-//}
-
 - (void)setNavigationTitle:(NSString *)title {
     UILabel *navTitle = (UILabel *) self.navigationItem.titleView;
 

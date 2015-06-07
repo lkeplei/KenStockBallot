@@ -39,7 +39,10 @@ static const int cellOffX = 0;
         _dataArray = [NSMutableArray array];
         _editStatus = NO;
         
-        self.title = KenLocal(@"app_title");
+        if (IsPad) {
+            self.title = KenLocal(@"app_title");
+        }
+
         [self.view setBackgroundColor:[UIColor grayBgColor]];
         [self setRightNavItemWithImage:[UIImage imageNamed:@"question_edit.png"]
                                 imgSec:[UIImage imageNamed:@"question_edit_sec.png"] selector:@selector(editStock)];
@@ -101,12 +104,13 @@ static const int cellOffX = 0;
         _totalMoneyTextField.textAlignment = KTextAlignmentLeft;
         _totalMoneyTextField.returnKeyType = UIReturnKeyDone;
         _totalMoneyTextField.delegate = self;
-        _totalMoneyTextField.keyboardType = UIKeyboardTypeNumberPad;
+        _totalMoneyTextField.keyboardType = UIKeyboardTypeDecimalPad;
         [_totalMoneyTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [inputV addSubview:_totalMoneyTextField];
         
-        UILabel *unit = [KenUtils labelWithTxt:KenLocal(@"edit_yuan") frame:(CGRect){CGRectGetMaxX(_totalMoneyTextField.frame), 0, 24, inputV.height}
-                                           font:kKenFontHelvetica(16) color:[UIColor blackTextColor]];
+        UILabel *unit = [KenUtils labelWithTxt:KenLocal(@"edit_yuan")
+                                         frame:(CGRect){CGRectGetMaxX(_totalMoneyTextField.frame), 0, 24, inputV.height}
+                                          font:kKenFontHelvetica(16) color:[UIColor blackTextColor]];
         [inputV addSubview:unit];
         
         offY += 44;

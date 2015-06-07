@@ -44,7 +44,8 @@
 
 - (void)showContent {
     if (_contentView == nil) {
-        _contentView = [[UIView alloc] initWithFrame:(CGRect){kGSize.width, kGSize.height * 0.2, kGSize.width * 0.8, kGSize.height * 0.6}];
+        _contentView = [[UIView alloc] initWithFrame:(CGRect){kGSize.width, kGSize.height * 0.2,
+            IsPad ? kGSize.width * 0.34 : kGSize.width * 0.8, kGSize.height * 0.6}];
         [_contentView setBackgroundColor:[UIColor whiteColor]];
         
 //        [[_contentView layer] setBorderWidth:0.2];//画线的宽度
@@ -64,7 +65,7 @@
     }
     
     [UIView animateWithDuration:0.5 animations:^{
-        _contentView.frame = (CGRect){kGSize.width * 0.1, _contentView.originY, _contentView.size};
+        _contentView.frame = (CGRect){IsPad ? kGSize.width * 0.33 : kGSize.width * 0.1, _contentView.originY, _contentView.size};
     }];
 }
 
@@ -79,7 +80,8 @@
     [_contentView addSubview:label];
     
     //text field
-    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(120, offY + 4, [KenUtils isEmpty:unitStr] ? 110 : 90, 40 - 8)];
+    float width = _contentView.width - 120 - 15;
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(120, offY + 4, [KenUtils isEmpty:unitStr] ? width : width - 20, 32)];
     textField.text = text;
     textField.font = kKenFontArial(14);
     textField.clearButtonMode = UITextFieldViewModeAlways;
@@ -121,7 +123,7 @@
     } else {
         textArray = @[@"", [_stockInfo stockName], [_stockInfo stockCode],
                   [NSString stringWithFormat:@"%.2f", _stockInfo.stockPrice],
-                  [NSString stringWithFormat:@"%d", _stockInfo.stockBuyMax],
+                  [NSString stringWithFormat:@"%ld", _stockInfo.stockBuyMax],
                   [NSString stringWithFormat:@"%.2f", _stockInfo.stockBallot]];
     }
     
@@ -152,7 +154,9 @@
 }
 
 - (void)initRadioV:(float)offY title:(NSString *)title {
-    UILabel *label = [KenUtils labelWithTxt:title frame:(CGRect){15, offY, 85, 40}
+    float width = (_contentView.width - 120 - 15) / 2;
+    
+    UILabel *label = [KenUtils labelWithTxt:title frame:(CGRect){15, offY, 120, 40}
                                        font:kKenFontHelvetica(16) color:[UIColor greenTextColor]];
     label.textAlignment = KTextAlignmentLeft;
     [_contentView addSubview:label];
@@ -163,7 +167,7 @@
                                     target:self action:@selector(shangHaiSelect)];
     [_shangHaiBtn setBackgroundColor:[UIColor whiteColor]];
     [_shangHaiBtn setTitleColor:[UIColor blackTextColor] forState:UIControlStateNormal];
-    _shangHaiBtn.frame = CGRectMake(80, offY, 80, 40);
+    _shangHaiBtn.frame = CGRectMake(110, offY, width, 40);
     [_contentView addSubview:_shangHaiBtn];
     
     _shengZhenBtn = [KenUtils buttonWithImg:KenLocal(@"edit_shengzhen") off:0 zoomIn:YES
@@ -172,7 +176,7 @@
                                      target:self action:@selector(shengZhenSelect)];
     [_shengZhenBtn setBackgroundColor:[UIColor whiteColor]];
     [_shengZhenBtn setTitleColor:[UIColor blackTextColor] forState:UIControlStateNormal];
-    _shengZhenBtn.frame = CGRectMake(CGRectGetMaxX(_shangHaiBtn.frame), _shangHaiBtn.originY, 80, 40);
+    _shengZhenBtn.frame = CGRectMake(CGRectGetMaxX(_shangHaiBtn.frame), _shangHaiBtn.originY, width, 40);
     [_contentView addSubview:_shengZhenBtn];
 }
 

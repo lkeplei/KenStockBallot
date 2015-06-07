@@ -16,7 +16,7 @@
 @implementation KSBCalculateQuestion1V
 
 - (CGRect)getContentFrame {
-    return (CGRect){kGSize.width, kGSize.height * 0.32, kGSize.width * 0.8, kGSize.height * 0.36};
+    return (CGRect){kGSize.width, kGSize.height * 0.32, IsPad ? kGSize.width * 0.4 : kGSize.width * 0.8, kGSize.height * 0.36};
 }
 
 - (CGRect)initContent {

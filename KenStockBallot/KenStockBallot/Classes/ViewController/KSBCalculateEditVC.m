@@ -40,7 +40,10 @@ static const int cellEitOffX = 30;
             [self setData:stockArray];
         }
         
-        self.title = KenLocal(@"app_title");
+        if (IsPad) {
+            self.title = KenLocal(@"app_title");
+        }
+        
         [self.view setBackgroundColor:[UIColor grayBgColor]];
     }
     return self;

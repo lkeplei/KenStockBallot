@@ -25,10 +25,11 @@ static const float maxCellNumber = 3;
 - (CGRect)getContentFrame {
     [self calculateStockCombination];
     
-    _centerView = [[UIView alloc] initWithFrame:(CGRect){0, 45, kGSize.width * 0.8, cellHeight * (MIN(maxCellNumber, _dataArray.count)  + 1)}];
+    _centerView = [[UIView alloc] initWithFrame:(CGRect){0, 45, IsPad ? kGSize.width * 0.4 : kGSize.width * 0.8,
+        cellHeight * (MIN(maxCellNumber, _dataArray.count)  + 1)}];
     float height = 45 + _centerView.height + 80 + 64;
     
-    return (CGRect){kGSize.width, (kGSize.height - height) / 2, kGSize.width * 0.8, height};
+    return (CGRect){kGSize.width, (kGSize.height - height) / 2, _centerView.width, height};
 }
 
 - (CGRect)initContent {

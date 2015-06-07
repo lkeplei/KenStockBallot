@@ -21,7 +21,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.title = KenLocal(@"app_title");
+        if (IsPad) {
+            self.title = KenLocal(@"app_title");
+        }
     }
     return self;
 }

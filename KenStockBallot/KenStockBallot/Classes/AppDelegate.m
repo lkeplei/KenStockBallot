@@ -37,9 +37,12 @@
 //    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     
     //设置导航栏背景色
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:kIPhone6 ? @"app_nav_bg_iphone6" : @"app_nav_bg"]
-                                       forBarMetrics:UIBarMetricsDefault];
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor greenTextColor]];
+    if (IsPad) {
+        [[UINavigationBar appearance] setBarTintColor:[UIColor greenTextColor]];   
+    } else {
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:kIPhone6 ? @"app_nav_bg_iphone6" : @"app_nav_bg"]
+                                           forBarMetrics:UIBarMetricsDefault];
+    }
     //设置导航栏文字颜色
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     //设置返回颜色
