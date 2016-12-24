@@ -15,6 +15,7 @@
     [dic setObject:[self stockJiaoYS] forKey:@"stockJiaoYS"];
     [dic setObject:[self stockName] forKey:@"stockName"];
     [dic setObject:[self stockCode] forKey:@"stockCode"];
+    [dic setObject:[self stockDate] forKey:@"stockDate"];
     [dic setObject:[NSNumber numberWithFloat:[self stockPrice]] forKey:@"stockPrice"];
     [dic setObject:[NSNumber numberWithInteger:[self stockBuyMax]] forKey:@"stockBuyMax"];
     [dic setObject:[NSNumber numberWithFloat:[self stockBallot]] forKey:@"stockBallot"];
@@ -106,6 +107,7 @@
     info.stockJiaoYS = [self objectForKey:@"stockJiaoYS"];
     info.stockName = [self objectForKey:@"stockName"];
     info.stockCode = [self objectForKey:@"stockCode"];
+    info.stockDate = [self objectForKey:@"stockDate"];
     info.stockPrice = [[self objectForKey:@"stockPrice"] floatValue];
     info.stockBuyMax = [[self objectForKey:@"stockBuyMax"] integerValue];
     info.stockBallot = [[self objectForKey:@"stockBallot"] floatValue];

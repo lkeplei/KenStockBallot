@@ -18,10 +18,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        if (IsPad) {
-            self.title = KenLocal(@"app_title");
-        }
-
         [self.view setBackgroundColor:[UIColor grayBgColor]];
     }
     return self;

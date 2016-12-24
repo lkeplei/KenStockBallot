@@ -8,6 +8,7 @@
 
 #import "KSBCalculateQuestion1V.h"
 #import "KSBStockInfo.h"
+#import "KSBSelectedVC.h"
 
 @interface KSBCalculateQuestion1V ()
 
@@ -16,7 +17,9 @@
 @implementation KSBCalculateQuestion1V
 
 - (CGRect)getContentFrame {
-    return (CGRect){kGSize.width, (kGSize.height - 180) / 2, IsPad ? kGSize.width * 0.4 : kGSize.width * 0.8, 180};
+    UIImage *image = [UIImage imageNamed:@"new_select_1"];
+    return (CGRect){kGSize.width, (kGSize.height - 180) / 2, IsPad ? kGSize.width * 0.4 : kGSize.width * 0.8,
+                    180 + image.size.height * 1.2};
 }
 
 - (CGRect)initContent {
@@ -27,6 +30,13 @@
     UIView *line = [[UIView alloc] initWithFrame:(CGRect){0, CGRectGetMaxY(title.frame), self.contentView.width, 1}];
     [line setBackgroundColor:[UIColor greenTextColor]];
     [self.contentView addSubview:line];
+    
+    UIButton *seleBtn = [KenUtils buttonWithImg:nil off:0 zoomIn:YES
+                                          image:[UIImage imageNamed:@"new_select_normal"]
+                                       imagesec:[UIImage imageNamed:@"new_select_hl"] target:self action:@selector(seleBtnCliked)];
+    seleBtn.height = title.height;
+    seleBtn.center = CGPointMake(self.contentView.width - seleBtn.width / 2 - 15, title.centerY);
+    [self.contentView addSubview:seleBtn];
     
     return line.frame;
 }
@@ -49,4 +59,13 @@
     }
     return [NSString stringWithFormat:@"%.2f%%", MIN((1 - ballot), 1) * 100];
 }
+
+#pragma mark - event
+- (void)seleBtnCliked {
+    if (self.parentVC) {
+        [self removeFromSuperview];
+        [self.parentVC pushViewController:[[KSBSelectedVC alloc] init]];
+    }
+}
+
 @end

@@ -14,7 +14,7 @@
 @class BmobGeoPoint;
 @class BmobUser;
 @class BmobFile;
-@class BmobSliceResult;
+@class BmobTableSchema;
 
 #ifndef BmobSDK_BmobConfig_h
 #define BmobSDK_BmobConfig_h
@@ -70,7 +70,8 @@ typedef enum {
 
 typedef enum {
     BmobSNSPlatformQQ = 0,          //qq平台
-    BmobSNSPlatformSinaWeibo        //新浪微博
+    BmobSNSPlatformSinaWeibo,        //新浪微博
+    BmobSNSPlatformWeiXin,
 }BmobSNSPlatform;
 
 typedef void (^BmobObjectResultBlock)(BmobObject *object, NSError *error);
@@ -83,28 +84,30 @@ typedef void (^BmobIdResultBlock)(id object, NSError *error);
 typedef void (^BmobFileBlock)(BmobFile *file,NSError *error);
 typedef void (^BmobFileBatchProgressBlock)(int index ,float progress);;
 typedef void (^BmobFileBatchResultBlock)(NSArray *array,BOOL isSuccessful ,NSError *error);
+typedef void (^BmobMessageResultBlock)(NSString *requestStatus,NSError *error);
+typedef void (^BmobQuerySMSCodeStateResultBlock)(NSDictionary *dic,NSError *error);
+typedef void (^BmobTableSchemasBlock)(BmobTableSchema *bmobTableScheme,NSError *error);
+typedef void (^BmobAllTableSchemasBlock)(NSArray *tableSchemasArray,NSError *error);
 
+typedef BmobFileBatchResultBlock BmobFilesDeleteBlock;
 
-UIKIT_STATIC_INLINE NSString* Version()
+UIKIT_STATIC_INLINE NSString* BmobSDKVersion()
 {
-	return @"1.5.7";
+	return @"2.0.1";
 }
 
 
-//pro
-
-typedef void(^BmobFileResultBlock)(BOOL isSuccessful,NSError *error,NSString *filename,NSString *url);
-typedef void(^BmobFileDownloadResultBlock)(BOOL isSuccessful,NSError *error,NSString *filepath);
 typedef void(^BmobProgressBlock)(CGFloat progress);
-typedef void(^BmobBatchProgressBlock)();
-
-typedef void(^BmobBatchFileUploadResultBlock)(NSArray *filenameArray,NSArray *urlArray,NSError *error);
+typedef void(^BmobBatchFileUploadResultBlock)(NSArray *filenameArray,NSArray *urlArray,NSArray *bmobFileArray,NSError *error);
 typedef void(^BmobIndexAndProgressBlock)(NSUInteger index,CGFloat progress);
 
+typedef void(^BmobFileDownloadResultBlock)(BOOL isSuccessful,NSError *error,NSString *filepath);
 typedef BmobFileDownloadResultBlock BmobLocalImageResultBlock;
-typedef BmobBatchProgressBlock       BmobCompleteBlock ;
+typedef void (^BmobCompleteBlock)();
+typedef void(^BmobGetAccessUrlBlock)(BmobFile *file,NSError *error);
+typedef void(^BmobFileResultBlock)(BOOL isSuccessful,NSError *error,NSString *filename,NSString *url,BmobFile* file);
 
-typedef void(^BmobSliceResultBlock)(BmobSliceResult *result);
+
 
 typedef enum {
     ThumbnailImageScaleModeWidth    = 1,//指定宽，高自适应，等比例缩放;
@@ -114,8 +117,6 @@ typedef enum {
     ThumbnailImageScaleModeMax      = 5,//指定最大宽高， 等比例缩放;
     ThumbnailImageScaleModeFixed    = 6 //固定宽高， 居中裁剪
 }ThumbnailImageScaleMode;
-
-
 
 
 

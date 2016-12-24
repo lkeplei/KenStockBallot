@@ -11,7 +11,7 @@
 
 #import <BmobSDK/Bmob.h>
 
-static const int cellEitOffX = 30;
+static const int cellEitOffX = 40;
 
 @interface KSBCalculateEditVC ()
 
@@ -39,11 +39,7 @@ static const int cellEitOffX = 30;
         } else {
             [self setData:stockArray];
         }
-        
-        if (IsPad) {
-            self.title = KenLocal(@"app_title");
-        }
-        
+
         [self.view setBackgroundColor:[UIColor grayBgColor]];
     }
     return self;
@@ -67,12 +63,13 @@ static const int cellEitOffX = 30;
     [titleV addSubview:_selectAllBtn];
     
     //title
-    NSArray *titleArr = @[KenLocal(@"question_title1"), KenLocal(@"question_title2"), KenLocal(@"question_title3"),
+    NSArray *titleArr = @[KenLocal(@"question_title1"), KenLocal(@"question_title3"),
                           _calculateType == kKSBCalculateQuestion1 ? KenLocal(@"question_title4") : KenLocal(@"question_title4_2"),
-                          KenLocal(@"question_title5")];
+                          KenLocal(@"question_title5"), KenLocal(@"question_title6")];
     float width = (kGSize.width - cellEitOffX) / [titleArr count];
     for (int i = 0; i < [titleArr count]; i++) {
-        UILabel *label = [KenUtils labelWithTxt:titleArr[i] frame:(CGRect){cellEitOffX + width * i, 0, width, 44}
+        UILabel *label = [KenUtils labelWithTxt:titleArr[i]
+                                          frame:(CGRect){cellEitOffX + width * i, 0, (i == 0 ? width - 20 : width), 44}
                                            font:kKenFontHelvetica(12) color:[UIColor greenTextColor]];
         label.numberOfLines = i == ([titleArr count] - 1) ? 2 : 1;
         [titleV addSubview:label];
@@ -132,7 +129,7 @@ static const int cellEitOffX = 30;
         [self.view addSubview:indicatorView];
         [indicatorView startAnimating];
         
-        BmobQuery *bquery = [BmobQuery queryWithClassName:@"StockTable"];
+        BmobQuery *bquery = [BmobQuery queryWithClassName:@"StockTable2"];
         //查找GameScore表里面id为0c6db13c的数据
         [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
             [indicatorView stopAnimating];
@@ -152,8 +149,9 @@ static const int cellEitOffX = 30;
                         info.stockName = [object objectForKey:@"name"];
                         info.stockCode = [object objectForKey:@"code"];
                         info.stockPrice = [[object objectForKey:@"price"] floatValue];
-                        info.stockBuyMax = [[object objectForKey:@"buyMax"] integerValue];
-                        info.stockBallot = [[object objectForKey:@"ballot"] floatValue];
+                        info.stockBuyMax = [[object objectForKey:@"stockNumber"] integerValue];
+                        info.stockBallot = [[object objectForKey:@"probability"] floatValue];
+                        info.stockDate = [KenUtils getStringFromDate:[object objectForKey:@"date"] format:@"yy/MM/dd"];
                         
                         [bmobArray addObject:info];
                     }
@@ -190,10 +188,10 @@ static const int cellEitOffX = 30;
     [cell.contentView addSubview:status];
     
     KSBStockInfo *info = _dataArray[indexPath.row];
-    NSArray *array = @[info.stockName, info.stockJiaoYS,
+    NSArray *array = @[info.stockName,
                        [NSString stringWithFormat:@"%.2f%@", info.stockPrice, KenLocal(@"edit_yuan")],
                        [NSString stringWithFormat:@"%d%@", (int)info.stockBuyMax, KenLocal(@"edit_gu")],
-                       [NSString stringWithFormat:@"%.2f%%", info.stockBallot]];
+                       [NSString stringWithFormat:@"%.2f%%", info.stockBallot], info.stockDate];
     float width = (kGSize.width - cellEitOffX) / [array count];
     for (int i = 0; i < [array count]; i++) {
         float height = i == 0 ? cell.height * 0.4 : cell.height;
@@ -201,9 +199,23 @@ static const int cellEitOffX = 30;
                                            font:kKenFontHelvetica(12) color:[UIColor blackTextColor]];
         [cell.contentView addSubview:label];
         if (i == 0) {
-            UILabel *code = [KenUtils labelWithTxt:info.stockCode frame:(CGRect){cellEitOffX, cell.height * 0.5, width, height}
+            label.textAlignment = KTextAlignmentLeft;
+            
+            NSString *image = @"new_hu";
+            if ([info.stockJiaoYS isEqual:@"深圳"]) {
+                image = @"new_sheng";
+            }
+            UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:image]];
+            imgV.originX = label.originX;
+            [cell.contentView addSubview:imgV];
+            
+            UILabel *code = [KenUtils labelWithTxt:info.stockCode
+                                             frame:(CGRect){cellEitOffX + imgV.width + 4, cell.height * 0.5, width, height}
                                               font:kKenFontHelvetica(12) color:[UIColor grayTextColor]];
+            code.textAlignment = KTextAlignmentLeft;
             [cell.contentView addSubview:code];
+            
+            imgV.centerY = code.centerY;
         }
     }
     

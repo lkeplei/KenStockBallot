@@ -61,6 +61,8 @@
  */
 +(BmobQuery*)queryForUser;
 
+-(id)init;
+
 /**
  *	通过className初始化BmobQuery对象
  *
@@ -113,6 +115,14 @@
  *	@param	object	提供的值
  */
 -(void)whereKey:(NSString *)key equalTo:(id)object;
+
+/**
+ *  添加查询列类型为数组的约束条件，只有数组当中包含array的所有元素才匹配
+ *
+ *  @param key   类型为数组的列名
+ *  @param array 需要匹配的元素数组
+ */
+-(void)whereKey:(NSString *)key containsAll:(NSArray*)array;
 
 /**
  *	添加key的值不为object的约束条件
@@ -183,7 +193,7 @@
  *
  *  @param keys 多个列组成的数组
  */
--(void)whereKeySExists:(NSArray *)keys;
+-(void)whereKeysExists:(NSArray *)keys;
 
 
 /**
@@ -299,7 +309,7 @@
  *
  *	@param	key	键
  *	@param	geopoint	位置信息
- *	@param	maxDistance	最大半径
+ *	@param	maxDistance	最大半径 (单位:弧度)
  */
 -(void)whereKey:(NSString *)key nearGeoPoint:(BmobGeoPoint *)geopoint withinRadians:(double)maxDistance;
 
@@ -314,6 +324,14 @@
 -(void)whereKey:(NSString *)key withinGeoBoxFromSouthwest:(BmobGeoPoint *)southwest toNortheast:(BmobGeoPoint *)northeast;
 
 #pragma mark 组合查询
+
+/**
+ *  添加查询
+ *
+ *  @param query 添加的BmobQuery中只能含有一个查询
+ */
+- (void)add:(BmobQuery *)query;
+
 /**
  *  组合并查询
  *
@@ -321,6 +339,10 @@
  */
 -(void)addTheConstraintByAndOperationWithArray:(NSArray*)array;
 
+/**
+ *  组合并，所有的where条件取并
+ */
+- (void)andOperation;
 
 /**
  *  组合或查询
@@ -329,14 +351,24 @@
  */
 -(void)addTheConstraintByOrOperationWithArray:(NSArray *)array;
 
-
+/**
+ *  组合或查询，所有的where条件取或
+ */
+- (void)orOperation;
 
 /**
- *  构造查询条件,一旦设置，查询的条件即为conDictionary
+ *  构造查询条件,一旦设置，查询的条件即为condition
  *
- *  @param conDictionary 构造查询条件
+ *  @param condition 构造查询条件
  */
--(void)queryWithAllConstraint:(NSDictionary*)conDictionary;
+-(void)queryWithAllConstraint:(NSDictionary*)condition;
+
+/**
+ *  构造查询条件，可以与其他方法同时存在
+ *
+ *  @param condition 查询条件
+ */
+-(void)queryWithConstraint:(NSDictionary *)condition;
 
 #pragma mark 缓存方面的函数
 
@@ -391,6 +423,20 @@
 
 #pragma mark BQL 查询方法
 /**
+ *  设置bql语句
+ *
+ *  @param bql bql语句
+ */
+-(void)setBQL:(NSString*)bql;
+
+/**
+ *  设置占位符
+ *
+ *  @param ary 占位符数据
+ */
+-(void)setPlaceholder:(NSArray*)ary;
+
+/**
  *  使用 BQL 异步查询
  *  @param bql BQL 字符串
  *  @param block 查询结果回调
@@ -405,6 +451,13 @@
  *  @param block   查询结果回调
  */
 - (void)queryInBackgroundWithBQL:(NSString *)bql  pvalues:(NSArray*)pvalues block:(BmobBQLObjectResultBlock)block;
+
+/**
+ *  使用BQL异步查询，只有该方法支持异步查询
+ *
+ *  @param block 查询结果回调
+ */
+- (void)queryBQLCanCacheInBackgroundWithblock:(BmobBQLObjectResultBlock)block;
 
 /**
  * 使用 BQL 异步统计查询
@@ -426,7 +479,7 @@
 /**
  *  取消查询
  */
--(void)cancle;
+-(void)cancel;
 
 # pragma mark 模糊查询
 /**
@@ -452,6 +505,5 @@
  *  @param end 想要查询的结尾的字符串
  */
 -(void)whereKey:(NSString *)key endWithString:(NSString*)end;
-
 
 @end

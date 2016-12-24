@@ -11,7 +11,7 @@
 @interface UIColor (KenColor)
 
 //比如：#FF3388、0X22FF11 等颜色字符串转换到RGB
-+ (UIColor *)colorWithHexString:(NSString *)stringToConvert;
++ (UIColor *)kenColorWithHexString:(NSString *)stringToConvert;
 
 + (UIColor *)bgGreenColor;
 + (UIColor *)bgLightGrayColor;

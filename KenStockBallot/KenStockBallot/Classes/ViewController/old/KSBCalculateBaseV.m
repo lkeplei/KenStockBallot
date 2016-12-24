@@ -37,28 +37,26 @@
         CGRect frame = [self initContent];
         
         //content1
-        UILabel *content1 = [KenUtils labelWithTxt:KenLocal(@"result1_content1") frame:(CGRect){15, CGRectGetMaxY(frame), 140, 40}
+        NSString *ballot = [self getBallot];
+        NSString *string = [KenLocal(@"result1_content3") stringByAppendingString:ballot];
+        UILabel *content1 = [KenUtils labelWithTxt:string frame:(CGRect){15, CGRectGetMaxY(frame), self.contentView.width - 30, 70}
                                               font:kKenFontHelvetica(17) color:[UIColor greenTextColor]];
         content1.textAlignment = KTextAlignmentLeft;
+        content1.numberOfLines = 0;
         [self.contentView addSubview:content1];
         
-        content1 = [KenUtils labelWithTxt:[self getTotalMoney]
-                                    frame:(CGRect){CGRectGetMaxX(content1.frame), content1.originY, self.contentView.width, 40}
-                                     font:kKenFontHelvetica(17) color:[UIColor blackTextColor]];
-        content1.textAlignment = KTextAlignmentLeft;
-        [self.contentView addSubview:content1];
-        
-        //content2
-        UILabel *content2 = [KenUtils labelWithTxt:KenLocal(@"result1_content2")
-                                             frame:(CGRect){15, CGRectGetMaxY(content1.frame), 140, 40}
-                                              font:kKenFontHelvetica(17) color:[UIColor greenTextColor]];
-        content2.textAlignment = KTextAlignmentLeft;
-        [self.contentView addSubview:content2];
-        
-        content2 = [KenUtils labelWithTxt:[self getBallot] frame:(CGRect){content1.originX, content2.originY, self.contentView.width, 40}
-                                     font:kKenFontHelvetica(17) color:[UIColor blackTextColor]];
-        content2.textAlignment = KTextAlignmentLeft;
-        [self.contentView addSubview:content2];
+        CGFloat number = [ballot floatValue];
+        NSString *name = @"new_select_1";
+        if (number >= 75.0) {
+            name = @"new_select_4";
+        } else if (number >= 50.0) {
+            name = @"new_select_3";
+        } else if (number >= 25.0) {
+            name = @"new_select_2";
+        }
+        UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:name]];
+        imgV.center = CGPointMake(self.contentView.width / 2, CGRectGetMaxY(content1.frame) + imgV.height / 2);
+        [self.contentView addSubview:imgV];
         
         //confirm btn
         UIButton *confirmBtn = [KenUtils buttonWithImg:nil off:0 zoomIn:NO

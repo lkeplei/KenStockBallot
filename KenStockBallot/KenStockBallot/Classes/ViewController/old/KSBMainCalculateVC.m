@@ -38,10 +38,6 @@ static const int cellOffX = 0;
         _selectedIndex = 0;
         _dataArray = [NSMutableArray array];
         _editStatus = NO;
-        
-        if (IsPad) {
-            self.title = KenLocal(@"app_title");
-        }
 
         [self.view setBackgroundColor:[UIColor grayBgColor]];
         [self setRightNavItemWithImage:[UIImage imageNamed:@"question_edit.png"]

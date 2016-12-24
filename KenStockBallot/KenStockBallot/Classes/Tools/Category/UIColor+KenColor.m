@@ -11,7 +11,7 @@
 @implementation UIColor (KenColor)
 
 //比如：#FF3388、0X22FF11 等颜色字符串转换到RGB
-+ (UIColor *)colorWithHexString:(NSString *)stringToConvert {
++ (UIColor *)kenColorWithHexString:(NSString *)stringToConvert {
     if (![KenUtils isEmpty:stringToConvert]) {
         NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
         
@@ -59,42 +59,42 @@
 }
 
 + (UIColor *)grayBgColor {
-    return [self colorWithHexString:@"#EFEFEF"];
+    return [self kenColorWithHexString:@"#EFEFEF"];
 }
 
 + (UIColor *)greenTextColor {
-    return [self colorWithHexString:@"#42929D"];            //R66 G146 B157
+    return [self kenColorWithHexString:@"#42929D"];            //R66 G146 B157
 }
 
 + (UIColor *)blackTextColor {
-    return [self colorWithHexString:@"#1F1A17"];            //R31 G26 B23
+    return [self kenColorWithHexString:@"#1F1A17"];            //R31 G26 B23
 }
 
 + (UIColor *)grayTextColor {
-    return [self colorWithHexString:@"#AAA9A9"];            //R170 G169 B169
+    return [self kenColorWithHexString:@"#AAA9A9"];            //R170 G169 B169
 }
 
 + (UIColor *)bgGreenColor {
-    return [self colorWithHexString:@"#19A58E"];            //R25 G165 B142
+    return [self kenColorWithHexString:@"#19A58E"];            //R25 G165 B142
 }
 
 + (UIColor *)bgLightGrayColor {
-    return [self colorWithHexString:@"#E8E8E8"];            
+    return [self kenColorWithHexString:@"#E8E8E8"];
 }
 
 + (UIColor *)descGrayColor {
-    return [self colorWithHexString:@"#828282"];
+    return [self kenColorWithHexString:@"#828282"];
 }
 
 + (UIColor *)separatorMainColor {
-    return [self colorWithHexString:@"#c8c7cc"];
+    return [self kenColorWithHexString:@"#c8c7cc"];
 }
 
 + (UIColor *)separatorColor {
-    return [self colorWithHexString:@"#eeeeee"];
+    return [self kenColorWithHexString:@"#eeeeee"];
 }
 
 + (UIColor *)lineColor {
-    return [self colorWithHexString:@"#C0C0C0"];
+    return [self kenColorWithHexString:@"#C0C0C0"];
 }
 @end

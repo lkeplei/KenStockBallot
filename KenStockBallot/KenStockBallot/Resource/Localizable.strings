@@ -7,6 +7,8 @@
 */
 
 "app_title" = "概 率 计 算 器";
+"app_selected_title" = "我 中 签 啦";
+"app_history_title" = "中 签 历 史 记 录";
 "app_back" = "返回";
 "app_delete" = "删除";
 "app_add" = "导入";
@@ -16,7 +18,8 @@
 "question_title3" = "发行价";
 "question_title4" = "申购股数";
 "question_title4_2" = "申购上限";
-"question_title5" = "预估\n中签率";
+"question_title5" = "中签率";
+"question_title6" = "申购日期";
 
 "question_label" = "我的申购总资金:";
 "question_alert" = "请输入申购总资金:";
@@ -53,6 +56,7 @@
 "result1_title" = "计算结果";
 "result1_content1" = "本次申购需资金：";
 "result1_content2" = "至少中一签概率：";
+"result1_content3" = "截至目前，您至少中一签的累积概率为：";
 
 "result2_title" = "推荐申购组合";
 "result2_cell_title1" = "股票";

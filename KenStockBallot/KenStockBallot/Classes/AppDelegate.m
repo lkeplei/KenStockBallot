@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "KSBRootVC.h"
+#import "KSBRootNewVC.h"
 
 #import "MobClick.h"
 
@@ -37,8 +38,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    _rootViewControl = [[KSBRootVC alloc] init];
-    UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:_rootViewControl];
+//    _rootOldVC = [[KSBRootVC alloc] init];
+//    UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:_rootOldVC];
+    
+    _rootNewVC = [[KSBRootNewVC alloc] init];
+    UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:_rootNewVC];
     
     //设置控制器为Window的根控制器
     self.window.rootViewController = rootNav;
@@ -53,8 +57,9 @@
     if (IsPad) {
         [[UINavigationBar appearance] setBarTintColor:[UIColor greenTextColor]];   
     } else {
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:kIPhone6 ? @"app_nav_bg_iphone6" : @"app_nav_bg"]
-                                           forBarMetrics:UIBarMetricsDefault];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor greenTextColor]];
+//        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:kIPhone6 ? @"app_nav_bg_iphone6" : @"app_nav_bg"]
+//                                           forBarMetrics:UIBarMetricsDefault];
     }
     //设置导航栏文字颜色
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];

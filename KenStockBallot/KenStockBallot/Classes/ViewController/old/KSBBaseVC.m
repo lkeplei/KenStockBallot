@@ -13,6 +13,13 @@
 @end
 
 @implementation KSBBaseVC
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.title = KenLocal(@"app_title");
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

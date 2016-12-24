@@ -31,6 +31,7 @@
 #import "KenUtils.h"
 #import "KSBModel.h"
 #import "AppDelegate.h"
+#import "Weakify.h"
 
 #define SysDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 

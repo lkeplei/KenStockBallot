@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class KSBBaseVC;
+
 @interface KSBCalculateBaseV : UIView
 
 - (instancetype)initWithStockArray:(NSArray *)array money:(NSString *)money;
@@ -20,5 +22,6 @@
 @property (nonatomic, readonly) NSInteger totalMoney;
 @property (nonatomic, strong) NSArray *stockArray;
 @property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, assign) KSBBaseVC *parentVC;
 
 @end
