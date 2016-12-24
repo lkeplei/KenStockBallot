@@ -8,6 +8,7 @@
 
 #import "KSBModel.h"
 #import "KSBStockInfo.h"
+#import "KSBHistoryInfo.h"
 
 @implementation KSBModel
 
@@ -45,6 +46,26 @@ static KSBModel *_sharedModel = nil;
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *dic in stockArray) {
         [array addObject:[dic returnStockInfo]];
+    }
+    
+    return array;
+}
+
+- (void)saveHistory:(NSArray *)stockArray {
+    NSMutableArray *array = [NSMutableArray array];
+    for (KSBHistoryInfo *info in stockArray) {
+        [array addObject:[info getHistoryDictionary]];
+    }
+    
+    [self setDataByKey:array forkey:kUserDefaultUserHistroy];
+}
+
+- (NSArray *)getHistory {
+    NSArray *stockArray = [self getDataByKey:kUserDefaultUserHistroy];
+    
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSDictionary *dic in stockArray) {
+        [array addObject:[dic returnHistoryInfo]];
     }
     
     return array;

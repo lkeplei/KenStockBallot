@@ -20,4 +20,7 @@
 - (void)saveStock:(NSArray *)stockArray type:(KSBCalculateType)type;
 - (NSArray *)getStock:(KSBCalculateType)type;
 
+- (void)saveHistory:(NSArray *)stockArray;
+- (NSArray *)getHistory;
+
 @end

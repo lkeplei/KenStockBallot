@@ -9,6 +9,7 @@
 #import "KSBSelectedVC.h"
 #import "KSBStockInfo.h"
 #import "KSBHistoryVC.h"
+#import "KSBHistoryInfo.h"
 
 #import <BmobSDK/Bmob.h>
 
@@ -198,6 +199,21 @@ static const int cellEitOffX = 40;
     if (_preSlectedIndex == -1) {
         kKenAlert(@"请选择中签股");
     } else {
+        NSMutableArray *array = [NSMutableArray arrayWithArray:[[KSBModel shareKSBModel] getHistory]];
+        KSBStockInfo *stockInfo = _dataArray[_preSlectedIndex];
+        
+        KSBHistoryInfo *info = [[KSBHistoryInfo alloc] init];
+        info.jiaoYS = stockInfo.stockJiaoYS;
+        info.name = stockInfo.stockName;
+        info.code = stockInfo.stockCode;
+        info.price = [NSString stringWithFormat:@"%.2f%@", stockInfo.stockPrice, KenLocal(@"edit_yuan")];
+        info.date = stockInfo.stockDate;
+        info.times = @"20";
+        info.ballot = @"88.88%";
+
+        [array addObject:info];
+        [[KSBModel shareKSBModel] saveHistory:array];
+        
         [self pushViewController:[[KSBHistoryVC alloc] init]];
     }
 }

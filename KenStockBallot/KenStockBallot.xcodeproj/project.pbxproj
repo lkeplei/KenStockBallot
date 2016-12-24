@@ -248,6 +248,7 @@
 		E68C8E8B1E0E28D3006029D1 /* KSBHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E8A1E0E28D3006029D1 /* KSBHistoryVC.m */; };
 		E68C8E8E1E0E3F5A006029D1 /* BmobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68C8E8D1E0E3F5A006029D1 /* BmobSDK.framework */; };
 		E68C8E911E0E5188006029D1 /* KSBSelectedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E901E0E5188006029D1 /* KSBSelectedVC.m */; };
+		E68C8E941E0E6FA8006029D1 /* KSBHistoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E931E0E6FA8006029D1 /* KSBHistoryInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -598,6 +599,8 @@
 		E68C8E8D1E0E3F5A006029D1 /* BmobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobSDK.framework; sourceTree = "<group>"; };
 		E68C8E8F1E0E5188006029D1 /* KSBSelectedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBSelectedVC.h; sourceTree = "<group>"; };
 		E68C8E901E0E5188006029D1 /* KSBSelectedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBSelectedVC.m; sourceTree = "<group>"; };
+		E68C8E921E0E6FA8006029D1 /* KSBHistoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBHistoryInfo.h; sourceTree = "<group>"; };
+		E68C8E931E0E6FA8006029D1 /* KSBHistoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBHistoryInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1211,6 +1214,8 @@
 			children = (
 				BE009A981B1573F900DE9530 /* KSBStockInfo.h */,
 				BE009A991B1573F900DE9530 /* KSBStockInfo.m */,
+				E68C8E921E0E6FA8006029D1 /* KSBHistoryInfo.h */,
+				E68C8E931E0E6FA8006029D1 /* KSBHistoryInfo.m */,
 			);
 			path = DataObject;
 			sourceTree = "<group>";
@@ -1587,6 +1592,7 @@
 				E68C8E8B1E0E28D3006029D1 /* KSBHistoryVC.m in Sources */,
 				BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */,
 				BE009A891B15697200DE9530 /* NSObject+KenObject.m in Sources */,
+				E68C8E941E0E6FA8006029D1 /* KSBHistoryInfo.m in Sources */,
 				040FFAAE1B2488F600553DD7 /* AdMoGoAdapterGoogleAdMobFullAds.m in Sources */,
 				E68C8E7F1E0E2225006029D1 /* KSBEditAddV.m in Sources */,
 				E68C8E811E0E2225006029D1 /* KSBQuestionSelectVC.m in Sources */,

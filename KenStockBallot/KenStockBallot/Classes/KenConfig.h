@@ -99,5 +99,6 @@
 //user default 数据
 #define kUserDefaultUserStock1          @"default_user_stock1"
 #define kUserDefaultUserStock2          @"default_user_stock2"
+#define kUserDefaultUserHistroy         @"default_user_history"
 
 #endif
