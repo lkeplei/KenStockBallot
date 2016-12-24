@@ -166,9 +166,24 @@ static const int cellEitOffX = 40;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _preSlectedIndex = indexPath.row;
-    
-    _statusArray[indexPath.row] = [NSNumber numberWithBool:![_statusArray[indexPath.row] boolValue]];
+    if (indexPath.row == _preSlectedIndex) {
+        _statusArray[indexPath.row] = @NO;
+        _preSlectedIndex = -1;
+    } else {
+        _statusArray[indexPath.row] = @YES;
+        if (_preSlectedIndex != -1) {
+            _statusArray[_preSlectedIndex] = @NO;
+            
+            NSIndexPath *path = [NSIndexPath indexPathForRow:_preSlectedIndex inSection:0];
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
+            UIImageView *statusImg = (UIImageView *)[cell viewWithTag:10001];
+            if (statusImg) {
+                [statusImg setImage:[UIImage imageNamed:@"select_none.png"]];
+            }
+        }
+        
+        _preSlectedIndex = indexPath.row;
+    }
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIImageView *statusImg = (UIImageView *)[cell viewWithTag:10001];
