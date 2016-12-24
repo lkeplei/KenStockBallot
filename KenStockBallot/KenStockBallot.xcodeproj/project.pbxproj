@@ -245,7 +245,7 @@
 		E68C8E821E0E2225006029D1 /* KSBRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E791E0E2225006029D1 /* KSBRootVC.m */; };
 		E68C8E851E0E22A2006029D1 /* KSBRootNewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E841E0E22A2006029D1 /* KSBRootNewVC.m */; };
 		E68C8E881E0E28C2006029D1 /* KSBRootBtn1VC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E871E0E28C2006029D1 /* KSBRootBtn1VC.m */; };
-		E68C8E8B1E0E28D3006029D1 /* KSBRootBtn2VC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E8A1E0E28D3006029D1 /* KSBRootBtn2VC.m */; };
+		E68C8E8B1E0E28D3006029D1 /* KSBHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E8A1E0E28D3006029D1 /* KSBHistoryVC.m */; };
 		E68C8E8E1E0E3F5A006029D1 /* BmobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68C8E8D1E0E3F5A006029D1 /* BmobSDK.framework */; };
 		E68C8E911E0E5188006029D1 /* KSBSelectedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E901E0E5188006029D1 /* KSBSelectedVC.m */; };
 /* End PBXBuildFile section */
@@ -592,8 +592,8 @@
 		E68C8E841E0E22A2006029D1 /* KSBRootNewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBRootNewVC.m; sourceTree = "<group>"; };
 		E68C8E861E0E28C2006029D1 /* KSBRootBtn1VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBRootBtn1VC.h; sourceTree = "<group>"; };
 		E68C8E871E0E28C2006029D1 /* KSBRootBtn1VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBRootBtn1VC.m; sourceTree = "<group>"; };
-		E68C8E891E0E28D3006029D1 /* KSBRootBtn2VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBRootBtn2VC.h; sourceTree = "<group>"; };
-		E68C8E8A1E0E28D3006029D1 /* KSBRootBtn2VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBRootBtn2VC.m; sourceTree = "<group>"; };
+		E68C8E891E0E28D3006029D1 /* KSBHistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBHistoryVC.h; sourceTree = "<group>"; };
+		E68C8E8A1E0E28D3006029D1 /* KSBHistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBHistoryVC.m; sourceTree = "<group>"; };
 		E68C8E8C1E0E362D006029D1 /* Weakify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weakify.h; sourceTree = "<group>"; };
 		E68C8E8D1E0E3F5A006029D1 /* BmobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobSDK.framework; sourceTree = "<group>"; };
 		E68C8E8F1E0E5188006029D1 /* KSBSelectedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBSelectedVC.h; sourceTree = "<group>"; };
@@ -1277,8 +1277,8 @@
 				E68C8E841E0E22A2006029D1 /* KSBRootNewVC.m */,
 				E68C8E861E0E28C2006029D1 /* KSBRootBtn1VC.h */,
 				E68C8E871E0E28C2006029D1 /* KSBRootBtn1VC.m */,
-				E68C8E891E0E28D3006029D1 /* KSBRootBtn2VC.h */,
-				E68C8E8A1E0E28D3006029D1 /* KSBRootBtn2VC.m */,
+				E68C8E891E0E28D3006029D1 /* KSBHistoryVC.h */,
+				E68C8E8A1E0E28D3006029D1 /* KSBHistoryVC.m */,
 				E68C8E8F1E0E5188006029D1 /* KSBSelectedVC.h */,
 				E68C8E901E0E5188006029D1 /* KSBSelectedVC.m */,
 			);
@@ -1584,7 +1584,7 @@
 				E68C8E801E0E2225006029D1 /* KSBMainCalculateVC.m in Sources */,
 				BE009A861B15697200DE9530 /* NSMutableDictionary+KenMutableDictionary.m in Sources */,
 				E68C8E911E0E5188006029D1 /* KSBSelectedVC.m in Sources */,
-				E68C8E8B1E0E28D3006029D1 /* KSBRootBtn2VC.m in Sources */,
+				E68C8E8B1E0E28D3006029D1 /* KSBHistoryVC.m in Sources */,
 				BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */,
 				BE009A891B15697200DE9530 /* NSObject+KenObject.m in Sources */,
 				040FFAAE1B2488F600553DD7 /* AdMoGoAdapterGoogleAdMobFullAds.m in Sources */,

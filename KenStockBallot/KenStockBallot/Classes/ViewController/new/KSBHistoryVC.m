@@ -1,18 +1,18 @@
 //
-//  KSBRootBtn2VC.m
+//  KSBHistoryVC.m
 //  KenStockBallot
 //
 //  Created by hzyouda on 2016/12/24.
 //  Copyright © 2016年 ken. All rights reserved.
 //
 
-#import "KSBRootBtn2VC.h"
+#import "KSBHistoryVC.h"
 
-@interface KSBRootBtn2VC ()
+@interface KSBHistoryVC ()
 
 @end
 
-@implementation KSBRootBtn2VC
+@implementation KSBHistoryVC
 - (instancetype)init {
     self = [super init];
     if (self) {

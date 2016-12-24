@@ -1,5 +1,5 @@
 //
-//  KSBRootBtn2VC.h
+//  KSBHistoryVC.h
 //  KenStockBallot
 //
 //  Created by hzyouda on 2016/12/24.
@@ -8,6 +8,6 @@
 
 #import "KSBBaseVC.h"
 
-@interface KSBRootBtn2VC : KSBBaseVC
+@interface KSBHistoryVC : KSBBaseVC
 
 @end

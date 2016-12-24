@@ -10,4 +10,6 @@
 
 @interface KSBSelectedVC : KSBBaseVC
 
+- (instancetype)initWithStockType:(KSBCalculateType)type;
+
 @end

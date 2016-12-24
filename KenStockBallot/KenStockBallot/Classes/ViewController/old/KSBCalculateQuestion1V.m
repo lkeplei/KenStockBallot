@@ -64,7 +64,7 @@
 - (void)seleBtnCliked {
     if (self.parentVC) {
         [self removeFromSuperview];
-        [self.parentVC pushViewController:[[KSBSelectedVC alloc] init]];
+        [self.parentVC pushViewController:[[KSBSelectedVC alloc] initWithStockType:kKSBCalculateQuestion1]];
     }
 }
 

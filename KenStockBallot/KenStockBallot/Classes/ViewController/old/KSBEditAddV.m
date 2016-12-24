@@ -52,8 +52,8 @@ static const int itemHeight = 34;
 
 - (void)showContent {
     if (_contentView == nil) {
-        _contentView = [[UIView alloc] initWithFrame:(CGRect){kGSize.width, (kGSize.height - 270) / 2,
-            IsPad ? kGSize.width * 0.34 : kGSize.width * 0.8, 270}];
+        _contentView = [[UIView alloc] initWithFrame:(CGRect){kGSize.width, (kGSize.height - 310) / 2,
+            IsPad ? kGSize.width * 0.34 : kGSize.width * 0.8, 310}];
         [_contentView setBackgroundColor:[UIColor whiteColor]];
         
 //        [[_contentView layer] setBorderWidth:0.2];//画线的宽度
@@ -125,15 +125,15 @@ static const int itemHeight = 34;
     [_contentView bringSubviewToFront:closeBtn];
     
     NSArray *array = @[KenLocal(@"edit_title1"), KenLocal(@"edit_title2"), KenLocal(@"edit_title3"), KenLocal(@"edit_title4"),
-                       _calculateType == kKSBCalculateQuestion1 ? KenLocal(@"edit_title5") : KenLocal(@"edit_title5_2"), KenLocal(@"edit_title6")];
+                       _calculateType == kKSBCalculateQuestion1 ? KenLocal(@"edit_title5_2") : KenLocal(@"edit_title5_2"), KenLocal(@"edit_title6"), KenLocal(@"edit_title7")];
     NSArray *textArray = nil;
     if ([KenUtils isEmpty:_stockInfo]) {
-        textArray = @[@"", @"", @"", @"", @"", @""];
+        textArray = @[@"", @"", @"", @"", @"", @"", @""];
     } else {
         textArray = @[@"", [_stockInfo stockName], [_stockInfo stockCode],
                   [NSString stringWithFormat:@"%.2f", _stockInfo.stockPrice],
                   [NSString stringWithFormat:@"%d", (int)_stockInfo.stockBuyMax],
-                  [NSString stringWithFormat:@"%.2f", _stockInfo.stockBallot]];
+                  [NSString stringWithFormat:@"%.2f", _stockInfo.stockBallot], _stockInfo.stockDate];
     }
     
     float offY = 20;

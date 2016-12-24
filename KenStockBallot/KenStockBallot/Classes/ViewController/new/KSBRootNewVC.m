@@ -8,7 +8,7 @@
 
 #import "KSBRootNewVC.h"
 #import "KSBRootBtn1VC.h"
-#import "KSBRootBtn2VC.h"
+#import "KSBHistoryVC.h"
 
 @interface KSBRootNewVC ()
 
@@ -46,7 +46,7 @@
 }
 
 - (void)button2Clicked:(UIButton *)button {
-    [self pushViewController:[[KSBRootBtn2VC alloc] init]];
+    [self pushViewController:[[KSBHistoryVC alloc] init]];
 }
 
 @end

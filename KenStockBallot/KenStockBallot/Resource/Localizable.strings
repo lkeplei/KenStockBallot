@@ -34,7 +34,8 @@
 "edit_title4" = "发行价";
 "edit_title5" = "申购股数";
 "edit_title5_2" = "申购上限";
-"edit_title6" = "预估中签率";
+"edit_title6" = "中签率";
+"edit_title7" = "申购日期";
 
 "edit_alert1" = "请输入股票简称";
 "edit_alert2" = "请输入申购代码";
