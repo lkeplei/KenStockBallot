@@ -13,11 +13,17 @@
 
 static const int cellEitOffX = 20;
 
-@interface KSBHistoryVC ()<UITableViewDataSource, UITableViewDelegate>
+#import "BaiduMobAdSDK/BaiduMobAdSetting.h"
+#import "BaiduMobAdSDK/BaiduMobAdView.h"
+#import "BaiduMobAdSDK/BaiduMobAdDelegateProtocol.h"
+
+@interface KSBHistoryVC ()<UITableViewDataSource, UITableViewDelegate, BaiduMobAdViewDelegate>
 
 @property (nonatomic, strong) UITableView *stockTable;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) NSMutableArray *preDataArray;
+
+@property (nonatomic, strong) BaiduMobAdView *sharedAdView;
 
 @end
 
@@ -67,6 +73,8 @@ static const int cellEitOffX = 20;
     [self.view addSubview:_stockTable];
     
     [_stockTable reloadData];
+    
+    [self.view addSubview:self.sharedAdView];
 }
 
 - (void)setData:(NSArray *)array {
@@ -134,4 +142,56 @@ static const int cellEitOffX = 20;
 
 }
 
+#pragma mark - baidu delegate
+- (NSString *)publisherId {
+    return kBaiduPublisherId; //@"your_own_app_id";注意，iOS和android的app请使用不同的app ID
+}
+
+- (BOOL)enableLocation {
+    //启用location会有一次alert提示
+    return YES;
+}
+
+- (void)willDisplayAd:(BaiduMobAdView*)adview {
+    NSLog(@"delegate: will display ad");
+}
+
+- (void)failedDisplayAd:(BaiduMobFailReason)reason {
+    NSLog(@"delegate: failedDisplayAd %d", reason);
+}
+
+- (void)didAdImpressed {
+    NSLog(@"delegate: didAdImpressed");
+    
+}
+
+- (void)didAdClicked {
+    NSLog(@"delegate: didAdClicked");
+}
+
+- (void)didAdClose {
+    NSLog(@"delegate: didAdClose");
+}
+
+#pragma mark - getter setter
+#define kScreenWidth self.view.frame.size.width
+#define kScreenHeight self.view.frame.size.height
+- (BaiduMobAdView *)sharedAdView {
+    if (_sharedAdView == nil) {
+        //lp颜色配置
+        [BaiduMobAdSetting setLpStyle:BaiduMobAdLpStyleDefault];
+#warning ATS默认开启状态, 可根据需要关闭App Transport Security Settings，设置关闭BaiduMobAdSetting的supportHttps，以请求http广告，多个产品只需要设置一次.    [BaiduMobAdSetting sharedInstance].supportHttps = NO;
+        
+        //使用嵌入广告的方法实例。
+        _sharedAdView = [[BaiduMobAdView alloc] init];
+        _sharedAdView.AdUnitTag = @"3191691";
+        _sharedAdView.AdType = BaiduMobAdViewTypeBanner;
+        CGFloat bannerY = kScreenHeight - 0.15 * kScreenWidth;
+        _sharedAdView.frame = CGRectMake(0, bannerY, kScreenWidth, 0.15*kScreenWidth);
+        
+        _sharedAdView.delegate = self;
+        [_sharedAdView start];
+    }
+    return _sharedAdView;
+}
 @end

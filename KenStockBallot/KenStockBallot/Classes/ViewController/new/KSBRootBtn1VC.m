@@ -13,9 +13,11 @@
 #import "KSBCalculateQuestion2V.h"
 #import "KSBCalculateEditVC.h"
 
+#import "GoogleMobileAds/GoogleMobileAds.h"
+
 static const int cellOffX = 20;
 
-@interface KSBRootBtn1VC ()
+@interface KSBRootBtn1VC ()<GADInterstitialDelegate>
 
 @property (assign) NSInteger selectedIndex;
 @property (nonatomic, strong) UIView *topView;
@@ -26,6 +28,8 @@ static const int cellOffX = 20;
 @property (nonatomic, readonly) KSBCalculateType calculateType;
 
 @property (assign) BOOL editStatus;
+
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -213,6 +217,8 @@ static const int cellOffX = 20;
 - (void)calculateBtn {
     KSBCalculateBaseV *resultV = nil;
     if (_calculateType == kKSBCalculateQuestion1) {
+        [self showFullAD];
+        
         resultV = [[KSBCalculateQuestion1V alloc] initWithStockArray:_dataArray money:nil];
         resultV.parentVC = self;
     } else if (_calculateType == kKSBCalculateQuestion2) {
@@ -312,4 +318,44 @@ static const int cellOffX = 20;
     [self showEidtAddView:_dataArray[_selectedIndex]];
 }
 
+#pragma mark - private method
+- (void)showFullAD {
+    //显示全屏广告
+    _interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3782605513789953/8724243825"];
+    _interstitial.delegate = self;
+    
+    [_interstitial loadRequest:[GADRequest request]];
+}
+
+#pragma mark - admob delegate
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
+    if (self.interstitial.isReady) {
+        [self.interstitial presentFromRootViewController:self];
+    }
+}
+
+- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
+    
+}
+
+#pragma mark Display-Time Lifecycle Notifications
+- (void)interstitialWillPresentScreen:(GADInterstitial *)ad {
+    
+}
+
+- (void)interstitialDidFailToPresentScreen:(GADInterstitial *)ad {
+    
+}
+
+- (void)interstitialWillDismissScreen:(GADInterstitial *)ad {
+    
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
+    
+}
+
+- (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
+    
+}
 @end

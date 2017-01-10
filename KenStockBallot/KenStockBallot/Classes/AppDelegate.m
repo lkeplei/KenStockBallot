@@ -14,7 +14,13 @@
 
 #import <BmobSDK/Bmob.h>
 
-@interface AppDelegate ()
+#import "BaiduMobAdSDK/BaiduMobAdSplash.h"
+#import "BaiduMobAdSDK/BaiduMobAdSetting.h"
+
+@interface AppDelegate ()<BaiduMobAdSplashDelegate>
+
+@property (nonatomic, strong) BaiduMobAdSplash *splash;
+@property (nonatomic, retain) UIView *customSplashView;
 
 @end
 
@@ -72,6 +78,9 @@
     //  友盟的方法本身是异步执行，所以不需要再异步调用
     [self umengTrack];
     
+    //添加百度的开屏广告
+    [self addBaiduMobAdSplash];
+    
     return YES;
 }
 
@@ -95,6 +104,70 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - baidu ad splash
+- (void)addBaiduMobAdSplash {
+#warning ATS默认开启状态, 可根据需要关闭App Transport Security Settings，设置关闭BaiduMobAdSetting的supportHttps，以请求http广告，多个产品只需要设置一次.    [BaiduMobAdSetting sharedInstance].supportHttps = NO;
+    [BaiduMobAdSetting sharedInstance].supportHttps = YES;
+    //    自定义开屏
+    BaiduMobAdSplash *splash = [[BaiduMobAdSplash alloc] init];
+    splash.delegate = self;
+    splash.AdUnitTag = @"3191694";
+    splash.canSplashClick = YES;
+    self.splash = splash;
+    
+    //可以在customSplashView上显示包含icon的自定义开屏
+    self.customSplashView = [[UIView alloc]initWithFrame:self.window.frame];
+    self.customSplashView.backgroundColor = [UIColor whiteColor];
+    [self.window addSubview:self.customSplashView];
+    
+    CGFloat screenWidth = self.window.frame.size.width;
+    CGFloat screenHeight = self.window.frame.size.height;
+    
+    //在baiduSplashContainer用做上展现百度广告的容器，注意尺寸必须大于200*200，并且baiduSplashContainer需要全部在window内，同时开机画面不建议旋转
+    UIView * baiduSplashContainer = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    [self.customSplashView addSubview:baiduSplashContainer];
+    
+    //在的baiduSplashContainer里展现百度广告
+    [splash loadAndDisplayUsingContainerView:baiduSplashContainer];
+}
+
+- (NSString *)publisherId {
+    return kBaiduPublisherId;
+}
+
+- (void)splashDidClicked:(BaiduMobAdSplash *)splash {
+    NSLog(@"splashDidClicked");
+}
+
+- (void)splashDidDismissLp:(BaiduMobAdSplash *)splash {
+    NSLog(@"splashDidDismissLp");
+}
+
+- (void)splashDidDismissScreen:(BaiduMobAdSplash *)splash {
+    NSLog(@"splashDidDismissScreen");
+    [self removeSplash];
+}
+
+- (void)splashSuccessPresentScreen:(BaiduMobAdSplash *)splash {
+    NSLog(@"splashSuccessPresentScreen");
+}
+
+- (void)splashlFailPresentScreen:(BaiduMobAdSplash *)splash withError:(BaiduMobFailReason)reason {
+    NSLog(@"splashlFailPresentScreen withError %d", reason);
+    [self removeSplash];
+}
+
+/**
+ *  展示结束or展示失败后, 手动移除splash和delegate
+ */
+- (void) removeSplash {
+    if (self.splash) {
+        self.splash.delegate = nil;
+        self.splash = nil;
+        [self.customSplashView removeFromSuperview];
+    }
 }
 
 @end
