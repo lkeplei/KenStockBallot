@@ -24,14 +24,19 @@ static const int cellEitOffX = 40;
 @property (nonatomic, strong) NSMutableArray *preDataArray;
 @property (nonatomic, strong) NSMutableArray *statusArray;
 
+@property (nonatomic, strong) NSString *stockNumbers;
+@property (nonatomic, strong) NSString *totalBallot;
+
 @end
 
 @implementation KSBSelectedVC
-- (instancetype)initWithStockType:(KSBCalculateType)type {
+- (instancetype)initWithStockType:(KSBCalculateType)type num:(NSInteger)num ballot:(NSString *)ballot {
     self = [super init];
     if (self) {
         self.title = KenLocal(@"app_selected_title");
         
+        _stockNumbers = [NSString stringWithFormat:@"%zd", num];
+        _totalBallot = ballot;
         _calculateType = type;
         _preSlectedIndex = -1;
         [self setData:[[KSBModel shareKSBModel] getStock:_calculateType]];
@@ -208,8 +213,8 @@ static const int cellEitOffX = 40;
         info.code = stockInfo.stockCode;
         info.price = [NSString stringWithFormat:@"%.2f%@", stockInfo.stockPrice, KenLocal(@"edit_yuan")];
         info.date = stockInfo.stockDate;
-        info.times = @"20";
-        info.ballot = @"88.88%";
+        info.times = _stockNumbers;
+        info.ballot = _totalBallot;
 
         [array addObject:info];
         [[KSBModel shareKSBModel] saveHistory:array];

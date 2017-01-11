@@ -335,7 +335,7 @@ static const int cellOffX = 20;
 }
 
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
-    
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(showFullAD) userInfo:nil repeats:NO];
 }
 
 #pragma mark Display-Time Lifecycle Notifications

@@ -10,6 +10,6 @@
 
 @interface KSBSelectedVC : KSBBaseVC
 
-- (instancetype)initWithStockType:(KSBCalculateType)type;
+- (instancetype)initWithStockType:(KSBCalculateType)type num:(NSInteger)num ballot:(NSString *)ballot;
 
 @end
