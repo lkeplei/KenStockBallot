@@ -29,7 +29,8 @@ static const int cellOffX = 20;
 
 @property (assign) BOOL editStatus;
 
-@property(nonatomic, strong) GADInterstitial *interstitial;
+@property (nonatomic, strong) GADInterstitial *interstitial;
+@property (nonatomic, strong) KSBCalculateBaseV *resultView;
 
 @end
 
@@ -215,22 +216,21 @@ static const int cellOffX = 20;
 }
 
 - (void)calculateBtn {
-    KSBCalculateBaseV *resultV = nil;
     if (_calculateType == kKSBCalculateQuestion1) {
         [self showFullAD];
         
-        resultV = [[KSBCalculateQuestion1V alloc] initWithStockArray:_dataArray money:nil];
-        resultV.parentVC = self;
+        _resultView = [[KSBCalculateQuestion1V alloc] initWithStockArray:_dataArray money:nil];
+        _resultView.parentVC = self;
     } else if (_calculateType == kKSBCalculateQuestion2) {
         if ([[_totalMoneyTextField text] length] <= 0) {
             kKenAlert(KenLocal(@"question_alert"));
         } else {
-            resultV = [[KSBCalculateQuestion2V alloc] initWithStockArray:_dataArray money:[_totalMoneyTextField text]];
+            _resultView = [[KSBCalculateQuestion2V alloc] initWithStockArray:_dataArray money:[_totalMoneyTextField text]];
         }
     }
     
-    [SysDelegate.window addSubview:resultV];
-    [resultV showContent];
+    [SysDelegate.window addSubview:_resultView];
+    [_resultView showContent];
 }
 
 - (void)showEidtAddView:(KSBStockInfo *)info {
@@ -335,12 +335,12 @@ static const int cellOffX = 20;
 }
 
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
-    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(showFullAD) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(showFullAD) userInfo:nil repeats:NO];
 }
 
 #pragma mark Display-Time Lifecycle Notifications
 - (void)interstitialWillPresentScreen:(GADInterstitial *)ad {
-    
+    _resultView.hidden = YES;
 }
 
 - (void)interstitialDidFailToPresentScreen:(GADInterstitial *)ad {
@@ -352,7 +352,7 @@ static const int cellOffX = 20;
 }
 
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
-    
+    _resultView.hidden = NO;
 }
 
 - (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
