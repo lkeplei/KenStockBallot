@@ -57,7 +57,7 @@
         KSBStockInfo *info = (KSBStockInfo *)[self.stockArray objectAtIndex:i];
         ballot *= (1 - ([info getShengGouBallot] / 100));
     }
-    return [NSString stringWithFormat:@"%.2f%%", MIN((1 - ballot), 1) * 100];
+    return [NSString stringWithFormat:@"%.4f%%", MIN((1 - ballot), 1) * 100];
 }
 
 #pragma mark - event

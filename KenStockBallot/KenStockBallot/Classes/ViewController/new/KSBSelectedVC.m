@@ -131,7 +131,7 @@ static const int cellEitOffX = 40;
     NSArray *array = @[info.stockName,
                        [NSString stringWithFormat:@"%.2f%@", info.stockPrice, KenLocal(@"edit_yuan")],
                        [NSString stringWithFormat:@"%d%@", (int)info.stockBuyMax, KenLocal(@"edit_gu")],
-                       [NSString stringWithFormat:@"%.2f%%", info.stockBallot], info.stockDate];
+                       [NSString stringWithFormat:@"%.4f%%", info.stockBallot], info.stockDate];
     float width = (kGSize.width - cellEitOffX) / [array count];
     for (int i = 0; i < [array count]; i++) {
         float height = i == 0 ? cell.height * 0.4 : cell.height;

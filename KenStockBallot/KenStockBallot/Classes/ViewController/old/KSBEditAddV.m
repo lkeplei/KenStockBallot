@@ -136,7 +136,7 @@ static const int itemHeight = 34;
         textArray = @[@"", [_stockInfo stockName], [_stockInfo stockCode],
                   [NSString stringWithFormat:@"%.2f", _stockInfo.stockPrice],
                   [NSString stringWithFormat:@"%d", (int)_stockInfo.stockBuyMax],
-                  [NSString stringWithFormat:@"%.2f", _stockInfo.stockBallot], _stockInfo.stockDate];
+                  [NSString stringWithFormat:@"%.4f", _stockInfo.stockBallot], _stockInfo.stockDate];
     }
     
     float offY = 20;

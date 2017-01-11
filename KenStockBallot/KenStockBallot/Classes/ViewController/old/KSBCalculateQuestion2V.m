@@ -86,7 +86,7 @@ static const float maxCellNumber = 3;
         KSBStockInfo *info = (KSBStockInfo *)[_dataArray objectAtIndex:i];
         ballot *= (1 - ([info getSuggestionBallot] / 100));
     }
-    return [NSString stringWithFormat:@"%.2f%%", MIN((1 - ballot), 1) * 100];
+    return [NSString stringWithFormat:@"%.4f%%", MIN((1 - ballot), 1) * 100];
 }
 
 NSInteger sortType(id st, id str, void *cha) {
