@@ -42,6 +42,7 @@
 "edit_alert3" = "请输入发行价";
 "edit_alert4" = "请输入申购股数,";
 "edit_alert5" = "请输入预估中签率";
+"edit_alert6" = "请输入申购日期";
 
 "edit_validate_alert3" = "请输入正确的发行价，小数点后保留两位";
 "edit_validate_alert4" = "请输入正确的申购股数（正整数）";

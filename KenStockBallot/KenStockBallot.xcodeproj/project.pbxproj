@@ -75,6 +75,12 @@
 		BE7EFC661E24E45B00E1E579 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7EFC651E24E45B00E1E579 /* GLKit.framework */; };
 		BE7EFC681E24E47B00E1E579 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7EFC671E24E47B00E1E579 /* SafariServices.framework */; };
 		BE7EFC6A1E24E48600E1E579 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7EFC691E24E48600E1E579 /* libc++.tbd */; };
+		BE7EFC781E26160D00E1E579 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC6D1E26160D00E1E579 /* NSDate+convenience.m */; };
+		BE7EFC791E26160D00E1E579 /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC6F1E26160D00E1E579 /* NSDate+Helpers.m */; };
+		BE7EFC7A1E26160D00E1E579 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC711E26160D00E1E579 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7EFC7B1E26160D00E1E579 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC731E26160D00E1E579 /* UIColor+expanded.m */; };
+		BE7EFC7C1E26160D00E1E579 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC751E26160D00E1E579 /* UIView+convenience.m */; };
+		BE7EFC7D1E26160D00E1E579 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC771E26160D00E1E579 /* VRGCalendarView.m */; };
 		E68C8E7A1E0E2225006029D1 /* KSBBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E691E0E2225006029D1 /* KSBBaseVC.m */; };
 		E68C8E7B1E0E2225006029D1 /* KSBCalculateBaseV.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E6B1E0E2225006029D1 /* KSBCalculateBaseV.m */; };
 		E68C8E7C1E0E2225006029D1 /* KSBCalculateEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E6D1E0E2225006029D1 /* KSBCalculateEditVC.m */; };
@@ -184,6 +190,18 @@
 		BE7EFC651E24E45B00E1E579 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		BE7EFC671E24E47B00E1E579 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		BE7EFC691E24E48600E1E579 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		BE7EFC6C1E26160D00E1E579 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
+		BE7EFC6D1E26160D00E1E579 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
+		BE7EFC6E1E26160D00E1E579 /* NSDate+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helpers.h"; sourceTree = "<group>"; };
+		BE7EFC6F1E26160D00E1E579 /* NSDate+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helpers.m"; sourceTree = "<group>"; };
+		BE7EFC701E26160D00E1E579 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
+		BE7EFC711E26160D00E1E579 /* NSMutableArray+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+convenience.m"; sourceTree = "<group>"; };
+		BE7EFC721E26160D00E1E579 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
+		BE7EFC731E26160D00E1E579 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
+		BE7EFC741E26160D00E1E579 /* UIView+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+convenience.h"; sourceTree = "<group>"; };
+		BE7EFC751E26160D00E1E579 /* UIView+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+convenience.m"; sourceTree = "<group>"; };
+		BE7EFC761E26160D00E1E579 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
+		BE7EFC771E26160D00E1E579 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
 		E68C8E681E0E2225006029D1 /* KSBBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBBaseVC.h; sourceTree = "<group>"; };
 		E68C8E691E0E2225006029D1 /* KSBBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBBaseVC.m; sourceTree = "<group>"; };
 		E68C8E6A1E0E2225006029D1 /* KSBCalculateBaseV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBCalculateBaseV.h; sourceTree = "<group>"; };
@@ -357,6 +375,7 @@
 		BE009A681B15697100DE9530 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				BE7EFC6B1E26160D00E1E579 /* Calendar */,
 				BE7EFC5C1E24E1CE00E1E579 /* AdSDK */,
 				E68C8E8C1E0E362D006029D1 /* Weakify.h */,
 				04C70B641B2479EB0034BF19 /* UM */,
@@ -505,6 +524,25 @@
 			path = baidu;
 			sourceTree = "<group>";
 		};
+		BE7EFC6B1E26160D00E1E579 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				BE7EFC6C1E26160D00E1E579 /* NSDate+convenience.h */,
+				BE7EFC6D1E26160D00E1E579 /* NSDate+convenience.m */,
+				BE7EFC6E1E26160D00E1E579 /* NSDate+Helpers.h */,
+				BE7EFC6F1E26160D00E1E579 /* NSDate+Helpers.m */,
+				BE7EFC701E26160D00E1E579 /* NSMutableArray+convenience.h */,
+				BE7EFC711E26160D00E1E579 /* NSMutableArray+convenience.m */,
+				BE7EFC721E26160D00E1E579 /* UIColor+expanded.h */,
+				BE7EFC731E26160D00E1E579 /* UIColor+expanded.m */,
+				BE7EFC741E26160D00E1E579 /* UIView+convenience.h */,
+				BE7EFC751E26160D00E1E579 /* UIView+convenience.m */,
+				BE7EFC761E26160D00E1E579 /* VRGCalendarView.h */,
+				BE7EFC771E26160D00E1E579 /* VRGCalendarView.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		E68C8E661E0E2225006029D1 /* new */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,10 +660,14 @@
 				E68C8E7D1E0E2225006029D1 /* KSBCalculateQuestion1V.m in Sources */,
 				BE009A8A1B15697200DE9530 /* NSString+KenString.m in Sources */,
 				E68C8E851E0E22A2006029D1 /* KSBRootNewVC.m in Sources */,
+				BE7EFC7C1E26160D00E1E579 /* UIView+convenience.m in Sources */,
 				BE009A901B15697200DE9530 /* KenUtils.m in Sources */,
+				BE7EFC7A1E26160D00E1E579 /* NSMutableArray+convenience.m in Sources */,
 				E68C8E7C1E0E2225006029D1 /* KSBCalculateEditVC.m in Sources */,
+				BE7EFC781E26160D00E1E579 /* NSDate+convenience.m in Sources */,
 				BE009A9A1B1573F900DE9530 /* KSBStockInfo.m in Sources */,
 				E68C8E821E0E2225006029D1 /* KSBRootVC.m in Sources */,
+				BE7EFC7B1E26160D00E1E579 /* UIColor+expanded.m in Sources */,
 				E68C8E7A1E0E2225006029D1 /* KSBBaseVC.m in Sources */,
 				BE009A8B1B15697200DE9530 /* UIColor+KenColor.m in Sources */,
 				E68C8E801E0E2225006029D1 /* KSBMainCalculateVC.m in Sources */,
@@ -641,10 +683,12 @@
 				BE009A851B15697200DE9530 /* NSMutableArray+KenMutableArray.m in Sources */,
 				BE009A8F1B15697200DE9530 /* UIView+KenUIView.m in Sources */,
 				BE009A8D1B15697200DE9530 /* UIFont+KenFont.m in Sources */,
+				BE7EFC7D1E26160D00E1E579 /* VRGCalendarView.m in Sources */,
 				BE009A871B15697200DE9530 /* NSMutableString+KenMutableString.m in Sources */,
 				BE009A351B155E1A00DE9530 /* main.m in Sources */,
 				BE009A881B15697200DE9530 /* NSNull+KenNull.m in Sources */,
 				BE009A9D1B15740800DE9530 /* KSBModel.m in Sources */,
+				BE7EFC791E26160D00E1E579 /* NSDate+Helpers.m in Sources */,
 				BE009A8E1B15697200DE9530 /* UIImage+KenImage.m in Sources */,
 				BE009A841B15697200DE9530 /* NSArray+KenArray.m in Sources */,
 				E68C8E7E1E0E2225006029D1 /* KSBCalculateQuestion2V.m in Sources */,

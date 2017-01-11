@@ -9,9 +9,12 @@
 #import "KSBEditAddV.h"
 #import "KSBStockInfo.h"
 
+#import "NSDate+Helpers.h"
+#import "VRGCalendarView.h"
+
 static const int itemHeight = 34;
 
-@interface KSBEditAddV ()
+@interface KSBEditAddV ()<VRGCalendarViewDelegate>
 
 @property (assign) BOOL shangHaiSelected;
 @property (assign) KSBCalculateType calculateType;
@@ -160,6 +163,11 @@ static const int itemHeight = 34;
             offY += itemHeight;
         }
     }
+    
+    UIButton *button = [KenUtils buttonWithImg:nil off:0 zoomIn:NO image:nil imagesec:nil target:self action:@selector(calendarClicked)];
+    button.frame = ((UITextField *)[_textFieldArray lastObject]).frame;
+    button.backgroundColor = [UIColor clearColor];
+    [_contentView addSubview:button];
 }
 
 - (void)initRadioV:(float)offY title:(NSString *)title {
@@ -248,7 +256,35 @@ static const int itemHeight = 34;
     }];
 }
 
+#pragma mark VRGCalendarViewDelegate methods
+-(void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated {
+    
+}
+
+-(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date {
+    NSLog(@"Selected date = %@",date);
+}
+
+- (void)calendarViewFinishSelect:(VRGCalendarView *)calendarView startDate:(NSDate *)start endDate:(NSDate *)end{
+    if ([KenUtils isEmpty:start]) {
+        start = [NSDate date];
+    }
+    if ([KenUtils isEmpty:end]) {
+        end = start;
+    }
+    
+    [calendarView removeFromSuperview];
+    
+    ((UITextField *)[_textFieldArray lastObject]).text = [end dateStringWithFormat:@"yy/MM/dd"];
+}
+
 #pragma mark - button
+- (void)calendarClicked {
+    VRGCalendarView *calendar = [[VRGCalendarView alloc] initWithParentFrame:(CGRect){0, 0, self.size}];
+    calendar.delegate = self;
+    [self addSubview:calendar];
+}
+
 - (void)closeView {
     if (_contentView) {
         [UIView animateWithDuration:0.5 animations:^{
@@ -294,6 +330,8 @@ static const int itemHeight = 34;
                     return;
                 }
             }
+        } else if (i == _textFieldArray.count - 1) {
+            
         } else if (i >= 2 && ![KenUtils validateNumber:[_textFieldArray[i] text]]){
             NSString *string = [@"edit_validate_alert" stringByAppendingFormat:@"%d", i + 1];
             kKenAlert(KenLocal(string));
@@ -308,6 +346,7 @@ static const int itemHeight = 34;
         _stockInfo.stockPrice = [[_textFieldArray[2] text] floatValue];
         _stockInfo.stockBuyMax = [[_textFieldArray[3] text] integerValue];
         _stockInfo.stockBallot = [[_textFieldArray[4] text] floatValue];
+        _stockInfo.stockDate = [_textFieldArray[5] text];
         if (self.editBlock) {
             self.editBlock(_stockInfo);
         }
@@ -319,6 +358,7 @@ static const int itemHeight = 34;
         info.stockPrice = [[_textFieldArray[2] text] floatValue];
         info.stockBuyMax = [[_textFieldArray[3] text] integerValue];
         info.stockBallot = [[_textFieldArray[4] text] floatValue];
+        info.stockDate = [_textFieldArray[5] text];
         if (self.addBlock) {
             self.addBlock(info);
         }
