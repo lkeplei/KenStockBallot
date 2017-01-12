@@ -81,6 +81,9 @@
 		BE7EFC7B1E26160D00E1E579 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC731E26160D00E1E579 /* UIColor+expanded.m */; };
 		BE7EFC7C1E26160D00E1E579 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC751E26160D00E1E579 /* UIView+convenience.m */; };
 		BE7EFC7D1E26160D00E1E579 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC771E26160D00E1E579 /* VRGCalendarView.m */; };
+		BE7EFC7F1E271A2900E1E579 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7EFC7E1E271A2900E1E579 /* WebKit.framework */; };
+		BE7EFC811E271AA300E1E579 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7EFC801E271AA300E1E579 /* OpenAL.framework */; };
+		BE7EFC831E271BA700E1E579 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7EFC821E271BA700E1E579 /* CoreData.framework */; };
 		E68C8E7A1E0E2225006029D1 /* KSBBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E691E0E2225006029D1 /* KSBBaseVC.m */; };
 		E68C8E7B1E0E2225006029D1 /* KSBCalculateBaseV.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E6B1E0E2225006029D1 /* KSBCalculateBaseV.m */; };
 		E68C8E7C1E0E2225006029D1 /* KSBCalculateEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E6D1E0E2225006029D1 /* KSBCalculateEditVC.m */; };
@@ -202,6 +205,9 @@
 		BE7EFC751E26160D00E1E579 /* UIView+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+convenience.m"; sourceTree = "<group>"; };
 		BE7EFC761E26160D00E1E579 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
 		BE7EFC771E26160D00E1E579 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
+		BE7EFC7E1E271A2900E1E579 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		BE7EFC801E271AA300E1E579 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		BE7EFC821E271BA700E1E579 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E68C8E681E0E2225006029D1 /* KSBBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBBaseVC.h; sourceTree = "<group>"; };
 		E68C8E691E0E2225006029D1 /* KSBBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBBaseVC.m; sourceTree = "<group>"; };
 		E68C8E6A1E0E2225006029D1 /* KSBCalculateBaseV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBCalculateBaseV.h; sourceTree = "<group>"; };
@@ -239,8 +245,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04C70B7E1B247AE30034BF19 /* iAd.framework in Frameworks */,
+				BE7EFC831E271BA700E1E579 /* CoreData.framework in Frameworks */,
 				BE009AEC1B1C47B100DE9530 /* AVFoundation.framework in Frameworks */,
+				BE7EFC811E271AA300E1E579 /* OpenAL.framework in Frameworks */,
+				04C70B8A1B247B250034BF19 /* StoreKit.framework in Frameworks */,
+				BE7EFC7F1E271A2900E1E579 /* WebKit.framework in Frameworks */,
+				04C70B7E1B247AE30034BF19 /* iAd.framework in Frameworks */,
 				BE7EFC6A1E24E48600E1E579 /* libc++.tbd in Frameworks */,
 				BE7EFC681E24E47B00E1E579 /* SafariServices.framework in Frameworks */,
 				BE7EFC661E24E45B00E1E579 /* GLKit.framework in Frameworks */,
@@ -261,7 +271,6 @@
 				040FFB951B24893B00553DD7 /* CoreText.framework in Frameworks */,
 				040FFB931B24892500553DD7 /* Accelerate.framework in Frameworks */,
 				04C70B8C1B247B310034BF19 /* UIKit.framework in Frameworks */,
-				04C70B8A1B247B250034BF19 /* StoreKit.framework in Frameworks */,
 				04C70B881B247B1B0034BF19 /* Social.framework in Frameworks */,
 				E68C8E8E1E0E3F5A006029D1 /* BmobSDK.framework in Frameworks */,
 				BE7EFC621E24E1CE00E1E579 /* GoogleMobileAds.framework in Frameworks */,
@@ -451,6 +460,9 @@
 		BE009AEF1B1C47D700DE9530 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE7EFC821E271BA700E1E579 /* CoreData.framework */,
+				BE7EFC801E271AA300E1E579 /* OpenAL.framework */,
+				BE7EFC7E1E271A2900E1E579 /* WebKit.framework */,
 				BE7EFC691E24E48600E1E579 /* libc++.tbd */,
 				BE7EFC671E24E47B00E1E579 /* SafariServices.framework */,
 				BE7EFC651E24E45B00E1E579 /* GLKit.framework */,
@@ -813,7 +825,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
 				INFOPLIST_FILE = KenStockBallot/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -848,7 +860,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KenStockBallot/PrefixHeader.pch";
 				INFOPLIST_FILE = KenStockBallot/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
