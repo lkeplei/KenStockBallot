@@ -25,7 +25,7 @@
 
 #pragma mark - Init
 - (instancetype)initWithParentFrame:(CGRect)frame {
-    self = [super initWithFrame:(CGRect){(frame.size.width - kVRGCalendarViewWidth) / 2, 100, kVRGCalendarViewWidth, frame.size.height}];
+    self = [super initWithFrame:(CGRect){(frame.size.width - kVRGCalendarViewWidth) / 2, 115, kVRGCalendarViewWidth, frame.size.height}];
     if (self) {
         self.contentMode = UIViewContentModeTop;
         self.clipsToBounds = YES;
@@ -119,6 +119,19 @@
     [self updateSize];
     [self setNeedsDisplay];
     [delegate calendarView:self switchedToMonth:[currentMonth month] targetHeight:self.calendarHeight animated:NO];
+    
+    UIButton *closeBtn = [KenUtils buttonWithImg:@"" off:0 zoomIn:NO image:[UIImage imageNamed:@"add_cancel"]
+                                        imagesec:[UIImage imageNamed:@"add_cancel_sec"] target:self action:@selector(closeCalendar)];
+    closeBtn.center = CGPointMake(self.width - 6, 6);
+    self.clipsToBounds = NO;
+    [self addSubview:closeBtn];
+}
+
+- (void)closeCalendar {
+    [self removeFromSuperview];
+    
+    if ([delegate respondsToSelector:@selector(calendarCloseView)])
+        [delegate calendarCloseView];
 }
 
 #pragma mark - Next & Previous
@@ -556,7 +569,7 @@
     
     CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0x006dbc"].CGColor);
     
-    [NSLocalizedString(@"CONFIRM", nil) drawInRect:(CGRect){0, targetY + 12, self.width, 20}
+    [NSLocalizedString(@"确定", nil) drawInRect:(CGRect){0, targetY + 12, self.width, 20}
                                           withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:20]
                                      lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
     /////////////////////////

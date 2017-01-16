@@ -46,7 +46,7 @@
 
 "edit_validate_alert3" = "请输入正确的发行价，小数点后保留两位";
 "edit_validate_alert4" = "请输入正确的申购股数（正整数）";
-"edit_validate_alert5" = "请输入正确的预估中签率，小数点后保留两位";
+"edit_validate_alert5" = "请输入正确的中签率，小数点后保留四位";
 "edit_validate_alert4_sh" = "上海：申购股数必须为1000股的整数倍！";
 "edit_validate_alert4_sz" = "深圳：申购股数必须为500股的整数倍！";
 

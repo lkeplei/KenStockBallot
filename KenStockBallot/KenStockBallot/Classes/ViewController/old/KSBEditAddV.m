@@ -265,6 +265,10 @@ static const int itemHeight = 34;
     NSLog(@"Selected date = %@",date);
 }
 
+- (void)calendarCloseView {
+    _contentView.hidden = NO;
+}
+
 - (void)calendarViewFinishSelect:(VRGCalendarView *)calendarView startDate:(NSDate *)start endDate:(NSDate *)end{
     if ([KenUtils isEmpty:start]) {
         start = [NSDate date];
@@ -276,6 +280,8 @@ static const int itemHeight = 34;
     [calendarView removeFromSuperview];
     
     ((UITextField *)[_textFieldArray lastObject]).text = [end dateStringWithFormat:@"yy/MM/dd"];
+    
+    _contentView.hidden = NO;
 }
 
 #pragma mark - button
@@ -283,6 +289,8 @@ static const int itemHeight = 34;
     VRGCalendarView *calendar = [[VRGCalendarView alloc] initWithParentFrame:(CGRect){0, 0, self.size}];
     calendar.delegate = self;
     [self addSubview:calendar];
+    
+    _contentView.hidden = YES;
 }
 
 - (void)closeView {

@@ -144,18 +144,20 @@ static const int cellEitOffX = 40;
                                            font:kKenFontHelvetica(12) color:[UIColor blackTextColor]];
         [cell.contentView addSubview:label];
         if (i == 0) {
-            label.textAlignment = KTextAlignmentLeft;
+//            label.textAlignment = KTextAlignmentLeft;
             
             NSString *image = @"new_hu";
             if ([info.stockJiaoYS isEqual:@"深圳"]) {
                 image = @"new_sheng";
             }
+            CGFloat codeWidth = [KenUtils getFontSize:info.stockCode font:kKenFontHelvetica(12)].width + 4;
+            
             UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:image]];
-            imgV.originX = label.originX;
+            imgV.originX = label.originX + (width - codeWidth - imgV.width) / 2;
             [cell.contentView addSubview:imgV];
             
             UILabel *code = [KenUtils labelWithTxt:info.stockCode
-                                             frame:(CGRect){cellEitOffX + imgV.width + 4, cell.height * 0.5, width, height}
+                                             frame:(CGRect){CGRectGetMaxX(imgV.frame) + 4, cell.height * 0.5, codeWidth, height}
                                               font:kKenFontHelvetica(12) color:[UIColor grayTextColor]];
             code.textAlignment = KTextAlignmentLeft;
             [cell.contentView addSubview:code];

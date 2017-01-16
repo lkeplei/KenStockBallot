@@ -9,6 +9,7 @@
 #import "KSBRootNewVC.h"
 #import "KSBRootBtn1VC.h"
 #import "KSBHistoryVC.h"
+#import "KSBAboutUsVC.h"
 
 #import "BaiduMobAdSDK/BaiduMobAdSetting.h"
 #import "BaiduMobAdSDK/BaiduMobAdView.h"
@@ -24,6 +25,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setRightNavItemWithImage:[UIImage imageNamed:@"about_us_normal"]
+                            imgSec:[UIImage imageNamed:@"about_us_hl"] selector:@selector(aboutUs)];
+    
     // Do any additional setup after loading the view, typically from a nib.
     UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"new_root_bg"]];
     bgView.frame = (CGRect){CGPointZero, kGSize};
@@ -56,6 +61,10 @@
 
 - (void)button2Clicked:(UIButton *)button {
     [self pushViewController:[[KSBHistoryVC alloc] init]];
+}
+
+- (void)aboutUs {
+    [self pushViewController:[[KSBAboutUsVC alloc] init]];
 }
 
 #pragma mark - baidu delegate

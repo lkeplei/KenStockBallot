@@ -84,6 +84,7 @@
 		BE7EFC7F1E271A2900E1E579 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7EFC7E1E271A2900E1E579 /* WebKit.framework */; };
 		BE7EFC811E271AA300E1E579 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7EFC801E271AA300E1E579 /* OpenAL.framework */; };
 		BE7EFC831E271BA700E1E579 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7EFC821E271BA700E1E579 /* CoreData.framework */; };
+		BE7EFC8F1E2C641300E1E579 /* KSBAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7EFC8E1E2C641300E1E579 /* KSBAboutUsVC.m */; };
 		E68C8E7A1E0E2225006029D1 /* KSBBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E691E0E2225006029D1 /* KSBBaseVC.m */; };
 		E68C8E7B1E0E2225006029D1 /* KSBCalculateBaseV.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E6B1E0E2225006029D1 /* KSBCalculateBaseV.m */; };
 		E68C8E7C1E0E2225006029D1 /* KSBCalculateEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E68C8E6D1E0E2225006029D1 /* KSBCalculateEditVC.m */; };
@@ -208,6 +209,8 @@
 		BE7EFC7E1E271A2900E1E579 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BE7EFC801E271AA300E1E579 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		BE7EFC821E271BA700E1E579 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BE7EFC8D1E2C641300E1E579 /* KSBAboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBAboutUsVC.h; sourceTree = "<group>"; };
+		BE7EFC8E1E2C641300E1E579 /* KSBAboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBAboutUsVC.m; sourceTree = "<group>"; };
 		E68C8E681E0E2225006029D1 /* KSBBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBBaseVC.h; sourceTree = "<group>"; };
 		E68C8E691E0E2225006029D1 /* KSBBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBBaseVC.m; sourceTree = "<group>"; };
 		E68C8E6A1E0E2225006029D1 /* KSBCalculateBaseV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBCalculateBaseV.h; sourceTree = "<group>"; };
@@ -566,6 +569,8 @@
 				E68C8E8A1E0E28D3006029D1 /* KSBHistoryVC.m */,
 				E68C8E8F1E0E5188006029D1 /* KSBSelectedVC.h */,
 				E68C8E901E0E5188006029D1 /* KSBSelectedVC.m */,
+				BE7EFC8D1E2C641300E1E579 /* KSBAboutUsVC.h */,
+				BE7EFC8E1E2C641300E1E579 /* KSBAboutUsVC.m */,
 			);
 			path = new;
 			sourceTree = "<group>";
@@ -687,6 +692,7 @@
 				E68C8E911E0E5188006029D1 /* KSBSelectedVC.m in Sources */,
 				E68C8E8B1E0E28D3006029D1 /* KSBHistoryVC.m in Sources */,
 				BE009A5D1B155F5A00DE9530 /* AppDelegate.m in Sources */,
+				BE7EFC8F1E2C641300E1E579 /* KSBAboutUsVC.m in Sources */,
 				BE009A891B15697200DE9530 /* NSObject+KenObject.m in Sources */,
 				E68C8E941E0E6FA8006029D1 /* KSBHistoryInfo.m in Sources */,
 				E68C8E7F1E0E2225006029D1 /* KSBEditAddV.m in Sources */,
