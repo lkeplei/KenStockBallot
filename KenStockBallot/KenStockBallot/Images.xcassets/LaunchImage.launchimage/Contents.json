@@ -25,14 +25,14 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "新手引导切图.png",
+      "filename" : "ipad768 1004.png",
       "extent" : "to-status-bar",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "新手引导切图-2.png",
+      "filename" : "ipad768 1024.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
@@ -51,14 +51,14 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "新手引导切图-1.png",
+      "filename" : "ipad1536 2008.png",
       "extent" : "to-status-bar",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "新手引导切图-3.png",
+      "filename" : "ipad1536 2048.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
@@ -120,7 +120,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "新手引导切图-4.png",
+      "filename" : "ipad768 1024-1.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -135,7 +135,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "新手引导切图-5.png",
+      "filename" : "ipad1536 2048-1.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"

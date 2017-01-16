@@ -48,7 +48,31 @@ static KSBModel *_sharedModel = nil;
         [array addObject:[dic returnStockInfo]];
     }
     
-    return array;
+    NSArray *sortedArray = [array sortedArrayUsingComparator: ^(KSBStockInfo *obj1, KSBStockInfo *obj2) {
+        NSComparisonResult result = [obj1.stockDate compare:obj2.stockDate];
+        switch(result) {
+            case NSOrderedAscending:
+                return NSOrderedDescending;
+            case NSOrderedDescending:
+                return NSOrderedAscending;
+            case NSOrderedSame:
+            default: {
+                NSComparisonResult result1 = [obj1.stockCode compare:obj2.stockCode];
+                switch(result1) {
+                    case NSOrderedAscending:
+                        return NSOrderedAscending;
+                    case NSOrderedDescending:
+                        return NSOrderedDescending;
+                    case NSOrderedSame:
+                    default:
+                        return NSOrderedSame;
+                }
+            }
+                break;
+        }
+    }];
+    
+    return sortedArray;
 }
 
 - (void)saveHistory:(NSArray *)stockArray {
@@ -68,7 +92,31 @@ static KSBModel *_sharedModel = nil;
         [array addObject:[dic returnHistoryInfo]];
     }
     
-    return array;
+    NSArray *sortedArray = [array sortedArrayUsingComparator: ^(KSBHistoryInfo *obj1, KSBHistoryInfo *obj2) {
+        NSComparisonResult result = [obj1.date compare:obj2.date];
+        switch(result) {
+            case NSOrderedAscending:
+                return NSOrderedDescending;
+            case NSOrderedDescending:
+                return NSOrderedAscending;
+            case NSOrderedSame:
+            default: {
+                NSComparisonResult result1 = [obj1.code compare:obj2.code];
+                switch(result1) {
+                    case NSOrderedAscending:
+                        return NSOrderedAscending;
+                    case NSOrderedDescending:
+                        return NSOrderedDescending;
+                    case NSOrderedSame:
+                    default:
+                        return NSOrderedSame;
+                }
+            }
+                break;
+        }
+    }];
+    
+    return sortedArray;
 }
 
 #pragma mark - user default
