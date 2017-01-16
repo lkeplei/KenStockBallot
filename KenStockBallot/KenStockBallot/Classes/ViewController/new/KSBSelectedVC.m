@@ -221,7 +221,9 @@ static const int cellEitOffX = 40;
         [array addObject:info];
         [[KSBModel shareKSBModel] saveHistory:array];
         
-        [self pushViewController:[[KSBHistoryVC alloc] init]];
+        if (self.selectBlock) {
+            self.selectBlock(info);
+        }
     }
 }
 

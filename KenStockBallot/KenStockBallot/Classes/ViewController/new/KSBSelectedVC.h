@@ -8,8 +8,14 @@
 
 #import "KSBBaseVC.h"
 
+@class KSBHistoryInfo;
+
+typedef void (^KSBSelectBlock)(KSBHistoryInfo *info);
+
 @interface KSBSelectedVC : KSBBaseVC
 
 - (instancetype)initWithStockType:(KSBCalculateType)type num:(NSInteger)num ballot:(NSString *)ballot;
+
+@property (nonatomic, copy) KSBSelectBlock selectBlock;
 
 @end

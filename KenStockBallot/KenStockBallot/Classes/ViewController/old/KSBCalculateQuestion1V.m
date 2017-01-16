@@ -9,6 +9,7 @@
 #import "KSBCalculateQuestion1V.h"
 #import "KSBStockInfo.h"
 #import "KSBSelectedVC.h"
+#import "KSBHistoryVC.h"
 
 @interface KSBCalculateQuestion1V ()
 
@@ -67,6 +68,13 @@
         KSBSelectedVC *select = [[KSBSelectedVC alloc] initWithStockType:kKSBCalculateQuestion1 num:[self.stockArray count]
                                                                   ballot:[self getBallot]];
         [self.parentVC pushViewController:select];
+        
+        @weakify(select)
+        select.selectBlock = ^(KSBHistoryInfo *info) {
+            @strongify(select)
+            [select.navigationController popViewControllerAnimated:NO];
+            [self.parentVC pushViewController:[[KSBHistoryVC alloc] init]];
+        };
     }
 }
 

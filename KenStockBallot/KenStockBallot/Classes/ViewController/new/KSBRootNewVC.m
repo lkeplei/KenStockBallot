@@ -49,7 +49,11 @@
                                          target:self action:@selector(button2Clicked:)];
     button2.center = CGPointMake(self.view.width / 2, CGRectGetMaxY(button1.frame) + button2.height / 2 + 40);
     [self.view addSubview:button2];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.sharedAdView removeFromSuperview];
+    self.sharedAdView = nil;
     
     [self.view addSubview:self.sharedAdView];
 }

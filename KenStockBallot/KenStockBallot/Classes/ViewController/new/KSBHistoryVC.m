@@ -73,6 +73,11 @@ static const int cellEitOffX = 20;
     [self.view addSubview:_stockTable];
     
     [_stockTable reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.sharedAdView removeFromSuperview];
+    self.sharedAdView = nil;
     
     [self.view addSubview:self.sharedAdView];
 }
