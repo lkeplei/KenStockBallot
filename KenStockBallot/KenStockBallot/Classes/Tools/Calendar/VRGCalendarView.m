@@ -33,6 +33,7 @@
         [self setBackgroundColor:[UIColor clearColor]];
         
         isAnimating = NO;
+        _onlyOneDate = NO;
         
         [self performSelector:@selector(reset) withObject:nil afterDelay:0.1];
     }
@@ -70,7 +71,7 @@
 }
 
 - (void)setSelectDate:(NSDate *)date {
-    if (_startDate == nil) {
+    if (_startDate == nil || _onlyOneDate) {
         _startDate = date;
     } else {
         if ([date compare:_startDate] == NSOrderedAscending) {
@@ -128,10 +129,10 @@
 }
 
 - (void)closeCalendar {
-    [self removeFromSuperview];
-    
     if ([delegate respondsToSelector:@selector(calendarCloseView)])
         [delegate calendarCloseView];
+    
+    [self removeFromSuperview];
 }
 
 #pragma mark - Next & Previous

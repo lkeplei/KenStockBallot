@@ -141,7 +141,7 @@ static const int cellEitOffX = 40;
     for (int i = 0; i < [array count]; i++) {
         float height = i == 0 ? cell.height * 0.4 : cell.height;
         UILabel *label = [KenUtils labelWithTxt:array[i] frame:(CGRect){cellEitOffX + width * i, i == 0 ? cell.height * 0.15 : 0, width, height}
-                                           font:kKenFontHelvetica(12) color:[UIColor blackTextColor]];
+                                           font:kKenFontHelvetica(14) color:[UIColor blackTextColor]];
         [cell.contentView addSubview:label];
         if (i == 0) {
 //            label.textAlignment = KTextAlignmentLeft;

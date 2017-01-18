@@ -58,7 +58,7 @@
 "result1_title" = "计算结果";
 "result1_content1" = "本次申购需资金：";
 "result1_content2" = "至少中一签概率：";
-"result1_content3" = "截至目前，您至少中一签的累积概率为：";
+"result1_content3" = "截至目前，您至少中一签的\n累积概率为：";
 
 "result2_title" = "推荐申购组合";
 "result2_cell_title1" = "股票";

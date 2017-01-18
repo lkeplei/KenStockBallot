@@ -39,11 +39,19 @@
         //content1
         NSString *ballot = [self getBallot];
         NSString *string = [KenLocal(@"result1_content3") stringByAppendingString:ballot];
-        UILabel *content1 = [KenUtils labelWithTxt:string frame:(CGRect){15, CGRectGetMaxY(frame), self.contentView.width - 30, 70}
-                                              font:kKenFontHelvetica(17) color:[UIColor greenTextColor]];
+        UILabel *content1 = [KenUtils labelWithTxt:string frame:(CGRect){20, CGRectGetMaxY(frame), self.contentView.width - 40, 70}
+                                              font:kKenFontHelvetica(20) color:[UIColor greenTextColor]];
         content1.textAlignment = KTextAlignmentLeft;
         content1.numberOfLines = 0;
         [self.contentView addSubview:content1];
+        
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+//        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor greenTextColor]
+//                                 range:NSMakeRange(0, 19)];
+        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor blackTextColor]
+                                 range:NSMakeRange(19, string.length - 19)];
+        content1.attributedText = attributedString;
+        
         
         CGFloat number = [ballot floatValue];
         NSString *name = @"new_select_1";

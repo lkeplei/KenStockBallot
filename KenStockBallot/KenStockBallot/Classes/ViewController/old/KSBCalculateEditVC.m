@@ -104,12 +104,37 @@ static const int cellEitOffX = 40;
 }
 
 - (void)setData:(NSArray *)array {
+    NSArray *sortedArray = [array sortedArrayUsingComparator: ^(KSBStockInfo *obj1, KSBStockInfo *obj2) {
+        NSComparisonResult result = [obj1.stockDate compare:obj2.stockDate];
+        switch(result) {
+            case NSOrderedAscending:
+                return NSOrderedDescending;
+            case NSOrderedDescending:
+                return NSOrderedAscending;
+            case NSOrderedSame:
+            default: {
+                NSComparisonResult result1 = [obj1.stockCode compare:obj2.stockCode];
+                switch(result1) {
+                    case NSOrderedAscending:
+                        return NSOrderedAscending;
+                    case NSOrderedDescending:
+                        return NSOrderedDescending;
+                    case NSOrderedSame:
+                    default:
+                        return NSOrderedSame;
+                }
+            }
+                break;
+        }
+    }];
+    
+    
     if (_dataArray) {
         [_dataArray removeAllObjects];
     } else {
         _dataArray = [NSMutableArray array];
     }
-    [_dataArray addObjectsFromArray:array];
+    [_dataArray addObjectsFromArray:sortedArray];
     
     if (_statusArray) {
         [_statusArray removeAllObjects];
@@ -152,6 +177,9 @@ static const int cellEitOffX = 40;
                         info.stockBuyMax = [[object objectForKey:@"stockNumber"] integerValue];
                         info.stockBallot = [[object objectForKey:@"probability"] floatValue];
                         info.stockDate = [KenUtils getStringFromDate:[object objectForKey:@"date"] format:@"yy/MM/dd"];
+                        if ([KenUtils isEmpty:info.stockDate]) {
+                            info.stockDate = [KenUtils getStringFromDate:[NSDate date] format:@"yy/MM/dd"];
+                        }
                         
                         [bmobArray addObject:info];
                     }
@@ -196,7 +224,7 @@ static const int cellEitOffX = 40;
     for (int i = 0; i < [array count]; i++) {
         float height = i == 0 ? cell.height * 0.4 : cell.height;
         UILabel *label = [KenUtils labelWithTxt:array[i] frame:(CGRect){cellEitOffX + width * i, i == 0 ? cell.height * 0.15 : 0, width, height}
-                                           font:kKenFontHelvetica(12) color:[UIColor blackTextColor]];
+                                           font:kKenFontHelvetica(14) color:[UIColor blackTextColor]];
         [cell.contentView addSubview:label];
         if (i == 0) {
 //            label.textAlignment = KTextAlignmentLeft;

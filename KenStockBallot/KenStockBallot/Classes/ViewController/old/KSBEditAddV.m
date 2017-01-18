@@ -288,6 +288,7 @@ static const int itemHeight = 34;
 - (void)calendarClicked {
     VRGCalendarView *calendar = [[VRGCalendarView alloc] initWithParentFrame:(CGRect){0, 0, self.size}];
     calendar.delegate = self;
+    calendar.onlyOneDate = YES;
     [self addSubview:calendar];
     
     _contentView.hidden = YES;

@@ -43,6 +43,8 @@
 @property (nonatomic, getter = calendarHeight) CGFloat calendarHeight;
 @property (nonatomic, strong, getter = selectedDate) NSDate *selectedDate;
 
+@property (nonatomic, assign) BOOL onlyOneDate;         //是否只选一天，默认可选多天
+
 
 - (instancetype)initWithParentFrame:(CGRect)frame;
 

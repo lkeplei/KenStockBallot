@@ -18,7 +18,7 @@
 @property (nonatomic, assign) CGFloat stockBallot;            //预估中签率
 
 //新加
-@property (nonatomic, assign) NSString *stockDate;            //申购日期
+@property (nonatomic, strong) NSString *stockDate;            //申购日期
 
 @property (nonatomic, assign) NSInteger suggestionBuy;          //建议申购股数，这个属性不保存，只用作计算中转值
 @property (nonatomic, assign) CGFloat suggestionMoney;          //建议申购股数对应需要钱数，这个属性不保存，只用作计算中转值
