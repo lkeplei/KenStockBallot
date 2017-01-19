@@ -1,44 +1,35 @@
 //
-//  KSBHistoryVC.m
+//  KSBHistoryEditVC.m
 //  KenStockBallot
 //
-//  Created by hzyouda on 2016/12/24.
-//  Copyright © 2016年 ken. All rights reserved.
+//  Created by Ken.Liu on 2017/1/19.
+//  Copyright © 2017年 ken. All rights reserved.
 //
 
-#import "KSBHistoryVC.h"
-#import "KSBHistoryInfo.h"
 #import "KSBHistoryEditVC.h"
+#import "KSBHistoryInfo.h"
 
-#import <BmobSDK/Bmob.h>
+static const int cellEitOffX = 40;
 
-static const int cellEitOffX = 20;
+@interface KSBHistoryEditVC ()<UITableViewDataSource, UITableViewDelegate>
 
-#import "BaiduMobAdSDK/BaiduMobAdSetting.h"
-#import "BaiduMobAdSDK/BaiduMobAdView.h"
-#import "BaiduMobAdSDK/BaiduMobAdDelegateProtocol.h"
-
-@interface KSBHistoryVC ()<UITableViewDataSource, UITableViewDelegate, BaiduMobAdViewDelegate>
-
+@property (assign) BOOL isSelectAll;
+@property (nonatomic, strong) UIButton *selectAllBtn;
 @property (nonatomic, strong) UITableView *stockTable;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) NSMutableArray *preDataArray;
-
-@property (nonatomic, strong) BaiduMobAdView *sharedAdView;
+@property (nonatomic, strong) NSMutableArray *statusArray;
 
 @end
 
-@implementation KSBHistoryVC
-- (instancetype)init {
+@implementation KSBHistoryEditVC
+- (instancetype)initWithData:(NSArray *)data {
     self = [super init];
     if (self) {
-        self.title = KenLocal(@"app_history_title");
-        
-        [self setData:[[KSBModel shareKSBModel] getHistory]];
+        _isSelectAll = NO;
+        [self setData:data];
         
         [self.view setBackgroundColor:[UIColor grayBgColor]];
-        [self setRightNavItemWithImage:[UIImage imageNamed:@"question_edit.png"]
-                                imgSec:[UIImage imageNamed:@"question_edit_sec.png"] selector:@selector(editStock)];
     }
     return self;
 }
@@ -54,6 +45,12 @@ static const int cellEitOffX = 20;
     [titleV setBackgroundColor:[UIColor grayBgColor]];
     [topView addSubview:titleV];
     
+    //select all
+    _selectAllBtn = [KenUtils buttonWithImg:nil off:0 zoomIn:YES image:[UIImage imageNamed:@"select_none.png"]
+                                   imagesec:[UIImage imageNamed:@"select_none.png"] target:self action:@selector(selectAllClicked)];
+    _selectAllBtn.center = CGPointMake(titleV.height / 2, titleV.height / 2);
+    [titleV addSubview:_selectAllBtn];
+    
     //title
     NSArray *titleArr = @[KenLocal(@"question_title1"), KenLocal(@"question_title3"), @"累计申购\n新股次数",
                           @"中签时的\n累积概率", KenLocal(@"question_title6")];
@@ -66,8 +63,17 @@ static const int cellEitOffX = 20;
         [titleV addSubview:label];
     }
     
+    //bottom delete or add
+    UIButton *deleteBtn = [KenUtils buttonWithImg:KenLocal(@"app_delete") off:0 zoomIn:NO
+                                            image:[UIImage imageNamed:@"delete_bg"]
+                                         imagesec:[UIImage imageNamed:@"delete_bg_sec"]
+                                           target:self action:@selector(deleteBtnClicked)];
+    [deleteBtn.titleLabel setFont:kKenFontHelvetica(16)];
+    deleteBtn.frame = CGRectMake(0, kGSize.height - 44, self.view.width, 44);
+    [self.view addSubview:deleteBtn];
+    
     //table
-    CGRect rect = CGRectMake(0, CGRectGetMaxY(topView.frame), kGSize.width, self.view.height - CGRectGetMaxY(topView.frame));
+    CGRect rect = CGRectMake(0, CGRectGetMaxY(topView.frame), kGSize.width, deleteBtn.originY - CGRectGetMaxY(topView.frame));
     _stockTable = [[UITableView alloc] initWithFrame:rect style:UITableViewStylePlain];
     _stockTable.delegate = self;
     _stockTable.dataSource = self;
@@ -75,38 +81,54 @@ static const int cellEitOffX = 20;
     _stockTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_stockTable];
     
-    [_stockTable reloadData];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [self.sharedAdView removeFromSuperview];
-    self.sharedAdView = nil;
-    
-    [self.view addSubview:self.sharedAdView];
-    
-    NSArray *array = [[KSBModel shareKSBModel] getHistory];
-    if ([KenUtils isNotEmpty:array]) {
-        [_dataArray removeAllObjects];
-        [_dataArray addObjectsFromArray:array];
-        [_stockTable reloadData];
-    }
+    [self loadTable];
 }
 
 - (void)setData:(NSArray *)array {
+    NSArray *sortedArray = [array sortedArrayUsingComparator: ^(KSBHistoryInfo *obj1, KSBHistoryInfo *obj2) {
+        NSComparisonResult result = [obj1.date compare:obj2.date];
+        switch(result) {
+            case NSOrderedAscending:
+                return NSOrderedDescending;
+            case NSOrderedDescending:
+                return NSOrderedAscending;
+            case NSOrderedSame:
+            default: {
+                NSComparisonResult result1 = [obj1.code compare:obj2.code];
+                switch(result1) {
+                    case NSOrderedAscending:
+                        return NSOrderedAscending;
+                    case NSOrderedDescending:
+                        return NSOrderedDescending;
+                    case NSOrderedSame:
+                    default:
+                        return NSOrderedSame;
+                }
+            }
+                break;
+        }
+    }];
+    
+    
     if (_dataArray) {
         [_dataArray removeAllObjects];
     } else {
         _dataArray = [NSMutableArray array];
     }
-    [_dataArray addObjectsFromArray:array];
+    [_dataArray addObjectsFromArray:sortedArray];
+    
+    if (_statusArray) {
+        [_statusArray removeAllObjects];
+    } else {
+        _statusArray = [NSMutableArray array];
+    }
+    for (int i = 0; i < [_dataArray count]; i++) {
+        [_statusArray addObject:[NSNumber numberWithBool:NO]];
+    }
 }
 
-#pragma mark - event
-- (void)editStock {
-    if ([_dataArray count] > 0) {
-        KSBHistoryEditVC *editVC = [[KSBHistoryEditVC alloc] initWithData:_dataArray];
-        [self pushViewController:editVC];
-    }
+- (void)loadTable {
+    [_stockTable reloadData];
 }
 
 #pragma mark - Table
@@ -125,6 +147,12 @@ static const int cellEitOffX = 20;
     
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
+    NSString *selectName = @"select_red.png";
+    UIImageView *status = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[_statusArray[indexPath.row] boolValue] ? selectName : @"select_none.png"]];
+    status.center = CGPointMake(cell.height / 2, cell.height / 2);
+    status.tag = 10001;
+    [cell.contentView addSubview:status];
+    
     KSBHistoryInfo *info = _dataArray[indexPath.row];
     NSArray *array = @[info.name, info.price, info.times, info.ballot, info.date];
     float width = (kGSize.width - cellEitOffX) / [array count];
@@ -134,8 +162,6 @@ static const int cellEitOffX = 20;
                                            font:kKenFontHelvetica(14) color:[UIColor blackTextColor]];
         [cell.contentView addSubview:label];
         if (i == 0) {
-//            label.textAlignment = KTextAlignmentLeft;
-            
             NSString *image = @"new_hu";
             if ([info.jiaoYS isEqual:@"深圳"]) {
                 image = @"new_sheng";
@@ -164,59 +190,43 @@ static const int cellEitOffX = 20;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-}
-
-#pragma mark - baidu delegate
-- (NSString *)publisherId {
-    return kBaiduPublisherId; //@"your_own_app_id";注意，iOS和android的app请使用不同的app ID
-}
-
-- (BOOL)enableLocation {
-    //启用location会有一次alert提示
-    return YES;
-}
-
-- (void)willDisplayAd:(BaiduMobAdView*)adview {
-    NSLog(@"delegate: will display ad");
-}
-
-- (void)failedDisplayAd:(BaiduMobFailReason)reason {
-    NSLog(@"delegate: failedDisplayAd %d", reason);
-}
-
-- (void)didAdImpressed {
-    NSLog(@"delegate: didAdImpressed");
+    _statusArray[indexPath.row] = [NSNumber numberWithBool:![_statusArray[indexPath.row] boolValue]];
     
-}
-
-- (void)didAdClicked {
-    NSLog(@"delegate: didAdClicked");
-}
-
-- (void)didAdClose {
-    NSLog(@"delegate: didAdClose");
-}
-
-#pragma mark - getter setter
-#define kScreenWidth self.view.frame.size.width
-#define kScreenHeight self.view.frame.size.height
-- (BaiduMobAdView *)sharedAdView {
-    if (_sharedAdView == nil) {
-        //lp颜色配置
-        [BaiduMobAdSetting setLpStyle:BaiduMobAdLpStyleDefault];
-#warning ATS默认开启状态, 可根据需要关闭App Transport Security Settings，设置关闭BaiduMobAdSetting的supportHttps，以请求http广告，多个产品只需要设置一次.    [BaiduMobAdSetting sharedInstance].supportHttps = NO;
-        
-        //使用嵌入广告的方法实例。
-        _sharedAdView = [[BaiduMobAdView alloc] init];
-        _sharedAdView.AdUnitTag = @"3191691";
-        _sharedAdView.AdType = BaiduMobAdViewTypeBanner;
-        CGFloat bannerY = kScreenHeight - 0.15 * kScreenWidth;
-        _sharedAdView.frame = CGRectMake(0, bannerY, kScreenWidth, 0.15*kScreenWidth);
-        
-        _sharedAdView.delegate = self;
-        [_sharedAdView start];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIImageView *statusImg = (UIImageView *)[cell viewWithTag:10001];
+    if (statusImg) {
+        NSString *selectName = @"select_red.png";
+        [statusImg setImage:[UIImage imageNamed:[_statusArray[indexPath.row] boolValue] ? selectName : @"select_none.png"]];
     }
-    return _sharedAdView;
 }
+
+#pragma mark - button
+- (void)selectAllClicked {
+    _isSelectAll = !_isSelectAll;
+    for (int i = 0; i < [_statusArray count]; i++) {
+        _statusArray[i] = [NSNumber numberWithBool:_isSelectAll];
+    }
+    
+    NSString *selectName = @"select_red.png";
+    UIImage *image = [UIImage imageNamed:_isSelectAll ? selectName : @"select_none.png"];
+    [_selectAllBtn setImage:image forState:UIControlStateNormal];
+    [_selectAllBtn setImage:image forState:UIControlStateHighlighted];
+    [_selectAllBtn setImage:image forState:UIControlStateSelected];
+    
+    [_stockTable reloadData];
+}
+
+- (void)deleteBtnClicked {
+    for (int i = (int)[_statusArray count] - 1; i >= 0; i--) {
+        if ([_statusArray[i] boolValue]) {
+            [_dataArray removeObjectAtIndex:i];
+            [_statusArray removeObjectAtIndex:i];
+        }
+    }
+    
+    [_stockTable reloadData];
+    
+    [[KSBModel shareKSBModel] saveHistory:_dataArray];
+}
+
 @end
