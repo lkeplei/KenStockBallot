@@ -57,8 +57,8 @@ static const int cellEitOffX = 20;
     float width = (kGSize.width - cellEitOffX) / [titleArr count];
     for (int i = 0; i < [titleArr count]; i++) {
         UILabel *label = [KenUtils labelWithTxt:titleArr[i]
-                                          frame:(CGRect){cellEitOffX + width * i, 0, (i == 0 ? width - 20 : width), 44}
-                                           font:kKenFontHelvetica(12) color:[UIColor greenTextColor]];
+                                          frame:(CGRect){cellEitOffX + width * i, 0, width, 44}
+                                           font:kKenFontHelvetica(14) color:[UIColor greenTextColor]];
         label.numberOfLines = 0;
         [titleV addSubview:label];
     }
@@ -113,7 +113,7 @@ static const int cellEitOffX = 20;
     for (int i = 0; i < [array count]; i++) {
         float height = i == 0 ? cell.height * 0.4 : cell.height;
         UILabel *label = [KenUtils labelWithTxt:array[i] frame:(CGRect){cellEitOffX + width * i, i == 0 ? cell.height * 0.15 : 0, width, height}
-                                           font:kKenFontHelvetica(12) color:[UIColor blackTextColor]];
+                                           font:kKenFontHelvetica(14) color:[UIColor blackTextColor]];
         [cell.contentView addSubview:label];
         if (i == 0) {
 //            label.textAlignment = KTextAlignmentLeft;

@@ -64,9 +64,8 @@ static const int cellEitOffX = 40;
     float width = (kGSize.width - cellEitOffX) / [titleArr count];
     for (int i = 0; i < [titleArr count]; i++) {
         UILabel *label = [KenUtils labelWithTxt:titleArr[i]
-                                          frame:(CGRect){cellEitOffX + width * i, 0, (i == 0 ? width - 20 : width), 44}
-                                           font:kKenFontHelvetica(12) color:[UIColor greenTextColor]];
-        label.numberOfLines = i == ([titleArr count] - 1) ? 2 : 1;
+                                          frame:(CGRect){cellEitOffX + width * i, 0, width, 44}
+                                           font:kKenFontHelvetica(14) color:[UIColor greenTextColor]];
         [titleV addSubview:label];
     }
     

@@ -126,9 +126,8 @@ static const int cellOffX = 20;
     float width = (kGSize.width - cellOffX) / [titleArr count];
     for (int i = 0; i < [titleArr count]; i++) {
         UILabel *label = [KenUtils labelWithTxt:titleArr[i]
-                                          frame:(CGRect){cellOffX + width * i, 0, (i == 0 ? width - 26 : width), 44}
-                                           font:kKenFontHelvetica(12) color:[UIColor greenTextColor]];
-        label.numberOfLines = i == ([titleArr count] - 1) ? 2 : 1;
+                                          frame:(CGRect){cellOffX + width * i, 0, width, 44}
+                                           font:kKenFontHelvetica(14) color:[UIColor greenTextColor]];
         [titleV addSubview:label];
     }
 }
