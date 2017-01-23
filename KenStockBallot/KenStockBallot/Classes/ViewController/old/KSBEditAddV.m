@@ -128,7 +128,7 @@ static const int itemHeight = 34;
     [_contentView bringSubviewToFront:closeBtn];
     
     NSArray *array = @[KenLocal(@"edit_title1"), KenLocal(@"edit_title2"), KenLocal(@"edit_title3"), KenLocal(@"edit_title4"),
-                       _calculateType == kKSBCalculateQuestion1 ? KenLocal(@"edit_title5_2") : KenLocal(@"edit_title5_2"), KenLocal(@"edit_title6"), KenLocal(@"edit_title7")];
+                       _calculateType == kKSBCalculateQuestion1 ? KenLocal(@"edit_title5") : KenLocal(@"edit_title5"), KenLocal(@"edit_title6"), KenLocal(@"edit_title7")];
     NSArray *textArray = nil;
     if ([KenUtils isEmpty:_stockInfo]) {
         textArray = @[@"", @"", @"", @"", @"", @"", @""];
