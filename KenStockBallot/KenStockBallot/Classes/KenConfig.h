@@ -96,7 +96,7 @@
 #define kKenFontStd(a)          [UIFont fontWithName:@"Std" size:a]
 #define kKenFontHelvetica(a)    [UIFont fontWithName:@"Helvetica" size:a]
 
-#define kBaiduPublisherId       @"c193f91"
+#define kBaiduPublisherId       @"bc10f252"
 
 //user default 数据
 #define kUserDefaultUserStock1          @"default_user_stock1"
