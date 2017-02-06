@@ -154,6 +154,12 @@ static const int cellEitOffX = 40;
         [indicatorView startAnimating];
         
         BmobQuery *bquery = [BmobQuery queryWithClassName:@"StockTable2"];
+        
+        [bquery orderByDescending:@"date"];
+        
+        //返回最多500个结果
+        bquery.limit = 500;
+        
         //查找GameScore表里面id为0c6db13c的数据
         [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
             [indicatorView stopAnimating];
