@@ -10,8 +10,6 @@
 #import "KSBRootVC.h"
 #import "KSBRootNewVC.h"
 
-#import "MobClick.h"
-
 #import <BmobSDK/Bmob.h>
 
 #import "BaiduMobAdSDK/BaiduMobAdSplash.h"
@@ -25,18 +23,6 @@
 @end
 
 @implementation AppDelegate
-
--(void)umengTrack{
-    //    [MobClick setCrashReportEnabled:NO]; // 如果不需要捕捉异常，注释掉此行
-    //    [MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
-    [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
-    
-    if (IsPad) {
-        [MobClick startWithAppkey:@"5566736167e58e53f9002abf"];
-    } else {
-        [MobClick startWithAppkey:@"5566732267e58e6e4c005e41"];
-    }
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -75,9 +61,6 @@
     //bmob
     [Bmob registerWithAppKey:@"bd7722d61ece9296b9e66223f7d441b5"];
     
-    //  友盟的方法本身是异步执行，所以不需要再异步调用
-    [self umengTrack];
-    
     //添加百度的开屏广告
     [self addBaiduMobAdSplash];
     
@@ -113,7 +96,7 @@
     //    自定义开屏
     BaiduMobAdSplash *splash = [[BaiduMobAdSplash alloc] init];
     splash.delegate = self;
-    splash.AdUnitTag = @"3342092";
+    splash.AdUnitTag = @"3609664";
     splash.canSplashClick = YES;
     self.splash = splash;
     

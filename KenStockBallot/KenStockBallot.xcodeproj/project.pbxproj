@@ -20,7 +20,6 @@
 		040FFBA91B248B6F00553DD7 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 040FFBA81B248B6F00553DD7 /* libxml2.dylib */; };
 		040FFBAB1B248BA100553DD7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040FFBAA1B248BA100553DD7 /* MessageUI.framework */; };
 		040FFBAD1B248C0000553DD7 /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040FFBAC1B248C0000553DD7 /* MediaToolbox.framework */; };
-		04C70B681B2479EB0034BF19 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B651B2479EB0034BF19 /* libMobClickLibrary.a */; };
 		04C70B6B1B247A7B0034BF19 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B691B247A7B0034BF19 /* AddressBook.framework */; };
 		04C70B6E1B247A880034BF19 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B6D1B247A880034BF19 /* AdSupport.framework */; };
 		04C70B701B247A950034BF19 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C70B6F1B247A950034BF19 /* AudioToolbox.framework */; };
@@ -117,9 +116,6 @@
 		040FFBA81B248B6F00553DD7 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		040FFBAA1B248BA100553DD7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		040FFBAC1B248C0000553DD7 /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
-		04C70B651B2479EB0034BF19 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
-		04C70B661B2479EB0034BF19 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
-		04C70B671B2479EB0034BF19 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		04C70B691B247A7B0034BF19 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		04C70B6D1B247A880034BF19 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		04C70B6F1B247A950034BF19 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -293,7 +289,6 @@
 				BE009AEA1B1C47A500DE9530 /* libsqlite3.dylib in Frameworks */,
 				BE009AE81B1C479400DE9530 /* libicucore.dylib in Frameworks */,
 				BE009AE61B1C477F00DE9530 /* libz.1.2.5.dylib in Frameworks */,
-				04C70B681B2479EB0034BF19 /* libMobClickLibrary.a in Frameworks */,
 				BE009AE41B1C476F00DE9530 /* SystemConfiguration.framework in Frameworks */,
 				BE009AE21B1C476500DE9530 /* CoreTelephony.framework in Frameworks */,
 				BE009AE01B1C475C00DE9530 /* CFNetwork.framework in Frameworks */,
@@ -307,16 +302,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04C70B641B2479EB0034BF19 /* UM */ = {
-			isa = PBXGroup;
-			children = (
-				04C70B651B2479EB0034BF19 /* libMobClickLibrary.a */,
-				04C70B661B2479EB0034BF19 /* MobClick.h */,
-				04C70B671B2479EB0034BF19 /* MobClickSocialAnalytics.h */,
-			);
-			path = UM;
-			sourceTree = "<group>";
-		};
 		BE009A261B155E1A00DE9530 = {
 			isa = PBXGroup;
 			children = (
@@ -393,7 +378,6 @@
 				BE7EFC6B1E26160D00E1E579 /* Calendar */,
 				BE7EFC5C1E24E1CE00E1E579 /* AdSDK */,
 				E68C8E8C1E0E362D006029D1 /* Weakify.h */,
-				04C70B641B2479EB0034BF19 /* UM */,
 				BE009AD41B1C470D00DE9530 /* Bmob */,
 				BE009A691B15697100DE9530 /* Category */,
 				BE009A821B15697200DE9530 /* KenUtils.h */,
